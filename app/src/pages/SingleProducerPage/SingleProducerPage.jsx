@@ -60,7 +60,7 @@ const SingleProducerPage = () => {
         {/*----------------------------*/}
         <div className="single-producer-right">
           <div className="single-producer-right-bio">
-            <h1>About</h1>
+            <h1 style={{color:"#BF40BF"}}>BIO</h1>
             <p>{producer.bio}</p>
           </div>
 
@@ -108,12 +108,12 @@ const SingleProducerPage = () => {
           </div>
 
           <div className="single-producer-right-frame">
-            <h2>Latest Beat Or Project</h2>
+            <h2 style={{color:"#BF40BF"}}>LATEST PROJECT</h2>
             <iframe
               src={producer.latest_project}
               frameBorder="0"
               title="Latest Song"
-              width="600"
+              width="100%"
               height="400"
               loading="lazy"
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"

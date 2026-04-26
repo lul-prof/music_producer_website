@@ -1,5 +1,6 @@
 .user-page{
     width: 100%;
+    margin-top: 50px;
 }
 .user-page .user-container{
     display: flex;
@@ -10,7 +11,6 @@
 .user-page .user-container .user-top .user-details{
   display: flex;
 }
-
 
 .user-page .user-container .user-top .user-details p{
     font-size: x-large;
@@ -54,4 +54,66 @@
 #orders-container{
     height: 70vh;
     overflow-y: auto;
+}
+
+
+
+@media (max-width:768px) and (min-width:100px) {
+.user-page{
+    width: 100%;
+    padding: 10px;
+}
+.user-page .user-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 15px 0;
+}
+.user-page .user-container .user-top .user-details{
+  display: flex;
+}
+.user-page .user-container .user-top .user-details p{
+    font-size: large;
+    margin: 10px 0  ;
+    padding: 10px;
+    border-radius: 5px;
+}
+.user-page .user-container .user-top .user-details .user-det-left p{
+    font-size: large;
+    margin: 10px 0;
+    background-color: #FFFFFF;
+    padding: 10px;
+    border-radius: 5px;
+}
+.user-page .user-container {
+    overflow: auto;
+}
+.user-page .user-container .user-bottom{
+    margin-top: 20px;
+}
+.user-page .user-container .user-bottom .header{
+    background-color: #BF40BF;
+    color: #FFFFFF;
+    text-align: center;
+    border-radius: 5px;
+
+}
+.user-page .user-container .user-bottom .orders-container{
+    display: flex;
+    margin-top: 10px;
+    overflow: auto;
+}
+#avatar{
+    width: 100%;
+    margin-left: 0;
+}
+
+#product-img{
+    width: 100px;
+}
+
+#orders-container{
+    height: 70vh;
+    overflow-y: auto;
+}    
 }

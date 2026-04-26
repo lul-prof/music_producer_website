@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./UserPage.css";
 import { useParams } from "react-router-dom";
-import toast from "react-hot-toast";
 import axios from "axios";
 import { ManagementContext } from "../../Context/ManagementContext";
 
@@ -39,11 +38,10 @@ const UserPage = () => {
         if (response.data.success) {
           setUser(response.data.user);
         } else {
-          toast.error(response.data.message);
+          console.log(response.data.message);
         }
       } catch (error) {
         console.log(error);
-        toast.error(error);
       }
     };
     const fetchOrders = async () => {
@@ -54,11 +52,10 @@ const UserPage = () => {
         if (response.data.success) {
           setOrders(response.data.orders);
         } else {
-          toast.error(response.data.message);
+          console.log(response.data.message);
         }
       } catch (error) {
         console.log(error);
-        toast.error(error);
       }
     };
     const fetchProducts = async () => {
@@ -69,7 +66,6 @@ const UserPage = () => {
         }
       } catch (error) {
         console.log(error);
-        toast.error(error);
       }
     };
     const fetchBeats = async () => {
@@ -80,7 +76,6 @@ const UserPage = () => {
         }
       } catch (error) {
         console.log(error);
-        toast.error(error);
       }
     };
     fetchBeats();

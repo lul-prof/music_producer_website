@@ -1,14 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./MerchandiseComponent.css";
 import TitleComponent from "../TitleComponent/TitleComponent";
-import { assets } from "../../assets/assets";
 import { ShopContext } from "../../Context/ShopContext";
 import { Link } from "react-router-dom";
-import toast from "react-hot-toast";
 import axios from "axios";
 
 const MerchandiseComponent = () => {
-  const { currency, addToCart, backend_url } = useContext(ShopContext);
+  const { currency, backend_url } = useContext(ShopContext);
   const [merchandise, setMerchandise] = useState([]);
   useEffect(() => {
     const fetchMerchandise = async () => {
@@ -30,7 +28,7 @@ const MerchandiseComponent = () => {
           id="featured-merchandise-container"
           className="featured-merchandise-container"
         >
-          <TitleComponent title="Bestseller Merchandise" />
+          <TitleComponent title="TheAfricanBaba" />
           <div className="featured-merchandise">
             {merchandise.map((product) =>
               product.isFeatured ? (
@@ -49,17 +47,6 @@ const MerchandiseComponent = () => {
                       </p>
                     </div>
 
-                    <div className="featured-merch-detail">
-                      <img
-                        onClick={() => (
-                          addToCart(product._id),
-                          toast.success(`${product.title} added to cart`)
-                        )}
-                        id="featured-merch-cart"
-                        src={assets.addToCartIcon}
-                        alt=""
-                      />
-                    </div>
                   </div>
                 </div>
               ) : (

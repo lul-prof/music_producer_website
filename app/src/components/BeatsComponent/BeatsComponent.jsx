@@ -1,14 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./BeatsComponent.css";
 import TitleComponent from "../TitleComponent/TitleComponent";
-import { assets } from "../../assets/assets";
 import { ShopContext } from "../../Context/ShopContext";
 import { Link } from "react-router-dom";
-import toast from "react-hot-toast";
 import axios from "axios";
 
 const BeatsComponent = () => {
-  const { currency, addToCart, backend_url } = useContext(ShopContext);
+  const { currency, backend_url } = useContext(ShopContext);
   const [beats, setBeats] = useState([]);
   useEffect(() => {
     const fetchBeats = async () => {
@@ -31,7 +29,7 @@ const BeatsComponent = () => {
           id="beats-component-container"
           className="beats-component-container"
         >
-          <TitleComponent title="Featured Beats & Instrumentals" />
+          <TitleComponent title="THE DON" />
           <div className="featured-beats-container">
             {beats.map((beat) =>
               beat.isFeatured ? (
@@ -46,38 +44,14 @@ const BeatsComponent = () => {
 
                       <div className="featured-beat-details">
                         <div className="featured-beat-detail">
+                          <h3>{beat.title}</h3>
                           <h5>
-                            {currency}
-                            {beat.price}
+                            {currency} {beat.price}
                           </h5>
-                        </div>
-
-                        <div className="featured-beat-cart">
-                          <img
-                            onClick={() => (
-                              addToCart(beat._id),
-                              toast.success(`${beat.title} added to cart`)
-                            )}
-                            id="featured-beat-cart-image"
-                            src={assets.addToCartIcon}
-                            alt=""
-                          />
-                        </div>
+                        </div>                        
                       </div>
                     </div>
-                    <div className="featured-beat-producer">
-                      <Link to={`/producer/${beat.producer}`}>
-                        {" "}
-                        <p>
-                          @{beat.producer}
-                          <img
-                            id="featured-beat-checkmark"
-                            src={assets.goldCheckMark}
-                            alt=""
-                          />{" "}
-                        </p>
-                      </Link>
-                    </div>
+                   
                   </div>
                 </>
               ) : (

@@ -1,46 +1,35 @@
 .beats-component-container{
-    background-color: #282828;
     color: #FAF9F6;
     padding: 10px;
 }
 
 .featured-beats-container{
     display: flex;
-    gap: 1rem;
+    gap: 1px;
     overflow-x: auto;
 }
 .featured-beat-container{
-    border: 1px solid #C0C0C0;
     padding: 10px;
     border-radius: 10px;
 }
-.featured-beat-container .featured-beat-details{
+.featured-beat-container .featured-beat-details .featured-beat-detail{
     display: flex;
-    text-align: end;
+    flex-direction: column;
+    gap: 5px;
 }
-
-#featured-beat-cart-image{
-    max-width: 20%;
-} 
-#featured-beat-cart-image:hover{
-    cursor: pointer;
-}
-.featured-beat-producer{
-    margin-top: 5px;
-}
-#featured-beat-checkmark{
-    max-width: 15px;
-    position: relative;
-    top: 4px;
+.featured-beat-container .featured-beat-thumbnail{
+    margin-bottom: 5px;
 }
 .featured-beat-container .featured-beat-thumbnail img{
     width: 100%;
     border-radius: 10px;
-    max-height: 70vh;
+    box-shadow: 0px 1px 5px 0 #BF40BF;  
+    backdrop-filter: blur(14px);
 }
 
 .featured-beat-container .featured-beat-thumbnail img:hover{
     cursor: pointer;
+    width: 98%;
 }
 .beats-component-container a{
     text-decoration: none;
@@ -86,31 +75,31 @@
 }
 
 @media (max-width:765px) and (min-width:100px) {
- .beats-component-container{
-    padding: 5px;
+.beats-component-container{
+    padding: 10px;
 }
 .featured-beats-container{
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    overflow-x: auto;
 }
 .featured-beat-container{
-    border: 0.5px solid #C0C0C0;
-    border-style: dashed;
-    padding: 5px;
+    padding: 0;
+    border-radius: 10px;
 }
-
-.featured-beat-producer{
-    display: none;
+.featured-beat-container .featured-beat-details .featured-beat-detail{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
-
-#featured-beat-cart-image{
-    max-width: 30%;
-} 
-
-#featured-beat-checkmark{
-    max-width: 12px;
-    top: 2px;
-}  
+.featured-beat-container .featured-beat-thumbnail{
+    margin-bottom: 5px;
+}
+.featured-beat-container .featured-beat-thumbnail img{
+    width: 100%;
+    
+}
 #glitter-class{
     width: 100%;
     background-color: #282828;

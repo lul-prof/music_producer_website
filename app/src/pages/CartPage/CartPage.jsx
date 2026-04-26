@@ -92,8 +92,7 @@ const CartPage = () => {
                       />
                     </div>
                     <div className="cart-center-item-details">
-                      <h6>{product.title}</h6>
-                      <button onClick={()=>updateQuantity(item._id,(item.quantity=0))}>Remove</button>
+                      <h6 style={{marginLeft:"5px"}}>{product.title}</h6>
                     </div>
                   </div>
                   <div className="cart-center-price">

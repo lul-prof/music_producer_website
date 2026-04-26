@@ -1,12 +1,10 @@
 .register-container{
-    background-color: #282828;
     color: #FAF9F6;
     padding: 10px;
     width: 100%;
-    padding-bottom: 200px;
+    margin: 100px 0;
 }
 .register-container .register-form{
-    margin-top: 100px;
     width: 50%;
     justify-self: center;
 }
@@ -21,10 +19,14 @@
 .register-container .register-form form .input-class{
     margin: 10px;
 }
+.register-container .register-form form label{
+    color: #BF40BF;
+}
 .register-container .register-form form  button{
     width: 100%;
     padding: 12px;
-    background-color: #32CD32;
+    background-color: #BF40BF;
+    color: #FFFFFF;
     outline: 0;
     border: 0;
     font-size: x-large;
@@ -66,10 +68,10 @@
 .register-container{
     padding: 5px;
     width: 100%;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
 }
 .register-container .register-form{
-    margin-top: 80px;
+    margin-top: -50px;
     width: 100%;
 }
 

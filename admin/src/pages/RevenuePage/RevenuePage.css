@@ -6,7 +6,7 @@
     padding: 20px 100px;
     text-align: center;
     justify-self: center;
-    margin-top: 20px;
+    margin-top: 60px;
     margin-bottom: 50px;
     border-radius: 10px;
     animation: colorC 5s  ease-in infinite;
@@ -29,4 +29,18 @@
         background: linear-gradient(to right,#32CD32,#1F51FF);
     }
     
+}
+
+
+@media (max-width:768px) and (min-width:100px) {
+.revenue-container{
+    width: 100%;
+    position: relative;
+    display: none;
+    padding: 10px 10px;
+    text-align: center;
+    justify-self: center;
+    margin-bottom: 20px;
+}
+
 }

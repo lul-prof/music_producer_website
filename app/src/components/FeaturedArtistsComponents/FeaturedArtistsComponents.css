@@ -1,5 +1,4 @@
 .featured-artists-container{
-    background-color: #282828;
     color: #FAF9F6;
     padding: 10px;
 }
@@ -34,6 +33,9 @@
 
 .featured-artists-profile .featured-artist .featured-artist-image img:hover{
     cursor: pointer;
+    padding: 5px;
+    transform: translateY(-2px);
+    transition: 0.5s ease-in;
 }
 
 .featured-artists-profile .featured-artist .featured-artist-detail{

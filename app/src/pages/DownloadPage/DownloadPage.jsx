@@ -14,7 +14,7 @@ const DownloadPage = () => {
     <div className="download-container">
         <div className="download-class">
             <div className="download-header">
-                <h2>{audioTitle}</h2>
+                <h2 style={{color:"#BF40BF"}}>{audioTitle}</h2>
             </div>
             <div className="download-audio">
                 <audio

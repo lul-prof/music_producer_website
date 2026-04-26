@@ -3,7 +3,10 @@ import './TitleComponent.css'
 
 const TitleComponent = (props) => {
   return (
-    <h2>{props.title}</h2>
+    <div className="title">
+      <h2>{props.title}</h2> 
+      <hr />
+    </div>
   )
 }
 

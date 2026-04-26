@@ -40,18 +40,18 @@ const NavbarComponent = () => {
         
         <div className="navbar-left">
             <div className="navbar-sidemenu">
-                <img id='nav-menu-icon' onClick={()=>document.getElementById('nav-sidemenu').style.display='block'} src={assets.menuIcon} alt="" />
+                <img id='nav-menu-icon' onClick={()=>document.getElementById('nav-sidemenu').style.display='block'} src={assets.menuPurple} alt="" />
                 
             </div>
             <div className="navbar-logo">
-                <h1 style={{cursor:"pointer"}} onClick={()=>navigate('/')}>The Don</h1>
+                <h1 style={{cursor:"pointer"}} onClick={()=>navigate('/')}>THE DON</h1>
             </div>
 
         </div>
         {/*--------------Right----------------*/}
         <div className="navbar-right">
             <div className="navbar-cart">
-                <img onClick={()=>navigate('/cart')} id='nav-cart-icon' src={assets.cartIcon} alt="" />
+                <img onClick={()=>navigate('/cart')} id='nav-cart-icon' src={assets.cartPurple} alt="" />
                 {
                     getCartCount()>0
                     ?
@@ -64,11 +64,11 @@ const NavbarComponent = () => {
 
             </div>
             <div className="navbar-user">
-                <img onClick={()=>(navigate('/profile'))} id='nav-user-icon' src={pic?pic:assets.userIcon} alt="" />
+                <img onClick={()=>(navigate('/profile'))} id='nav-user-icon' src={pic?pic:assets.userPurple} alt="" />
                 <h4>{user?user:"user"}</h4>
             </div>
             <div className="navbar-dropdown">
-                <img onClick={()=>(setHover(!hover), document.getElementById('drop-down-hover').style.display=hover?'none':"block")} id='navbar-dropdown' src={assets.dropDownIcon} alt="" />
+                <img onClick={()=>(setHover(!hover), document.getElementById('drop-down-hover').style.display=hover?'none':"block")} id='navbar-dropdown' src={assets.dropDownPurple} alt="" />
             </div>                        
         </div>    
     </div>
@@ -92,6 +92,7 @@ const NavbarComponent = () => {
                 </li>
                 <li onClick={()=>(navigate('/'), navigateTo('featured-artists-container'),document.getElementById('nav-sidemenu').style.display='none')}>Artists</li>
                 <li onClick={()=>(navigate('/'), navigateTo('featured-producers-container'),document.getElementById('nav-sidemenu').style.display='none')}>Producers</li>
+                <li onClick={()=>(navigate('/order'), navigateTo('featured-producers-container'),document.getElementById('nav-sidemenu').style.display='none')}>My Orders</li>
                 <li onClick={()=>(navigate('/'), navigateTo('hero-container'),document.getElementById('nav-sidemenu').style.display='none')}>FAQs</li>
                 <li onClick={()=>(navigate('/contactUs'),document.getElementById('nav-sidemenu').style.display='none')}>Contact Us</li>
                 {

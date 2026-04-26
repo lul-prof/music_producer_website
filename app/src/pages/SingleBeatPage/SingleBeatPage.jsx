@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { assets } from "../../assets/assets";
 import toast from "react-hot-toast";
 import "./SingleBeatPage.css";
@@ -8,8 +8,9 @@ import axios from "axios";
 
 const SingleBeatPage = () => {
   const { id } = useParams();
+  const navigate=useNavigate();
 
-  const { currency, addToCart, backend_url } = useContext(ShopContext);
+  const { currency, addToCart, backend_url,token } = useContext(ShopContext);
 
   const [beat, setBeat] = useState({});
 
@@ -63,45 +64,23 @@ const SingleBeatPage = () => {
               <div className="single-beat-preview">
                 <figure>
                   <figcaption style={{marginLeft:"10px"}}>Listen to {beat.title}</figcaption>
-                  <audio
-                    controls
-                    preload="auto"
-                    controlsList="nodownload"
-                    onContextMenu={(e) => e.preventDefault()}
-                  >
-                    <source src={beat.audio} type="audio/mpeg" />
-                    <source src={beat.audio} type="audio/ogg"/>
-                    Your browser does not support the audio element.
-                  </audio>
-                  <div className="link">
-                    <Link to={`/download?src=${beat.audio}&title=${beat.title}&image=${beat.thumbnail}`} target="_blank">Click here to play Audio</Link>
+                  <div className="link" style={{justifySelf:"left",marginLeft:"10px",marginTop:"5px"}}>
+                    <Link style={{color:"#BF40BF"}} to={`/download?src=${beat.audio}&title=${beat.title}&image=${beat.thumbnail}`} target="_blank">Click here to play Audio</Link>
                   </div>
                 </figure>
               </div>
-              <div className="single-beat-left-details">
-                <h3>
-                  {beat.title} by{" "}
-                  <Link to={`/producer/${beat.producer}`}>
-                    @{beat.producer}
-                  </Link>{" "}
-                  <img
-                    id="single-beat-left-verify"
-                    src={assets.goldCheckMark}
-                    alt=""
-                  />{" "}
-                </h3>
-
-                <b>
+              <div className="single-beat-left-details" style={{padding:"0 10px"}}>
+            
+               <p> <b>
                   {currency} {beat.price}
                 </b>
+                </p>
                 <div className="cart-img">
                   <img
-                    onClick={() => (
-                      addToCart(beat._id),
-                      toast.success(`${beat.title} added to cart`)
+                    onClick={() => (token?addToCart(beat._id):navigate('/login')
                     )}
                     id="single-beat-left-cart"
-                    src={assets.blackCart}
+                    src={assets.cartPurple}
                     alt=""
                   />
                 </div>
@@ -119,18 +98,7 @@ const SingleBeatPage = () => {
                   <Link to={`/beat/${beat._id}`}>
                     <img src={beat.thumbnail} alt="" />
                   </Link>
-                  <p>{beat.title}</p>
-                  <Link to={`/producer/${beat.producer}`}>
-                    {" "}
-                    <p>
-                      @{beat.producer}{" "}
-                      <img
-                        id="single-beat-related-verify"
-                        src={assets.goldCheckMark}
-                        alt=""
-                      />
-                    </p>
-                  </Link>
+                  <p style={{marginLeft:"5px",color:"#BF40BF",fontWeight:"500"}}>{beat.title}</p>
                 </div>
               ))}
             </div>

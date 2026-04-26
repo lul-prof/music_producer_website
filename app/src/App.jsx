@@ -4,6 +4,7 @@ import NavbarComponent from './components/NavbarComponent/NavbarComponent'
 import FooterComponent from './components/FooterComponent/FooterComponent'
 import {Toaster} from 'react-hot-toast'
 import HeroComponent from './components/HeroComponent/HeroComponent'
+import HeroSearch from './components/HeroSearch/HeroSearch'
 import BeatsComponent from './components/BeatsComponent/BeatsComponent'
 import MerchandiseComponent from './components/MerchandiseComponent/MerchandiseComponent'
 import FeaturedArtistsComponents from './components/FeaturedArtistsComponents/FeaturedArtistsComponents'
@@ -30,6 +31,7 @@ import CheckoutPage from './pages/CheckoutPage/CheckoutPage'
 import OrderPage from './pages/OrderPage/OrderPage'
 import NotificationsPage from './pages/NotificationsPage/NotificationsPage'
 import DownloadPage from './pages/DownloadPage/DownloadPage'
+import ReviewsComponent from './components/ReviewsComponent/ReviewsComponent'
 
 
 let DefaultIcon = L.icon({
@@ -50,7 +52,9 @@ const App = () => {
         <>
         <HeroComponent/>
         <BeatsComponent/>
+        <HeroSearch/>
         <MerchandiseComponent/>
+        <ReviewsComponent/>
         <FeaturedArtistsComponents/>
         <FeaturedProducersComponents/>
         <FeaturedBlogsComponent/>

@@ -1,13 +1,8 @@
 .portal-container{
-    background-color: #282828;
     color: #FAF9F6;
     padding: 10px;
-    padding-bottom: 120px;
+    padding-bottom: 50px;
     width: 100%;
-}
-
-.producer-portal{
-    margin-top: 60px;
 }
 .producer-portal .producer-portal-artists{
     margin: 20px 0px;
@@ -21,7 +16,7 @@
 }
 .producer-portal-artists .producer-artists-header{
     margin: 10px 0px;
-    background-color: #C0C0C0;
+    background-color: #BF40BF;
     padding: 10px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px
@@ -60,7 +55,7 @@
 
 .producer-portal .producer-portal-prod .producer-prod-header{
     margin: 10px 0px;
-    background-color: #C0C0C0;
+    background-color: #BF40BF;
     padding: 10px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -101,16 +96,14 @@
     border: 0;
     border-top-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    background-color: #FFD700;
+    background-color: #BF40BF;
 }
 
 .producer-portal .producer-sessions button:hover{
     cursor: pointer;
 }
 /*----------------------Artist--------------------------*/
-.artist-portal{
-    margin-top: 60px;
-}
+
 .artist-portal .artist-portal-artists{
     margin: 20px 0px;
     background-color: #FAF9F6;
@@ -123,7 +116,7 @@
 }
 .artist-portal-artists .artist-artists-header{
     margin: 10px 0px;
-    background-color: #C0C0C0;
+    background-color: #BF40BF;
     padding: 10px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px
@@ -162,7 +155,7 @@
 
 .artist-portal .artist-portal-prod .artist-prod-header{
     margin: 10px 0px;
-    background-color: #C0C0C0;
+    background-color: #BF40BF;
     padding: 10px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -203,7 +196,8 @@
     border: 0;
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
-    background-color: #FFD700;
+    background-color: #BF40BF;
+    color: #FFFFFF;
 }
 
 .artist-portal .artist-sessions button:hover{

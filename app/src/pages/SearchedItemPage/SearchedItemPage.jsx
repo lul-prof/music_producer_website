@@ -140,7 +140,7 @@ const SearchedItemPage = () => {
                     </p>
                   </div>
                   <div className="beat-related-cart">
-                    <img id="beat-related-cart" src={assets.blackCart} alt="" />
+                    <img id="beat-related-cart" src={assets.cartPurple} alt="" />
                   </div>
                 </div>
               ))}

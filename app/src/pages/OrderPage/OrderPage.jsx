@@ -26,6 +26,16 @@ const OrderPage = () => {
     
     
   },[orders,backend_url,token])
+  if(orders.length<=0){
+    return(
+      <>
+      <div className="order-container">
+        <h1>NO ORDERS FOUND</h1>
+        <h6>Check again later</h6>
+      </div>
+      </>
+    )
+  }
   return (
     <>
     <div className="order-container">
@@ -63,9 +73,7 @@ const OrderPage = () => {
             </div>
               )
             })
-          }
-
-          
+          } 
         </div>
           ))
         }

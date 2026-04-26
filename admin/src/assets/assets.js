@@ -1,4 +1,4 @@
-import sideIcon from './menu.png'
+import sideIcon from './menu-purple.png'
 import avatar from './man.png'
 import logo from './logo.png'
 import close from './cross.png'

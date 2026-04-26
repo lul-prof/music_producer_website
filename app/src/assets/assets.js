@@ -156,6 +156,28 @@ import producer5 from './producer5.jpeg'
 import producer6 from './producer6.jpeg'
 import producer7 from './producer7.jpeg'
 import producer8 from './producer8.jpeg'
+import hero1 from './hero_1.jpeg'
+import hero2 from './hero_2.jpeg'
+import hero3 from './hero_4.jpeg'
+import hero4 from './hero_3.jpeg'
+import hero5 from './hero_5.jpeg'
+import hero6 from './hero_6.jpeg'
+import hero7 from './hero_7.jpeg'
+import menuPurple from './menu-purple.png'
+import cartPurple from './cart-purple.png'
+import userPurple from './user-purple.png'
+import dropDownPurple from './down-purple.png'
+import heroMid1 from './hero_mid.jpeg'
+import heroMid2 from './hero_mid2.jpeg'
+import heroMid3 from './hero_mid3.jpeg'
+import heroMid4 from './hero_mid4.jpeg'
+import tick from './check.png'
+import checked from './checked.png'
+import notChecked from './no.png'
+import star from './star.jpeg'
+import piano1 from './piano_1.jpeg'
+import piano2 from './piano_2.jpeg'
+import piano3 from './piano_3.jpeg'
 
 
 export const assets = {
@@ -284,7 +306,29 @@ export const assets = {
   UsersIcon,
   qualityHandshake,
   blackCart,
-  heroImage6
+  heroImage6,
+  hero1,
+  hero2,
+  hero3,
+  hero4,
+  hero5,
+  hero6,
+  hero7,
+  menuPurple,
+  cartPurple,
+  userPurple,
+  dropDownPurple,
+  heroMid1,
+  heroMid2,
+  heroMid3,
+  heroMid4,
+  tick,
+  checked,
+  notChecked,
+  star,
+  piano1,
+  piano2,
+  piano3
 }
 
 export const products = [
@@ -1431,3 +1475,26 @@ export const producers = [
     featured: false,
   },
 ];
+
+export const reviews=[
+  {
+    "name":"SickBoss",
+    "images":[topBPic],
+    "review":" Once again it's not a frequent occurrence I give a song a 10 on first listen, especially if my prior feelings on the album have been problematic, so that's how you know this song is THAT good"
+  },
+  {
+    "name":"Metro Stunna",
+    "images":[stunnaPic],
+    "review":"Every song delivers instrumentally. With thrashing, mental guitars and incredible solos, drums that kick so fucking hard its impossible not to headbang."
+  },
+  {
+    "name":"Lul Prof",
+    "images":[profPic],
+    "review":"The production throughout is consistently excellent, with the rocking guitars and consistently hard-hitting drums accompanying every track wonderfully."
+  },
+  {
+    "name":"Shiva",
+    "images":[shivaPic],
+    "review":"The Don used the B-flat piano concerto to introduce himself to the general public and demonstrate to them his formidable keyboard skills."
+  }
+]

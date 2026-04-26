@@ -1,13 +1,20 @@
-h2{
-    color: #FAF9F6;
-    margin-bottom: 50px;
+.title h2{
+    color: #BF40BF;
+    margin: 20px 0;
+    text-shadow: 1px 1px 3px;
+}
+.title hr{
+    border-color: #BF40BF;
+    opacity: 0.4;
+    display: none;
 }
 
 
 @media (max-width:765px) and (min-width:100px) {
-    h2{
-    margin-bottom: 20px;
+.title h2{
+    margin-bottom: 10px;
     margin-top: 15px;
-    font-size: 20px;
+    font-size: larger;
 }
+
 }

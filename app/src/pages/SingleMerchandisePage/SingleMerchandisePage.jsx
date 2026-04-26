@@ -65,7 +65,7 @@ const SingleMerchandisePage = () => {
                 : `Stock Alert (${product.quantity})`}
             </p>
             <div className="single-merch-image">
-              <img onClick={()=>(addToCart(product._id),toast.success(`${product.title} added to cart`))} id="single-merch-image" src={assets.addToCartIcon} alt="" />
+              <img onClick={()=>(addToCart(product._id),toast.success(`${product.title} added to cart`))} id="single-merch-image" src={assets.cartPurple} alt="" />
             </div>
           </div>
         </div>
@@ -80,8 +80,8 @@ const SingleMerchandisePage = () => {
                 <Link to={`/merchandise/${p._id}`}><img id="single-m-img" src={p.image[0]} alt="" /></Link>
                 </div>
                 <div className="single-m-details">
-                    <h3>{p.title}</h3>
-                    <p>{currency} {p.price}</p>
+                    <h3 style={{color:"#BF40BF"}}>{p.title}</h3>
+                    <p style={{color:"#800080"}}>{currency} {p.price}</p>
                 </div>
               </div>
             ))}

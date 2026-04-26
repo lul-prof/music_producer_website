@@ -1,7 +1,7 @@
 .beats-container{
     display: flex;
     justify-content: space-evenly;
-    margin-top: 20px;
+    margin-top: 60px;
     padding: 10px;
     gap: 1rem;
     margin-bottom: 100px;
@@ -110,4 +110,97 @@
 }
 #prod-img:hover{
     cursor: pointer;
+}
+
+@media (max-width:768px) and (min-width:100px) {
+.beats-container{
+    flex-direction: column-reverse;
+    gap: 1rem;
+    margin-bottom: 10px;
+}
+.beats-container .beats-left{
+    background: #FFFFFF;
+    width: 100%;
+    border: 1px solid #C0C0C0;
+    border-radius: 10px;
+    
+}
+.beats-container .beats-left .beats-left-content{
+    overflow-x: auto;
+}
+.beats-container .beats-left .beats-left-header{
+    background: #BF40BF;
+    color: #FFFFFF;
+}
+.beats-container .beats-left .merch-product{
+    gap: 10px;
+    align-items: center;
+}
+.beats-container .beats-left .beats-left-content #merch-img{
+    width: 50px;
+}
+
+.beats-container .beats-right{
+    width: 100%;
+}
+.beats-container .beats-right .beats-right-header{
+    text-align: center;
+    color: #BF40BF;
+    text-shadow: 1px 3px 16px;
+    text-decoration: wavy;
+}
+
+.beats-container .beats-right .beats-right-content{
+    overflow-x: auto;
+}
+.beats-container .beats-right .beats-right-content form .form-img{
+    width: 100%;
+}
+
+.beats-container .beats-right .beats-right-content form .form-class{
+    margin: 10px 0;
+    width: 100%;
+}
+.beats-container .beats-right .beats-right-content form .form-check{
+    margin: 10px;
+    width: 100%;
+}
+.beats-container .beats-right .beats-right-content form .form-check input{
+    margin-left: 10px;
+    width: 40px;
+}
+.beats-container .beats-right .beats-right-content form .form-class input{
+    width: 100%;
+    padding: 20px;
+    outline: 0;
+    padding: 1px solid #000000;
+}
+
+.beats-container .beats-right .beats-right-content form .form-btn{
+    width: 100%;
+    margin: 10px;
+}
+.beats-container .beats-right .beats-right-content form .form-btn button{
+    width: 100%;
+    background: #BF40BF;
+    color: #FFFFFF;
+    padding: 10px;
+    outline: 0;
+    border: 0;
+}
+
+#merch-action{
+    width: 20px;
+}
+
+#merch-actions{
+    display: flex;
+    justify-content: space-evenly;
+    gap: 20px;
+}
+
+#prod-img{
+    width: 100%;
+}
+
 }

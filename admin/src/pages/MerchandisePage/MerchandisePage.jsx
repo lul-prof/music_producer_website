@@ -11,10 +11,10 @@ const MerchandisePage = () => {
   const [image1,setImage1]=useState(null);
   const [image2,setImage2]=useState(null);
   const [isFeatured,setIsFeatured]=useState(false);
-  const [title,setTitle]=useState("The Dons Appparel");
-  const [description,setDescription]=useState("The Dons Appparel");
-  const [price,setPrice]=useState(0.00);
-  const [quantity,setQuantity]=useState(0.00);
+  const [title,setTitle]=useState("");
+  const [description,setDescription]=useState("");
+  const [price,setPrice]=useState();
+  const [quantity,setQuantity]=useState();
   const {backend_url}=useContext(ManagementContext);
   const [merchandise,setMerchandise]=useState([]);
 

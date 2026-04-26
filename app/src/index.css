@@ -1,39 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Prata&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
-.josefin-sans {
-  font-family: "Josefin Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-weight:700;
-  font-style: normal;
-}
-
-.prata-regular {
-  font-family: "Prata", serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.nunito{
-  font-family: "Nunito", sans-serif;
-  font-optical-sizing: auto;
-  font-weight:400;
-  font-style: normal;
-}
-
-.cormorant-upright-regular {
-  font-family: "Cormorant Upright", serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.creepster-regular {
-  font-family: "Creepster", system-ui;
-  font-weight: 400;
-  font-style: normal;
-}
-
-
 *{
   margin: 0;
   padding: 0;
@@ -52,6 +19,9 @@
 *::-webkit-scrollbar-thumb {
   background-color: #C9C9C9; 
   border-radius: 10px;
+}
+body{
+  background-color:#28282B;
 }
 
 /*
@@ -79,4 +49,12 @@ yellow
 
 red
 #FF0000
+
+purple
+#BF40BF
+#702963
+#E6E6FA
+#DA70D6
+#800080
+#7F00FF
 */

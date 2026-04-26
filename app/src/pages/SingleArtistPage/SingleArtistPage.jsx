@@ -61,7 +61,7 @@ const SingleArtistPage = () => {
         {/*----------------------------*/}
         <div className="single-artist-right">
           <div className="single-artist-right-bio">
-            <h1>About</h1>
+            <h1 style={{color:"#BF40BF"}}>BIO</h1>
             <p>{artist.bio}</p>
           </div>
 
@@ -89,12 +89,12 @@ const SingleArtistPage = () => {
           </div>
 
           <div className="single-artist-right-frame">
-            <h1>Latest Song</h1>
+            <h1 style={{color:"#BF40BF"}}>LATEST PROJECT</h1>
             <iframe
               src={artist.latest_project}
               frameBorder="0"
               title="Latest Song"
-              width="600"
+              width="100%"
               height="400"
               loading="lazy"
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"

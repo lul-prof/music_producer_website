@@ -177,12 +177,13 @@ const CheckoutPage = () => {
 
     
   }, [cartItems, products]);
+ 
   return (
     <>
     <div className="checkout-container">
         {/*---------------------------------*/}
         <div className="checkout-left">
-            <h1>Delivery Address</h1>
+            <h1 style={{color:"#BF40BF"}}>Delivery Address</h1>
             <div className="checkout-left-form">
                 <form onSubmit={(e)=>e.preventDefault()}>
                     <div className="form-class">
@@ -210,7 +211,7 @@ const CheckoutPage = () => {
         </div>
         {/*---------------------------------*/}
         <div className="checkout-right">
-            <h1>Your Orders</h1>
+            <h1 style={{color:"#BF40BF"}}>Your Orders</h1>
             <div id='checkout-right-items' className="checkout-right-items">
             
              {
@@ -228,7 +229,7 @@ const CheckoutPage = () => {
                         </div>
                         <div  className="checkout-right-order-details">
                             <p>{product.title}</p>
-                            <p>{currency} {product.price}</p>
+                            <p style={{color:"#BF40BF"}}>{currency} {product.price}</p>
                         </div>
                     </div>
                     
@@ -239,12 +240,12 @@ const CheckoutPage = () => {
             )} 
             </div>
 
-             <hr/>   
+             <hr />   
             <p>Subtotal: {currency} {getCartAmount()}</p>
             <hr />
 
             <div className="checkout-right-payment">
-                <h4>Payment Options</h4>
+                <h4 style={{color:"#BF40BF"}}>Payment Options</h4>
 
                 <div className="checkout-right-mpesa">
                     <div onClick={()=>(setMpesa(!mpesa),setPaypal(false),setCod(false))} style={{background:mpesa?"#32CD32":"",border:mpesa?"0":""}} className="mpesa-box">
@@ -271,7 +272,7 @@ const CheckoutPage = () => {
                     mpesa
                     ?
                     <>
-                    <button onClick={()=>placeOrderMpesa()} style={{backgroundColor:mpesa?"#32CD32":""}}>Lipa Na Mpesa</button>
+                    <button onClick={()=>(placeOrderMpesa())} style={{backgroundColor:mpesa?"#32CD32":""}}>Lipa Na Mpesa</button>
                     </>
                     :
                     paypal

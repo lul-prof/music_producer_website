@@ -1,4 +1,5 @@
 import React from 'react'
+import './ChartComponent.css'
 import { Bar, Doughnut } from 'react-chartjs-2';
 // Must register the necessary components from chart.js
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
@@ -39,7 +40,7 @@ const ChartComponent = () => {
   };
 
   return (
-    <div style={{ width: '500px', margin: 'auto' }}>
+    <div id='chart' style={{ width: '500px', margin: 'auto' }}>
       <h2 style={{ textAlign: 'center' }}>Bar Chart</h2>
       <Bar data={data} options={options} />
     </div>

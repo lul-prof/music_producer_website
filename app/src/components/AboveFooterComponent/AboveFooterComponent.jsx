@@ -7,19 +7,19 @@ const AboveFooterComponent = () => {
   return (
     <>
     <div className="above-footer-container">
-        <div className="delivery">
+        <div id='above-footer-class' className="delivery">
             <p> <img src={assets.shippingIcon} alt="" /> </p>
             <h2>Free Delivery Within CBD</h2>       
         </div>
-        <div className="delivery">
+        <div id='above-footer-class' className="merchandise">
             <p> <img src={assets.qualityHandshake} alt="" /> </p>
             <h2>Quality Merchandise & beats</h2>       
         </div>
-        <div className="trust">
+        <div id='above-footer-class' className="trust">
             <p> <img src={assets.handshakeIcon} alt="" /> </p>
             <h2>Trusted Producers & Artists</h2>       
         </div>
-        <div className="return">
+        <div id='above-footer-class' className="return">
             <p> <img src={assets.returnIcon} alt="" /> </p>
             <h2>7 Days return policy</h2>       
         </div>
