@@ -2,6 +2,16 @@
     color: #FAF9F6;
     padding: 10px;
 }
+.featured-producers-container .featured-producers-header{
+    color:#BF40BF;
+    margin: 15px 0;
+     box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 5px;
+    border-radius: 5px;
+}
 .featured-producers::-webkit-scrollbar{
     height: 0px;
 }
@@ -55,11 +65,10 @@
 }
 .featured-producers-container .producer-frame{
     margin-top: 20px;
-    background: rgba(0, 0, 0, 0.4);
     border-radius: 10px;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 .featured-producers-container .producer-frame iframe{
@@ -124,7 +133,11 @@
 .featured-producers-container{
     padding: 5px;
 }
-
+.featured-producers-container .featured-producers-header{
+    color:#BF40BF;
+    margin: 10px 0;
+    font-size: small;
+}
 
 .featured-producer{
     padding: 2px;
@@ -137,13 +150,13 @@
 }
 
 .featured-producers .featured-producer .featured-producer-image img{
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     border-radius: 100px;
 }
 
 .featured-producers .featured-producer .featured-producer-details p img{
-    width: 12px;
+    width: 10px;
     top: 2px;
 }
 

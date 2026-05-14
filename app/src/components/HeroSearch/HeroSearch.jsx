@@ -3,7 +3,7 @@ import './HeroSearch.css'
 import { assets } from '../../assets/assets'
 import TitleComponent from '../TitleComponent/TitleComponent'
 import { ShopContext } from '../../Context/ShopContext'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import toast from 'react-hot-toast'
 
@@ -82,9 +82,13 @@ const HeroSearch = () => {
                 </iframe>
            </div>
         </div> 
-        <TitleComponent title="Licensing Agreements & Terms"/>
+        <div className="hero-search-header">
+            <h2>LICENCING TERMS</h2>
+            <h4>BUY LEASE OR PURCHASE FULLY</h4>
+            <h4>YOU MUST CREDIT THE PRODUCER </h4>
+            <hr />
+        </div>
         <div className="hero-bottom">
-            
             {/*------------------------------*/}
             <div className="hero-bottom-class">
                 <div className="hero-bottom-class-header">
@@ -176,7 +180,7 @@ const HeroSearch = () => {
                         </div>
                     </div>
                     <div className="hero-bottom-class-button">
-                        <button>Beat Store</button>
+                       <Link to={'/beats'}> <button>Beat Store</button> </Link>
                     </div>
                 </div>
             </div>
@@ -272,7 +276,7 @@ const HeroSearch = () => {
                     </div>
                 </div>
                 <div className="hero-bottom-class-button">
-                        <button>Beat Store</button>
+                        <Link to={'/beats'}> <button>Beat Store</button> </Link>
                 </div>
             </div>
             {/*------------------------------*/}
@@ -367,7 +371,7 @@ const HeroSearch = () => {
                     </div>
                 </div>
                 <div className="hero-bottom-class-button">
-                        <button>Beat Store</button>
+                        <Link to={'/beats'}> <button>Beat Store</button> </Link>
                 </div>
             </div>
             {/*------------------------------*/}
@@ -461,7 +465,7 @@ const HeroSearch = () => {
                         </div>
                     </div>
                     <div className="hero-bottom-class-button">
-                        <button>Beat Store</button>
+                        <Link to={'/beats'}> <button>Beat Store</button> </Link>
                     </div>
                 </div>
             </div>

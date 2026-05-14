@@ -218,12 +218,12 @@
 }
 
 .navbar-container .navbar-left .navbar-logo h1{
-    font-size: large;
+    font-size:x-large;
 }
 
 .navbar-container .navbar-right{
     display: flex;
-    gap: 1rem;
+    gap: 10px;
 }
 .navbar-container .navbar-right .navbar-user h4{
     display: none;

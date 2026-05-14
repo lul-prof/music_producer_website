@@ -3,16 +3,36 @@
     padding: 10px;
     overflow-x: hidden;
 }
-
+.featured-blogs-container .featured-blogs-header{
+    color:#BF40BF;
+    text-align: center;
+    margin: 15px 0;
+    display: flex;
+    flex-direction: column;
+     box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 5px;
+    border-radius: 5px;
+}
+.featured-blogs-container .featured-blogs-header hr{
+    border-color: #BF40BF;
+    opacity: 0.4;
+    margin-top: 5px;
+}
 .featured-blogs{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;  
 }
-
 .featured-blogs .featured-blog{
     padding: 5px;
     margin: 4px;
-    border-radius: 10px;
+    border-radius: 5px;
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 .featured-blogs .featured-blog:hover{
     cursor: pointer;
@@ -21,13 +41,9 @@
 }
 .featured-blogs .featured-blog .featured-blog-image img{
     border-radius: 5px;
-    height: 50vh;
+    height: 300px;
     width: 100%;
     border-radius: 10px;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
     width: 100%;
 }
 
@@ -71,8 +87,18 @@
     animation: glitter 2s infinite;
     border-radius: 10px;
 }
-
-
+#glitter-class .featured-blogs-header{
+    color:#BF40BF;
+    text-align: center;
+    margin: 15px 0;
+    display: flex;
+    flex-direction: column;
+}
+#glitter-class .featured-blogs-header hr{
+    border-color: #BF40BF;
+    opacity: 0.4;
+    margin-top: 5px;
+}
 @keyframes glitter {
     0%{
         opacity: 0.2;
@@ -97,7 +123,19 @@
     padding: 5px;
     overflow-x: hidden;
 }
-
+.featured-blogs-container .featured-blogs-header{
+    color:#BF40BF;
+    text-align: center;
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    font-size: small;
+}
+.featured-blogs-container .featured-blogs-header hr{
+    border-color: #BF40BF;
+    opacity: 0.4;
+    margin-top: 5px;
+}
 .featured-blogs{
     grid-template-columns: 1fr;
 }
@@ -138,4 +176,17 @@
     animation: glitter 2s infinite;
     border-radius: 10px;
 }  
+#glitter-class .featured-blogs-header{
+    color:#BF40BF;
+    text-align: center;
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    font-size: small;
+}
+#glitter-class .featured-blogs-header hr{
+    border-color: #BF40BF;
+    opacity: 0.4;
+    margin-top: 5px;
+}
 }

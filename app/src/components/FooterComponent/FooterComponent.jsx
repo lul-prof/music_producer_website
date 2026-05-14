@@ -66,13 +66,13 @@ const FooterComponent = () => {
         <div className="footer-center-links">
           <ul>
             <li onClick={()=>(navigate('/'), navigateTo('hero-container'))}>Home</li>
-            <li onClick={()=>(navigate('/'),navigateTo('beats-component-container'))}>Beats</li>
+            <Link to={'/beats'}> <li>Beats</li></Link>
             <li onClick={()=>(navigate('/'),navigateTo('featured-artists-container'))}>Artists</li>
             <li onClick={()=>(navigate('/'),navigateTo('featured-producers-container'))}>Producers</li>
             <Link to='/contactUs'><li>Contact Us</li></Link>
             <Link to='/login'><li>Register</li></Link>
             <Link to={admin_url} target="_blank"><li>Admin panel</li></Link>
-            <li onClick={()=>(navigate('/'),navigateTo('featured-merchandise-container'))}>Merchandise</li>
+            <Link to={'/merchandise'}> <li>Merchandise</li></Link>
           </ul>
         </div>
       </div>

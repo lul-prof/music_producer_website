@@ -28,8 +28,8 @@ const UserSchema=new mongoose.Schema({
     isFeatured:{type:Boolean,default:false},
     isActive:{type:Boolean,default:false},
     cart:{type:Object,default:{}},
-    followers:{type:Object,default:{}},
-    following:{type:Object,default:{}}
+    followers:{type:Array,default:[]},
+    following:{type:Array,default:[]}
 
 },{minimize:false,timestamps:true})
 

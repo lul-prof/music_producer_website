@@ -1,8 +1,11 @@
 .notifications-container{
     margin-top: 40px;
-    padding-bottom: 100px;
+    padding-bottom: 10px;
 }
-
+.notifications-container .notifs-header{
+    color: #BF40BF;
+    text-align: center;
+}
 .notifications-container .notifs-bottom{
     width: 100%;
 }

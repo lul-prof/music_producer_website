@@ -1,26 +1,12 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import "./MerchandiseComponent.css";
 import TitleComponent from "../TitleComponent/TitleComponent";
 import { ShopContext } from "../../Context/ShopContext";
 import { Link } from "react-router-dom";
-import axios from "axios";
 
 const MerchandiseComponent = () => {
-  const { currency, backend_url } = useContext(ShopContext);
-  const [merchandise, setMerchandise] = useState([]);
-  useEffect(() => {
-    const fetchMerchandise = async () => {
-      try {
-        const response = await axios.get(`${backend_url}/api/user/merchandise`);
-        if (response.data.success) {
-          setMerchandise(response.data.merchandise);
-        } else console.log(response.data.message);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchMerchandise();
-  }, [merchandise, backend_url]);
+  const { currency,merchandise } = useContext(ShopContext);
+  
   if (merchandise.length > 0) {
     return (
       <>
@@ -28,7 +14,12 @@ const MerchandiseComponent = () => {
           id="featured-merchandise-container"
           className="featured-merchandise-container"
         >
-          <TitleComponent title="TheAfricanBaba" />
+          <div className="featured-merchandise-header">
+            <h2>THE AFRICAN BABA</h2>
+            <h4>GET MUSIC RELATED MERCH</h4>
+            <h4>WELCOME TO THE ULTIMATE FASHION STORE</h4>
+            <hr />
+        </div>
           <div className="featured-merchandise">
             {merchandise.map((product) =>
               product.isFeatured ? (
@@ -61,7 +52,12 @@ const MerchandiseComponent = () => {
     return (
       <>
         <div id="glitter-class" className="glitter-class">
-          <TitleComponent title="Bestseller Merchandise" />
+          <div className="featured-merchandise-header">
+            <h2>THE AFRICAN BABA</h2>
+            <h4>GET MUSIC RELATED MERCH</h4>
+            <h4>WELCOME TO THE ULTIMATE FASHION STORE</h4>
+            <hr />
+          </div>
           <div className="glitter">
             <div className="glitter-box">
               <div className="glitter-main"></div>

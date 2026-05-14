@@ -8,6 +8,7 @@ import { response } from 'express';
 import adminRouter from '../routes/adminRoute.js';
 import jwt from 'jsonwebtoken';
 import notificationModel from '../models/notificationsModel.js';
+import paymentModel from '../models/paymentModel.js';
 
 
 
@@ -590,4 +591,141 @@ const fetchNotifications=async(req,res)=>{
     }
 }
 
-export {addMerchandise,addBeat,addBlog,adminLogin,deleteMerchandise,updateMerchandise,deleteBeat,deleteBlog,deleteUser,validateUser,fetchOrders,updateOrderStatus,getProduct,getBeats,getBlogs,getMerchandise,featureUser,postNotification,fetchNotifications}
+
+const addInvoice=async(req,res)=>{
+    try {
+        const {artist,activity,total,paid,phone}=req.body;
+
+        const new_payment=await new paymentModel({
+            artist,
+            activity,
+            total,
+            paid,
+            phone
+        });
+
+        const payment=await new_payment.save();
+
+        if(!payment){
+            return res.json({
+                success:false,
+                message:"could not add Invoice. Try Again"
+            })
+        }
+
+        return res.json({
+            success:true,
+            message:"Invoice created SuccessFully",
+            payment
+        })
+        
+    } catch (error) {
+        console.log(error);
+        res.json({
+            success:false,
+            message:error.message
+        })
+    }
+}
+
+const editInvoice=async(req,res)=>{
+    try {
+      const {artist,activity,total,paid,phone}=req.body;
+
+      const {id}=req.params;
+
+      const invoice=await paymentModel.findById({_id:id});
+      if(!invoice){
+        return res.json({
+            message:"Invoice Does not exist"
+        })
+      }  
+      const updated_invoice=await paymentModel.findByIdAndUpdate(id,{
+        artist,
+        activity,
+        total,
+        paid,
+        phone
+      });
+      
+      if(!updated_invoice){
+        return res.json({
+            success:false,
+            message:"Could not update Invoice. Try Again!!!"
+        })
+      }
+
+      res.json({
+        success:true,
+        message:"Invoice Updated Successfully",
+        invoice
+      })
+
+    } catch (error) {
+        console.log(error);
+        res.json({
+            success:false,
+            message:error.message
+        })
+    }
+}
+
+const deleteInvoice=async(req,res)=>{
+    try {
+       const {id}=req.params;
+       const invoice=await paymentModel.findById({_id:id});
+       if(!invoice){
+        return res.json({
+            success:false,
+            message:"Invoice Does not exist"
+        })
+       }
+       const deleted_invoice=await paymentModel.findByIdAndDelete({_id:id});
+       if(!deleted_invoice){
+        return res.json({
+            success:false,
+            message:"Could not delete Invoice"
+        })
+       }
+       return res.json({
+        success:true,
+        message:"Invoice deleted Successfully",
+        deleted_invoice
+       })
+    } catch (error) {
+        console.log(error);
+        res.json({
+            success:false,
+            message:error.message
+        })
+    }
+}
+
+const fetchInvoices=async(req,res)=>{
+    try {
+       const payments=await paymentModel.find({});
+       if(!payments){
+        return res.json({
+            success:false,
+            message:"Could not fetch Invoices"
+        })
+       } 
+
+       return  res.json({
+        success:true,
+        message:"Invoices fetched successfully",
+        payments
+       })
+    } catch (error) {
+        console.log(error);
+        res.json({
+            success:false,
+            message:error.message
+        })
+    }
+}
+
+
+
+
+export {addMerchandise,addBeat,addBlog,adminLogin,deleteMerchandise,updateMerchandise,deleteBeat,deleteBlog,deleteUser,validateUser,fetchOrders,updateOrderStatus,getProduct,getBeats,getBlogs,getMerchandise,featureUser,postNotification,fetchNotifications,addInvoice,editInvoice,deleteInvoice,fetchInvoices}

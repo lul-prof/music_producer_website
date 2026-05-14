@@ -1,0 +1,117 @@
+.beatspage{
+    width: 100%;
+    padding: 15px;
+    overflow: hidden;
+}
+.beatspage .beatspage-header{
+    color: #FFF;
+    justify-self: left;
+    margin: 10px 0;
+    color: #BF40BF;
+}
+.beatspage .beatspage-class{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    overflow-x: auto;
+}
+.beatspage .beatspage-class .beat-class{
+    width: fit-content;
+    height: fit-content;
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.beatspage .beatspage-class .beat-class .beat-img{
+    height: fit-content;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+.beatspage .beatspage-class .beat-class .beat-img:hover{
+    cursor: pointer;
+    padding: 5px;
+    transition: 5ms ease-in;
+}
+.beatspage .beatspage-class .beat-class .beat-img img{
+    width: 100%;
+    border-radius: 10px;
+}
+
+.beatspage .beatspage-class .beat-class .beat-sample{
+    display:none;
+}
+.beatspage .beatspage-class .beat-class .beat-sample audio{
+    width: 100%;
+}
+
+.beatspage .beatspage-class .beat-class .beat-title{
+    color: #FFF;
+}
+
+.beatspage .beatspage-class .beat-class .beat-price{
+    color: #FFF;
+    margin-top: 5px;
+}
+
+/*---------------------MOBILE SCREEN----------------------*/ 
+
+@media (max-width:768px) and (min-width:100px) {
+  .beatspage{
+    width: 100%;
+    padding: 10px;
+    overflow: hidden;
+}
+.beatspage .beatspage-header{
+    color: #FFF;
+    justify-self: left;
+    margin: 5px 0;
+    color: #BF40BF;
+}
+.beatspage .beatspage-class{
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    gap: 10px;
+    overflow-x: auto;
+}
+.beatspage .beatspage-class .beat-class{
+    width: fit-content;
+    height: fit-content;
+}
+
+.beatspage .beatspage-class .beat-class .beat-img{
+    height: fit-content;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+.beatspage .beatspage-class .beat-class .beat-img:hover{
+    cursor: pointer;
+    padding: 5px;
+    transition: 5ms ease-in;
+}
+.beatspage .beatspage-class .beat-class .beat-img img{
+    width: 100%;
+    border-radius: 10px;
+}
+
+.beatspage .beatspage-class .beat-class .beat-sample{
+    display:none;
+}
+.beatspage .beatspage-class .beat-class .beat-sample audio{
+    width: 100%;
+}
+
+.beatspage .beatspage-class .beat-class .beat-title{
+    color: #FFF;
+}
+
+.beatspage .beatspage-class .beat-class .beat-price{
+    color: #FFF;
+    margin-top: 5px;
+}  
+}

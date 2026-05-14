@@ -120,22 +120,7 @@ const updateProfile = async (req, res) => {
 
     const user = await userModel.findById({ _id:userId });
 
-    if (!req.files) {
-      res.json({
-        success: false,
-        message: "No files uploaded"
-      })
-    }
-
-    const avatar = req.files.avatar && req.files.avatar[0];
-
-    let result = await cloudinary.uploader.upload(avatar.path, { folder: "uploads/the_don/avatars/updated_avatars", resource_type: "image" });
-
-    const image_url = await result.secure_url;
-
-
     const updated_user = await userModel.findByIdAndUpdate(userId, {
-      avatar: image_url?image_url:user.avatar,
       latest_project:latest_project,
       instagram:instagram,
       spotify:spotify,
@@ -488,7 +473,10 @@ const addToCart = async (req, res) => {
   try {
     const { userId,productId } = req.body;
 
-
+    console.log(userId);
+    console.log(productId);
+    
+    
     const user = await userModel.findById({ _id: userId });
 
     if (!user) {
@@ -778,6 +766,141 @@ const fetchProducts=async(req,res)=>{
   }
 }
 
+const follow=async(req,res)=>{
+  try {
+    const {artistId,userId}=req.body;
+        
+    const artist=await userModel.findById({_id:artistId});
+
+    if(!artist){
+      res.json({
+      success: false,
+      message: 'Could not follow user. Try again',
+    });
+    }
+
+    const follower=await userModel.findById({_id:userId});
+  
+    if(!follower){
+      res.json({
+      success: false,
+      message: 'Could not follow user. Try again',
+    });
+    }
+
+    
+    //followers
+    let followers=await artist.followers;
+    
+    if (followers[userId]) {
+      return res.json({
+        success:false,
+        message:`You are already following ${artist.username} `
+      })
+    } else {
+      followers.push(userId)
+    }
+
+    await userModel.findByIdAndUpdate(artistId, { followers });
+
+    //following
+    let following=await follower.following;
+    
+    if (following[artistId]) {
+      return res.json({
+        success:false,
+        message:`${userId.username} there was an error. Please Try Again!!!`
+      })
+    } else {
+      following.push(artistId);
+    }
+
+    await userModel.findByIdAndUpdate(userId, { following });
+
+    res.json({
+      success:true,
+      message:`You started Following ${artist.first_name}`,
+      artist,
+      follower
+      
+    })
+  } catch (error) {
+    res.json({
+      success: false,
+      message: error.message,
+    });
+  }
+}
+
+
+const unfollow=async(req,res)=>{
+  try {
+    const {userId,artistId}=req.body;
+    const user=await userModel.findById(userId);
+    if(!user){
+      return res.json({
+        success:false,
+        message:"Could not unfollow user try Again!!!"
+      })
+    }
+    console.log(user);
+
+    const artist=await userModel.findById(artistId);
+    if(!artist){
+      return res.json({
+        success:false,
+        message:"Could not unfollow user try Again!!!"
+      })
+    }
+    console.log(artist);
+
+
+    const updated_user=await userModel.findByIdAndUpdate(userId,
+      {$pull:{following:artistId}},{new:true}
+    );
+
+    if(!updated_user){
+      return res.json({
+        success:false,
+        message:"Could not unfollow user try Again!!!"
+      })
+    }
+
+    res.json({
+      success:true,
+      message:`You unfollowed ${artist.username}`,
+      updated_user
+    })
+
+    console.log(updated_user);
+
+    
+    
+    const updated_artist=await userModel.findByIdAndUpdate(artistId,
+      {$pull:{followers:userId}},{new:true}
+    )
+
+    if(!updated_artist){
+      return res.json({
+        success:false,
+        message:`Could not unfollow ${artist.username}. Try Again!!!`
+      })
+    }
+
+    res.json({
+      success:true,
+      updated_artist
+    })
+
+    console.log(updated_artist);
+    
+  } catch (error) {
+    res.json({
+      success: false,
+      message: error.message,
+    });
+  }
+}
 
 
 export {
@@ -806,5 +929,7 @@ export {
   user,
   contact,
   deleteOrder,
-  fetchProducts
+  fetchProducts,
+  follow,
+  unfollow
 };

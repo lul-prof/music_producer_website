@@ -1,37 +1,28 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import "./BeatsComponent.css";
 import TitleComponent from "../TitleComponent/TitleComponent";
 import { ShopContext } from "../../Context/ShopContext";
 import { Link } from "react-router-dom";
-import axios from "axios";
 
 const BeatsComponent = () => {
-  const { currency, backend_url } = useContext(ShopContext);
-  const [beats, setBeats] = useState([]);
-  useEffect(() => {
-    const fetchBeats = async () => {
-      try {
-        const response = await axios.get(`${backend_url}/api/user/beats`);
-        if (response.data.success) {
-          setBeats(response.data.beats);
-        } else console.log(response.data.message);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchBeats();
-  }, [beats, backend_url]);
-
+  const { currency,beats } = useContext(ShopContext);
+  
   if (beats.length > 0) {
     return (
       <>
         <div
           id="beats-component-container"
-          className="beats-component-container"
-        >
-          <TitleComponent title="THE DON" />
+          className="beats-component-container">
+          <div className="beats-component-header">
+            <h2>THE DON</h2>
+            <h4>NUMBER 1 BEAT MAKER</h4>
+            <h4>NON AI RELATED INSTRUMENTALS ONLY</h4>
+            <hr />
+          </div>
+
           <div className="featured-beats-container">
-            {beats.map((beat) =>
+            {
+            beats.map((beat) =>
               beat.isFeatured ? (
                 <>
                   <div key={beat._id} className="featured-beat">
@@ -66,7 +57,12 @@ const BeatsComponent = () => {
     return (
       <>
         <div id="glitter-class" className="glitter-class">
-        <TitleComponent title="Featured Beats & Instrumentals" />
+        <div className="beats-component-header">
+            <h2>THE DON</h2>
+            <h4>NUMBER 1 BEAT MAKER</h4>
+            <h4>NON AI RELATED INSTRUMENTALS ONLY</h4>
+            <hr />
+          </div>
         <div className="glitter">
           <div className="glitter-box">
             <div className="glitter-main"></div>

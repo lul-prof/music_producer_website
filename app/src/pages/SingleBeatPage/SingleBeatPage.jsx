@@ -1,88 +1,65 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { assets } from "../../assets/assets";
-import toast from "react-hot-toast";
 import "./SingleBeatPage.css";
 import { ShopContext } from "../../Context/ShopContext";
-import axios from "axios";
 
 const SingleBeatPage = () => {
   const { id } = useParams();
   const navigate=useNavigate();
 
-  const { currency, addToCart, backend_url,token } = useContext(ShopContext);
+  const { currency, addToCart,token,beats } = useContext(ShopContext);
 
-  const [beat, setBeat] = useState({});
-
-  const [beats, setBeats] = useState([]);
-
-  useEffect(()=>{
-    const fetchBeats=async()=>{
-      try {
-        const response=await axios.get(`${backend_url}/api/user/beats`);
-        if(response.data.success){
-          setBeats(response.data.beats);
-        }else{
-          console.log(response.data.message);
-          
-        }
-      } catch (error) {
-        console.log(error);
-        
-      }
+  const navigateTo=(id)=>{
+        document.getElementById(id)?.scrollIntoView({behavior:'smooth'})
     }
-    fetchBeats()
-  },[beats,backend_url])
 
+  const beat=beats.find(b=>b._id===id);
 
-  useEffect(() => {
-    const fetchBeat = async () => {
-      try {
-        const response = await axios.post(`${backend_url}/api/user/beat/${id}`);
-        if(response.data.success){
-          setBeat(response.data.beat);
-        }else{
-          toast(response.data.message);
-          console.log(response.data.message);
-          
-        }
-      } catch (error) {
-        toast.error(error);
-        console.log(error);
-      }
-    };
-    fetchBeat();
-  }, [id, beat,backend_url]);
   return (
     <>
       <div className="single-beat-container">
         <div className="single-beat">
           {/*----------------------*/}
-          <div className="single-beat-left">
+          <div className="single-beat-left" id="single-beat-left">
             <div className="single-beat-left-image">
-              <img id="single-beat-left-img" src={beat.thumbnail} alt="" />
+              <h2 id="b-title" style={{marginLeft:"5px"}}>{beat?.title}</h2>
+              <img id="single-beat-left-img" src={beat?.thumbnail} alt="" />
+             
               <div className="single-beat-preview">
+                <audio
+                    controls
+                    preload="auto"
+                    controlsList="nodownload"
+                    onContextMenu={(e) => e.preventDefault()}
+                  >
+                    <source src={beat?.audio} type="audio/mpeg" />
+                    <source src={beat?.audio} type="audio/ogg"/>
+                    Your browser does not support the audio element.
+                  </audio>
                 <figure>
-                  <figcaption style={{marginLeft:"10px"}}>Listen to {beat.title}</figcaption>
                   <div className="link" style={{justifySelf:"left",marginLeft:"10px",marginTop:"5px"}}>
-                    <Link style={{color:"#BF40BF"}} to={`/download?src=${beat.audio}&title=${beat.title}&image=${beat.thumbnail}`} target="_blank">Click here to play Audio</Link>
+                    <Link style={{color:"#BF40BF"}} to={`/download?src=${beat?.audio}&title=${beat?.title}&image=${beat?.thumbnail}`} target="_blank">Click here to play Audio</Link>
                   </div>
                 </figure>
               </div>
               <div className="single-beat-left-details" style={{padding:"0 10px"}}>
             
-               <p> <b>
-                  {currency} {beat.price}
-                </b>
-                </p>
+               <h3 id="b-price"><span>
+                  {currency} {beat?beat.price?.toLocaleString('en-US'):beat?.price} {/*toLocaleString('en-US')*/}
+                </span>
+                </h3>
                 <div className="cart-img">
                   <img
+                  onMouseOver={()=>(document.getElementById("c-img").style.display="block")}
+                  onMouseOut={()=>(document.getElementById("c-img").style.display="none")}
                     onClick={() => (token?addToCart(beat._id):navigate('/login')
                     )}
                     id="single-beat-left-cart"
                     src={assets.cartPurple}
                     alt=""
                   />
+                  <p id="c-img" style={{display:"none"}}>Add to cart</p>
                 </div>
               </div>
             </div>
@@ -94,12 +71,16 @@ const SingleBeatPage = () => {
             </div>
             <div className="similar-beat-right">
               {beats.map((beat) => (
+                beat._id!==id?
                 <div key={beat._id} className="similar">
                   <Link to={`/beat/${beat._id}`}>
-                    <img src={beat.thumbnail} alt="" />
+                    <img src={beat.thumbnail} alt="image" onClick={()=>(navigateTo("single-beat-left"))} />
                   </Link>
                   <p style={{marginLeft:"5px",color:"#BF40BF",fontWeight:"500"}}>{beat.title}</p>
                 </div>
+                :
+                
+                <></>
               ))}
             </div>
           </div>

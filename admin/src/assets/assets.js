@@ -180,3 +180,22 @@ export const sales=[
         sale:2840
     }
 ]
+
+export const payments=[
+    {
+        id:"pay001",
+        name:"lul prof",
+        paid:500,
+        total:1500,
+        phone:"0700000000",
+        activity:"Audio Recording"
+    },
+    {
+        id:"pay002",
+        name:"Spiral",
+        paid:1000,
+        total:3000,
+        phone:"0700000000",
+        activity:"Full Project"
+    }
+]

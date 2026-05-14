@@ -1,6 +1,6 @@
 import express from 'express'
 import upload from '../middleware/multer.js';
-import { addToCart, artist, beat, blog, clearCart, contact, fetchArtists, fetchBeats, fetchBlogs, fetchMerchandise, fetchProducers, fetchProducts, fetchUsers, getCart, loginUser, merchandise, myOrders, placeOrder, producer, registerUser, searchBeat, subscribe, updateCart, updateProfile, user } from '../controllers/userController.js';
+import { addToCart, artist, beat, blog, clearCart, contact, fetchArtists, fetchBeats, fetchBlogs, fetchMerchandise, fetchProducers, fetchProducts, fetchUsers, follow, getCart, loginUser, merchandise, myOrders, placeOrder, producer, registerUser, searchBeat, subscribe, unfollow, updateCart, updateProfile, user } from '../controllers/userController.js';
 import authUser from '../middleware/auth.js';
 import generateToken from '../middleware/mpesa.js';
 import {handleSTKPush,callbackMpesa} from '../controllers/mpesaController.js';
@@ -11,7 +11,7 @@ const userRouter=express.Router();
 
 userRouter.post('/register',upload.fields([{name:'avatar',maxCount:1}]),registerUser);
 userRouter.post('/login',loginUser);
-userRouter.post('/update/:userId',upload.fields([{name:"avatar",maxCount:1}]),updateProfile);
+userRouter.post('/update/:userId',updateProfile);
 userRouter.get('/merchandise',fetchMerchandise);
 userRouter.post('/merchandise/:merchandiseId',merchandise);
 userRouter.get('/beats',fetchBeats);
@@ -28,6 +28,8 @@ userRouter.post('/subscribe',subscribe);
 userRouter.post('/search',searchBeat);
 userRouter.post('/contact',contact);
 userRouter.get('/products',fetchProducts);
+userRouter.post('/follow',follow);
+userRouter.post('/unfollow',unfollow);
 //Cart
 userRouter.post('/addToCart',authUser,addToCart);
 userRouter.post('/updatecart',authUser,updateCart);

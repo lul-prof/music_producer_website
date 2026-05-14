@@ -1,29 +1,12 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext } from 'react'
 import './NotificationsPage.css'
-import axios from 'axios'
 import { ShopContext } from '../../Context/ShopContext'
 
 const NotificationsPage = () => {
-  const [notifications,setNotifications]=useState([])
-  const { backend_url } = useContext(ShopContext);
 
-  useEffect(()=>{
-        const fetchNotifs=async()=>{
-            try {
-              const response=await axios.get(`${backend_url}/api/admin/notifications`); 
-              console.log(response);
-               
-              if(response.data.success){
-                setNotifications(response.data.notifications);
-              }
-              
-            } catch (error) {
-                console.log(error);
-                
-            }
-        }
-        fetchNotifs();       
-    },[notifications,backend_url])
+  const {notifications} = useContext(ShopContext);
+
+  
   return (
     <>
     <div className="notifications-container">

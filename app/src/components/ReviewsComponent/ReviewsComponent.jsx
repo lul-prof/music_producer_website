@@ -7,7 +7,12 @@ const ReviewsComponent = () => {
   return (
     <>
     <div className="reviews">
-        <TitleComponent title="Ratings & Reviews" />
+        <div className="reviews-header">
+            <h2>CUSTOMER REVIEWS</h2>
+            <h4>WHAT CLIENTS SAY ABOUT US</h4>
+            <h4>YOUR VIEWS AND OPINIONS MATTER</h4>
+            <hr />
+        </div>
         
         <div className="reviews-class"> 
                 {

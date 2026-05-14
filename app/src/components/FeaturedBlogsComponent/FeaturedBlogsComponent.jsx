@@ -1,35 +1,21 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext } from 'react'
 import './FeaturedBlogsComponent.css'
 import TitleComponent from '../TitleComponent/TitleComponent'
 import { Link } from 'react-router-dom'
 import { ShopContext } from '../../Context/ShopContext'
-import axios from 'axios'
 
 const FeaturedBlogsComponent = () => {
-    const {backend_url}=useContext(ShopContext);
-    const [blogs,setBlogs]=useState([]);
-
-    useEffect(()=>{
-        const fetchBlogs=async()=>{
-            try {
-                const response=await axios.get(`${backend_url}/api/user/blogs`);
-                if(response.data.success){
-                    setBlogs(response.data.blogs);
-                }else{
-                    console.log(response.data.message);
-                }
-            } catch (error) {
-                console.log(error);
-                
-            }
-        }
-        fetchBlogs();
-    },[blogs,backend_url])
+    const {blogs}=useContext(ShopContext);
+    
   if(blogs.length>0){
     return (
     <>
     <div className="featured-blogs-container">
-        <TitleComponent title="Recent Blogs & Updates"/>
+        <div className="featured-blogs-header">
+            <h2>BLOGS AND UPDATES</h2>
+            <h4>LATEST NEWS ABOUT THE MUSIC INDUSTRY</h4>
+            <hr />
+        </div>
         <div className="featured-blogs">
             {
                 blogs.map((blog)=>(
@@ -59,7 +45,11 @@ const FeaturedBlogsComponent = () => {
     return(
         <>
         <div id="glitter-class" className="glitter-class">
-        <TitleComponent title="Recent Blogs & Updates"/>
+        <div className="featured-blogs-header">
+            <h2>BLOGS AND UPDATES</h2>
+            <h4>LATEST NEWS ABOUT THE MUSIC INDUSTRY</h4>
+            <hr />
+        </div>
         <div className="glitter">
           <div className="glitter-box">
             <div className="glitter-main"></div>

@@ -32,6 +32,9 @@ import OrderPage from './pages/OrderPage/OrderPage'
 import NotificationsPage from './pages/NotificationsPage/NotificationsPage'
 import DownloadPage from './pages/DownloadPage/DownloadPage'
 import ReviewsComponent from './components/ReviewsComponent/ReviewsComponent'
+import MerchandisePage from './pages/MerchandisePage/MerchandisePage'
+import BeatsPage from './pages/BeatsPage/BeatsPage'
+import UpdateProfilePage from './pages/UpdateProfilePage/UpdateProfilePage'
 
 
 let DefaultIcon = L.icon({
@@ -77,6 +80,9 @@ const App = () => {
       <Route path='/order' element={<OrderPage/>}></Route>
       <Route path='/notifications' element={<NotificationsPage/>}></Route>
       <Route path='/download' element={<DownloadPage/>} ></Route>
+      <Route path='/beats' element={<BeatsPage/>}></Route>
+      <Route path='/merchandise' element={<MerchandisePage/>}></Route>
+      <Route path='/updateProfile' element={<UpdateProfilePage/>}></Route>
       
     </Routes>
     <FooterComponent/>

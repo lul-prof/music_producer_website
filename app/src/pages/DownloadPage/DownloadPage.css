@@ -10,6 +10,7 @@
 .download-container .download-class .download-header{
     text-align: center;
     margin-top: 10px;
+    display:none ;
     
 }
 .download-container .download-class .download-audio{

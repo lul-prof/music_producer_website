@@ -63,7 +63,44 @@
 #avatar-class:hover{
     cursor: pointer;
 }
+.load{
+    width: 100%;
+    margin: 100px 0;
+    padding: 20px;
+}
+.loader{
+    border: 2px solid #BF40BF;
+    width: 150px;
+    height: 150px;
+    border-radius: 100px;
+    animation: loader 1s infinite;
+    justify-self: center;
+}
 
+.loader-text{
+    justify-self: center;
+    color: #FFFFFF;
+    margin-top: 10px;
+}
+
+@keyframes loader {
+    0%{
+        border: 2px solid #BF40BF;
+    }
+    25%{
+        border-left: 4px solid #BF40BF;
+    }
+    50%{
+        border-top: 6px solid #BF40BF;
+    }
+    75%{
+        border-right: 8px solid #BF40BF;
+    }
+    100%{
+        border-bottom: 10px solid #BF40BF;
+    }
+    
+}
 @media (max-width:765px) and (min-width:100px) {
 .register-container{
     padding: 5px;

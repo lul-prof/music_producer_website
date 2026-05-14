@@ -2,6 +2,7 @@ import "./HeroComponent.css";
 import { assets } from "../../assets/assets";
 import { ShopContext } from "../../Context/ShopContext";
 import LoaderComponent from '../../components/LoaderComponent/LoaderComponent.jsx'
+import { Link } from "react-router-dom";
 
 
 const HeroComponent = () => {
@@ -17,11 +18,11 @@ const HeroComponent = () => {
              <div className="hero-center-text">
                 <h5>TheAfricanBaba</h5>
                 <h1>PREMIUM BEATS AND APPAREL</h1>
-                <button>SHOP NOW</button>
+              <Link to={'/beats'}><button>SHOP NOW</button></Link>
              </div>
             </div>
             <div className="hero-right">
-              <img src={assets.piano1} alt="image" />
+              <img src={assets.mics} alt="image" />
             </div>
          </div>
          {/*------------------------------*/}   

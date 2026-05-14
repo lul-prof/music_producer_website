@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext,useState } from "react";
 import "./SearchedItemPage.css";
 import { assets } from "../../assets/assets";
 import { ShopContext } from "../../Context/ShopContext";
@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 import axios from "axios";
 
 const SearchedItemPage = () => {
-  const { currency, setSearched, searched, backend_url } =
+  const { addToCart,currency,beats, setSearched, searched, backend_url } =
     useContext(ShopContext);
   const { search } = useParams();
   const [term, setTerm] = useState("");
@@ -29,25 +29,6 @@ const SearchedItemPage = () => {
     navigate(`/searchResults/${term}`);
   };
 
-  const [beats, setBeats] = useState([]);
-
-  useEffect(()=>{
-    const fetchBeats=async()=>{
-      try {
-        const response=await axios.get(`${backend_url}/api/user/beats`);
-        if(response.data.success){
-          setBeats(response.data.beats);
-        }else{
-          console.log(response.data.message);
-          
-        }
-      } catch (error) {
-        console.log(error);
-        
-      }
-    }
-    fetchBeats()
-  },[beats,backend_url])
   return (
     <>
       <div className="searched-container">
@@ -65,7 +46,7 @@ const SearchedItemPage = () => {
           <div className="searched-header">
             <h3>Search results for {search} </h3>
           </div>
-          <div className="searched-conta">
+          <div className="searched-items">
           {searched.length > 1 ? (
             searched.map((beat) => (
               <div className="searched-item">
@@ -73,14 +54,13 @@ const SearchedItemPage = () => {
                   <img id="searched-item-image" src={beat.thumbnail} alt="" />
                 </div>
                 <div className="searched-item-details">
-                  <h3>{beat.title}</h3>
-                  <p>central Cee Melodic drill beat</p>
-                  <p>@{beat.producer}</p>
+                  <p>{beat.title}</p>
+                  <Link to={`/producer/${beat.producer}?id=${beat.producer._id}`}><p>@{beat.producer}</p></Link> 
                   <b>
                     {currency} {beat.price}
                   </b>
                   <br />
-                  <img id="searched-cart" src={assets.blackCart} alt="" />
+                  <img onClick={()=>(addToCart(beat._id))} id="searched-cart" src={assets.cartPurple} alt="image" />
                 </div>
 
                 <div className="searched-item-preview">
@@ -140,7 +120,7 @@ const SearchedItemPage = () => {
                     </p>
                   </div>
                   <div className="beat-related-cart">
-                    <img id="beat-related-cart" src={assets.cartPurple} alt="" />
+                    <img onClick={()=>(addToCart(beat._id))} id="beat-related-cart" src={assets.cartPurple} alt="cart" />
                   </div>
                 </div>
               ))}

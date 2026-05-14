@@ -1,5 +1,5 @@
 import express from 'express'
-import { addBeat, addBlog, addMerchandise, adminLogin, deleteBeat, deleteBlog, deleteMerchandise, deleteUser, featureUser, fetchNotifications, fetchOrders, getBeats, getBlogs, getMerchandise, getProduct, postNotification, updateMerchandise, updateOrderStatus, validateUser } from '../controllers/adminController.js';
+import { addBeat, addBlog, addInvoice, addMerchandise, adminLogin, deleteBeat, deleteBlog, deleteInvoice, deleteMerchandise, deleteUser, editInvoice, featureUser, fetchInvoices, fetchNotifications, fetchOrders, getBeats, getBlogs, getMerchandise, getProduct, postNotification, updateMerchandise, updateOrderStatus, validateUser } from '../controllers/adminController.js';
 import upload from '../middleware/multer.js';
 import adminAuth from '../middleware/adminAuth.js';
 import { deleteOrder } from '../controllers/userController.js';
@@ -26,6 +26,9 @@ adminRouter.get('/blogs',getBlogs);
 adminRouter.get('/merchandise',getMerchandise);
 adminRouter.post('/notification',postNotification);
 adminRouter.get('/notifications',fetchNotifications);
-
+adminRouter.post('/addInvoice',addInvoice);
+adminRouter.post('/editInvoice/:id',editInvoice);
+adminRouter.post('/deleteInvoice/:id',deleteInvoice);
+adminRouter.get('/invoices',fetchInvoices);
 
 export default adminRouter;

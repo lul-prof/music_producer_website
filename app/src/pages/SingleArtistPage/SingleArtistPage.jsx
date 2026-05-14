@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./SingleArtistPage.css";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useSearchParams } from "react-router-dom";
 import toast from "react-hot-toast";
 import { assets } from "../../assets/assets";
 import axios from 'axios'
@@ -10,14 +10,65 @@ import { ShopContext } from "../../Context/ShopContext";
 const SingleArtistPage = () => {
   const { username } = useParams();
   const [artist, setArtist] = useState(false);
-  const {backend_url}=useContext(ShopContext)
+
+  const defaultFollowers={1:"default"};
+
+  const {backend_url,token}=useContext(ShopContext)
+
+  const [searchParams,setSearchParams]=useSearchParams();
+  
+  const artistId=searchParams.get("id");
+
+  const userId=localStorage.getItem("user");
+
+
+  const follow=async()=>{
+    try {
+      const userId=localStorage.getItem("user");
+      if(!userId){
+        toast.error("Login and try again");
+      }
+      console.log(token);
+      
+      const response=await axios.post(`${backend_url}/api/user/follow`,{userId,artistId});
+      console.log(response);
+      if(response.data.success){
+        toast.success(response.data.message);
+      }else{
+        toast.error(response.data.message)
+      }
+      
+    } catch (error) {
+      console.log(error); 
+    }
+  }
+
+  const unfollow=async()=>{
+    try {
+      const userId=localStorage.getItem("user");
+      if(!userId){
+        toast.error("Login and try again");
+      }
+      console.log(token);
+      
+      const response=await axios.post(`${backend_url}/api/user/unfollow`,{userId,artistId});
+      console.log(response);
+      if(response.data.success){
+        toast.success(response.data.message);
+      }else{
+        toast.error(response.data.message)
+      }
+      
+    } catch (error) {
+      console.log(error); 
+    }
+  }
+
 
   useEffect(() => {
     const fetchArtist = async () => {
     try {
-      const response=await axios.post(`${backend_url}/api/user/artist/${username}`);
-      console.log(response);      
-      
+      const response=await axios.post(`${backend_url}/api/user/artist/${username}`);      
       if(response.data.success){
         setArtist(response.data.artist);
       }else{
@@ -46,16 +97,22 @@ const SingleArtistPage = () => {
                 alt=""
               />{" "}
             </h4>
-           
-            <div className="single-artist-button">
-              <button
-                onClick={() =>
-                  toast.success(`Started Following ${artist.username}`)
-                }
-              >
-                Follow
-              </button>
+
+            <h6 style={{margin:"20px 0"}}>Followers {artist?artist.followers.length:""} Following {artist?artist.following.length:""}</h6>
+            {
+              artist?
+            artist.followers.find(follower=>follower===userId)?
+              <div id="single-artist-unfollow-button" className="single-artist-button">
+                <button onClick={unfollow}>UnFollow</button>    
             </div>
+            :
+            <div id="single-artist-button" className="single-artist-button">
+                <button onClick={follow}>Follow</button>
+            </div>
+            :""
+            }
+            
+            
           </div>
         </div>
         {/*----------------------------*/}

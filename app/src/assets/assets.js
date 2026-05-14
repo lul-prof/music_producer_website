@@ -178,6 +178,8 @@ import star from './star.jpeg'
 import piano1 from './piano_1.jpeg'
 import piano2 from './piano_2.jpeg'
 import piano3 from './piano_3.jpeg'
+import eq from './eq.jpeg'
+import mics from  './miccheck_purple.jpeg'
 
 
 export const assets = {
@@ -328,7 +330,9 @@ export const assets = {
   star,
   piano1,
   piano2,
-  piano3
+  piano3,
+  eq,
+  mics
 }
 
 export const products = [

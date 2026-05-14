@@ -1,0 +1,138 @@
+.apparel{
+    width: 100%;
+    padding: 15px;
+}
+
+.apparel .apparel-header{
+    color: #BF40BF;
+    margin: 10px 0;
+    justify-self: left;
+}
+
+.apparel .apparel-class{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+.apparel .apparel-class .apparel-div{
+    width: 100%;
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 5px;
+    border-radius: 10px;
+}
+.apparel .apparel-class .apparel-div .apparel-img{
+    background: #FFF;
+    margin: 10px 0;
+    justify-content: center;
+    width: fit-content;  
+    border-radius: 10px;
+}
+.apparel .apparel-class .apparel-div .apparel-img:hover{
+    cursor: pointer;
+    padding: 8px;
+    transition: 5ms ease-in;
+    border-radius: 4px;
+    
+}
+.apparel .apparel-class .apparel-div .apparel-img img{
+    width: 100%;
+    height: 300px;
+    border-radius: 5px;
+}
+.apparel .apparel-class .apparel-div .apparel-title{
+    color: #FFF;
+}
+
+.apparel .apparel-class .apparel-div .apparel-price{
+    color: #FFF;
+}
+
+@media (max-width:550px) and (min-width:100px) {
+.apparel{
+    width: 100%;
+    padding: 10px;
+}
+
+.apparel .apparel-header{
+    margin: 5px 0;
+    justify-self: left;
+    color: #BF40BF;
+}
+
+.apparel .apparel-class{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.apparel .apparel-class .apparel-div{
+    width: 100%;
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 5px;
+    border-radius: 10px;
+}
+.apparel .apparel-class .apparel-div .apparel-img{
+    background: #FFF;
+    margin: 10px 0;
+    justify-content: center;
+    width: fit-content;  
+    border-radius: 10px;
+}
+
+.apparel .apparel-class .apparel-div .apparel-img img{
+    width: 100%;
+    height:250px;
+    border-radius: 5px;
+}   
+}
+
+
+@media (max-width:800px) and (min-width:551px) {
+.apparel{
+    width: 100%;
+    padding: 10px;
+}
+
+.apparel .apparel-header{
+    color: #FFF;
+    margin: 5px 0;
+    justify-self: left;
+    color: #BF40BF;
+}
+
+.apparel .apparel-class{
+    display: grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap: 10px;
+}
+
+.apparel .apparel-class .apparel-div{
+    width: 100%;
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 5px;
+    border-radius: 10px;
+}
+.apparel .apparel-class .apparel-div .apparel-img{
+    background: #FFF;
+    margin: 10px 0;
+    justify-content: center;
+    width: fit-content;  
+    border-radius: 10px;
+}
+
+.apparel .apparel-class .apparel-div .apparel-img img{
+    width: 100%;
+    height:250px;
+    border-radius: 5px;
+}   
+}

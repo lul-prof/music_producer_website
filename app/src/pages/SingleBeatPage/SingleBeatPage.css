@@ -72,11 +72,16 @@
 }
 
 .single-beat-right .single-beat-right-header{
- background-color: #BF40BF;
- padding: 20px;
- color: #FAF9F6;
- border-top-left-radius: 10px;
- border-top-right-radius: 10px;
+    background-color: #BF40BF;
+    padding: 20px;
+    color: #FAF9F6;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    text-align: center;
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(3px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .similar-beat-right{
@@ -120,7 +125,28 @@ a{
     font-weight: 800;
     text-align: center;
 }
-
+#b-price{
+    border-radius: 5px;
+    padding: 5px;
+    background: rgba(0, 0, 0, 0.4);
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: fit-content;
+    margin: 10px 0;
+    color: #000000;
+}
+#c-img{
+    border-radius: 5px;
+    padding: 5px;
+     
+}
+#b-title{
+    color: #BF40BF;
+    text-align: center;
+    margin: 5px 0;
+}
 @media (max-width:765px) and (min-width:100px) {
 .single-beat-container{
     padding: 5px;

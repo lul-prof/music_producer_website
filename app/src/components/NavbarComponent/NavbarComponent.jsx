@@ -4,33 +4,15 @@ import {assets} from '../../assets/assets.js'
 import { ShopContext } from '../../Context/ShopContext.jsx'
 import { Link, useNavigate } from 'react-router-dom'
 import toast from 'react-hot-toast'
-import { useEffect } from 'react'
+
 
 const NavbarComponent = () => {
-    const {getCartCount,pic,user}=useContext(ShopContext);
+    const {getCartCount,pic,user,token}=useContext(ShopContext);
     const navigate=useNavigate();
     const [hover,setHover]=useState(false);
-    const [token,setToken]=useState(false);
     const navigateTo=(id)=>{
         document.getElementById(id)?.scrollIntoView({behavior:'smooth'})
     }
-
-
-    useEffect(()=>{
-        const fetchToken=async()=>{
-            try {
-                const resp=await localStorage.getItem("token");
-                if(resp){
-                    setToken(resp);
-                }
-                
-            } catch (error) {
-                console.log(error);
-                toast.error(error);
-            }
-        }
-        fetchToken();
-    },[])
 
   return (
     <>
@@ -81,9 +63,8 @@ const NavbarComponent = () => {
         <div className="sidemenu-list">
             <ul>
                 <li onClick={()=>(navigate('/'), navigateTo('hero-container'),document.getElementById('nav-sidemenu').style.display='none')}>Home</li>
-                <li onClick={()=>(navigate('/'), navigateTo('beats-component-container'),document.getElementById('nav-sidemenu').style.display='none')}>Beats</li>
-                <li onClick={()=>(navigate('/'), navigateTo('hero-container'),document.getElementById('nav-sidemenu').style.display='none')}>Music</li>
-                <li onClick={()=>(navigate('/'), navigateTo('featured-merchandise-container'),document.getElementById('nav-sidemenu').style.display='none')}>Merchandise</li>
+                <li onClick={()=>(navigate('/beats'),document.getElementById('nav-sidemenu').style.display='none')}>Beats</li>
+                <li onClick={()=>(navigate('/merchandise'),document.getElementById('nav-sidemenu').style.display='none')}>Merchandise</li>
                 <li onClick={()=>(navigate('/'),navigate('/notifications'),document.getElementById('nav-sidemenu').style.display='none')} >
                     <div>
                         <p>Notifications</p>

@@ -24,8 +24,8 @@ const App = () => {
     token&& token!=="" && token
     ?
     <BrowserRouter>
-    <Toaster/>
     <NavbarComponent />
+    <Toaster/>
     <Routes>
       <Route path="/" element={<DashboardPage/>}></Route>
       <Route path="/profile" element={<ProfilePage/>}></Route>

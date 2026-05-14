@@ -18,6 +18,8 @@ const AuthPage = () => {
   const [role,setRole]=useState("");
   const [password,setPassword]=useState("");
 
+  const [loading,setLoading]=useState(false)
+
   
 
   const {setUserId,backend_url,setToken}=useContext(ShopContext);
@@ -75,6 +77,20 @@ const AuthPage = () => {
       
   }
   useEffect(()=>{},[backend_url])
+  if(loading){
+    return(
+      <>
+      <div className="load">
+      <div className="loader">
+    
+      </div>
+      <div className="loader-text">
+        <p>Loading please wait...</p>
+      </div>
+      </div>
+      </>
+    )
+  }
   return (
     <>
       <div className="register-container">
@@ -167,6 +183,7 @@ const AuthPage = () => {
       </div>
     </>
   );
+
 };
 
 export default AuthPage;

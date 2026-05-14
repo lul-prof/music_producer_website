@@ -25,6 +25,136 @@ const ShopContextProvider = (props) => {
 
   const backend_url = import.meta.env.VITE_BACKEND_URL;
 
+  const [beats, setBeats] = useState([]);
+
+  const [artists,setArtists]=useState([]);
+
+  const [blogs,setBlogs]=useState([]);
+
+  const [producers,setProducers]=useState([]);
+
+  const [merchandise, setMerchandise] = useState([]);
+
+  const [users,setUsers]=useState([])
+
+
+  const [notifications,setNotifications]=useState([])
+
+  useEffect(() => {
+    const fetchMerchandise = async () => {
+      try {
+        const response = await axios.get(`${backend_url}/api/user/merchandise`);
+        if (response.data.success) {
+          setMerchandise(response.data.merchandise);
+        } else console.log(response.data.message);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchMerchandise();
+  }, [merchandise, backend_url]);
+
+  useEffect(()=>{
+          const fetchNotifs=async()=>{
+              try {
+                const response=await axios.get(`${backend_url}/api/admin/notifications`); 
+                console.log(response);
+                
+                if(response.data.success){
+                  setNotifications(response.data.notifications);
+                }
+                
+              } catch (error) {
+                  console.log(error);
+                  
+              }
+          }
+          fetchNotifs();       
+      },[notifications,backend_url])
+  useEffect(()=>{
+        const fetchProducers=async()=>{
+            try {
+                const response=await axios.get(`${backend_url}/api/user/producers`);                
+                if(response.data.success){
+                    setProducers(response.data.producers);
+                }else{
+                    console.log(response.data.message);
+                }
+                
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        fetchProducers();
+  },[producers,backend_url])
+
+
+   useEffect(()=>{
+        const fetchUSers=async()=>{
+            try {
+                const response=await axios.get(`${backend_url}/api/user/users`);                
+                if(response.data.success){
+                    setUsers(response.data.users);
+                }else{
+                    console.log(response.data.message);
+                }
+                
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        fetchUSers();
+  },[users,backend_url])
+
+
+  useEffect(()=>{
+        const fetchBlogs=async()=>{
+            try {
+                const response=await axios.get(`${backend_url}/api/user/blogs`);
+                if(response.data.success){
+                    setBlogs(response.data.blogs);
+                }else{
+                    console.log(response.data.message);
+                }
+            } catch (error) {
+                console.log(error);
+                
+            }
+        }
+        fetchBlogs();
+    },[blogs,backend_url])
+
+  useEffect(()=>{
+        const fetchArtists=async()=>{
+            try {
+                const response=await axios.get(`${backend_url}/api/user/artists`);
+                if(response.data.success){
+                    setArtists(response.data.artists);
+                }else{
+                    console.log(response.data.message);
+                }
+                
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        fetchArtists();
+    },[artists,backend_url])
+
+  useEffect(() => {
+    const fetchBeats = async () => {
+      try {
+        const response = await axios.get(`${backend_url}/api/user/beats`);
+        if (response.data.success) {
+          setBeats(response.data.beats);
+        } else console.log(response.data.message);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchBeats();
+  }, [beats, backend_url]);
+
   const addToCart = async (productId) => {
     let cartData = structuredClone(cartItems);
     if (cartData[productId]) {
@@ -36,8 +166,14 @@ const ShopContextProvider = (props) => {
     setCartItems(cartData);
     if (token) {
       try {
-        await axios.post(`${backend_url}/api/user/addToCart`,{productId},{headers:{token}},);
-        toast.success("Item added to cart successfully");
+        const response=await axios.post(`${backend_url}/api/user/addToCart`,{productId},{headers:{token}},);
+        console.log(response);
+        if(response.data.success){
+          toast.success(response.data.message);
+        }else{
+          toast.error(response.data.message)
+        }
+        
       } catch (error) {
         console.log(error);
       }
@@ -203,7 +339,14 @@ const ShopContextProvider = (props) => {
     setCartItems,
     cartItems,
     loading,
-    setLoading
+    setLoading,
+    beats,
+    artists,
+    blogs,
+    producers,
+    merchandise,
+    notifications,
+    users
   };
 
   return (
