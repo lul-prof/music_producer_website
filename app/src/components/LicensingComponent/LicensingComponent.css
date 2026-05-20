@@ -1,0 +1,612 @@
+.licensing{
+    width: 100%;
+    background: linear-gradient(to left,#552586,#9969C7);
+    padding-bottom: 50px;
+}
+
+.licensing .licensing-header{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    align-items: center;
+
+}
+.licensing .licensing-header .licensing-header-left{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.licensing .licensing-header .licensing-header-left img{
+    width: 50px;
+    height: 50px;
+    animation: upTop 2s infinite;
+    opacity: 0.7;
+}
+.licensing .licensing-header .licensing-header-left h1{
+    color: #FFFFFF;
+    font-size: 3vmax;
+    letter-spacing: 2px;
+    text-shadow: 1px 2px 2px #000000;
+}
+
+.licensing .licensing-header .licensing-header-right button{
+    color: #FFFFFF;
+    width: 100%;
+    border: 1px solid #ffd900;
+    padding: 10px;
+    letter-spacing: 2px;
+    border-width: 3px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    outline: 0;
+    font-size: 2vmax;
+    font-weight: 600;
+}
+
+.licensing .licensing-header .licensing-header-right button:hover{
+    cursor: pointer;
+    transform: translateX(-4px);
+    transition: 0.3s ease-in;
+    background-color: #ffd900;
+    color: #000000;
+    border: 0;
+    font-weight: 600;
+}
+
+@keyframes upTop {
+    0%{
+        transform: translateY(10px);
+    }
+    50%{
+        transform: translateY(0);
+    }
+    100%{
+        transform: translateY(-10px);
+    }
+}
+
+.licensing .licensing-circle{
+    width: 150px;
+    height: 150px;
+    border-radius: 100px;
+    background-color: #100D1A;
+    position:absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.licensing ol{
+    list-style:circle;
+}
+.licensing ol li{
+    margin: 10px 0;
+    font-size: 2vmin;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+.licensing .licensing-terms{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px;
+    gap: 10px;
+}
+
+.licensing .licensing-terms .basic{
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background: #ffd900;
+    color: #000000;
+    padding: 10px;
+    border-radius: 5px;
+    transform: translateY(-10px);
+    box-shadow: 0 8px 32px 0 rgba(0,0,0, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(0,0,0, 0.3);
+}
+.licensing .licensing-terms .basic:hover{
+    cursor: pointer;
+    transform: translateY(10px);
+    background: #100D1A;
+    color: #FFFFFF;
+    inset: initial;
+    transition: 0.5s ease;
+}
+.licensing .licensing-terms .basic .basic-top{
+    text-align: center;
+    
+}
+.licensing .licensing-terms .basic .basic-top h1{
+    font-size: 3vmin;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+.licensing .licensing-terms .basic .basic-mid{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.licensing .licensing-terms .basic .basic-mid h3{
+    text-align: center;
+    color: #000000;
+}
+
+.licensing .licensing-terms .basic .basic-mid h2{
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.licensing .licensing-terms .basic .basic-deal{
+    font-weight: 600;
+    letter-spacing: 2px;
+    font-size: 2vmin;
+}
+
+.licensing .licensing-terms .standard{
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background: #100D1A;
+    color: #FFFFFF;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 8px 32px 0 rgba(0,0,0, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(0,0,0, 0.3);
+}
+
+.licensing .licensing-terms .standard:hover{
+    cursor: pointer;
+    transform: translateY(-10px);
+    background: #ffd900;
+    color: #000000;
+    inset: initial;
+    transition: 0.5s ease;
+}
+
+.licensing .licensing-terms .standard .standard-top{
+    text-align: center;
+}
+.licensing .licensing-terms .standard .standard-top h1{
+    font-size: 3vmin;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+.licensing .licensing-terms .standard .standard-mid{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.licensing .licensing-terms .standard .standard-mid h2{
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.licensing .licensing-terms .standard .standard-deal{
+    font-weight: 600;
+    letter-spacing: 2px;
+    font-size: 2vmin;
+}
+
+
+.licensing .licensing-terms .premium{
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background: #100D1A;
+    color: #FFFFFF;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 8px 32px 0 rgba(0,0,0, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(0,0,0, 0.3);
+}
+
+.licensing .licensing-terms .premium:hover{
+    cursor: pointer;
+    transform: translateY(-10px);
+    background: #ffd900;
+    color: #000000;
+    inset: initial;
+    transition: 0.5s ease;
+}
+
+.licensing .licensing-terms .premium .premium-top{
+    text-align: center;
+}
+.licensing .licensing-terms .premium .premium-top h1{
+    font-size: 3vmin;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+.licensing .licensing-terms .premium .premium-mid{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.licensing .licensing-terms .premium .premium-mid h2{
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+.licensing .licensing-terms .premium .premium-deal{
+    font-weight: 600;
+    letter-spacing: 2px;
+    font-size: 2vmin;
+}
+
+
+
+.licensing .licensing-terms .unlimited{
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background: #100D1A;
+    color: #FFFFFF;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 8px 32px 0 rgba(0,0,0, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(0,0,0, 0.3);
+}
+.licensing .licensing-terms .unlimited:hover{
+    cursor: pointer;
+    transform: translateY(-10px);
+    background: #ffd900;
+    color: #000000;
+    inset: initial;
+    transition: 0.5s ease;
+}
+.licensing .licensing-terms .unlimited .unlimited-top{
+    text-align: center;
+}
+.licensing .licensing-terms .unlimited .unlimited-top h1{
+    font-size: 3vmin;
+    font-weight: 600;
+    letter-spacing: 2px
+}
+.licensing .licensing-terms .unlimited .unlimited-mid{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.licensing .licensing-terms .unlimited .unlimited-mid h2{
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+.licensing .licensing-terms .unlimited .unlimited-deal{
+    font-weight: 600;
+    letter-spacing: 2px;
+    font-size: 2vmin;
+}
+
+
+/*---------------------------------------------*/
+
+@media (max-width:600px) and (min-width:50px) {
+.licensing{
+    width: 100%;
+}
+.licensing .licensing-header{
+    display: flex;
+    padding: 10px;
+    align-items: center;
+}
+.licensing .licensing-header .licensing-header-left{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    z-index: 1;
+    padding: 25px 0;
+}
+.licensing .licensing-header .licensing-header-left img{
+    width:25px;
+    height: 25px;
+    opacity: 0.75;
+}
+.licensing .licensing-header .licensing-header-left h1{
+    font-size: 2.5vmax;
+}
+.licensing .licensing-header .licensing-header-right{
+    z-index: 1;
+   
+}
+.licensing .licensing-header .licensing-header-right button{
+    width: 100%;
+    font-size: 1.8vmax;
+    padding: 8px;
+}
+
+.licensing .licensing-circle{
+    width: 100px;
+    height: 100px;
+    transform: translate(-50%, -60%);
+    
+}
+.licensing ol{
+    list-style:circle;
+}
+.licensing ol li{
+    margin: 10px 0;
+    font-size: 2vmax;
+    font-weight: 500;
+}
+.licensing .licensing-terms{
+    width: 100%;
+    display: grid;
+    grid-template-columns:1fr;
+    padding: 10px;
+    gap: 5px;
+}
+
+.licensing .licensing-terms .basic{
+    width: 100%;
+}
+.licensing .licensing-terms .basic .basic-top{
+    text-align: center;
+}
+.licensing .licensing-terms .basic .basic-top h1{
+    font-size: 3vmax;
+}
+.licensing .licensing-terms .basic .basic-mid{
+    gap: 5px;
+}
+.licensing .licensing-terms .basic .basic-mid h3{
+    text-align: center;
+    color: #000000;
+}
+
+.licensing .licensing-terms .basic .basic-mid h2{
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.licensing .licensing-terms .basic .basic-deal{
+    font-weight: 650;
+    font-size: 2vmax;
+}
+
+.licensing .licensing-terms .standard{
+    width: 100%;
+}
+
+.licensing .licensing-terms .standard .standard-top{
+    text-align: center;
+}
+.licensing .licensing-terms .standard .standard-top h1{
+    font-size: 3vmax;
+}
+.licensing .licensing-terms .standard .standard-mid{
+    gap: 5px;
+}
+
+.licensing .licensing-terms .standard .standard-mid h2{
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.licensing .licensing-terms .standard .standard-deal{
+    font-weight: 650;
+    font-size: 2vmax;
+}
+
+.licensing .licensing-terms .premium{
+    width: 100%;
+}
+.licensing .licensing-terms .premium .premium-top{
+    text-align: center;
+}
+.licensing .licensing-terms .premium .premium-top h1{
+    font-size: 3vmax;
+}
+.licensing .licensing-terms .premium .premium-mid{
+    text-align: center;
+}
+
+.licensing .licensing-terms .premium .premium-mid h2{
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+.licensing .licensing-terms .premium .premium-deal{
+    font-weight: 650;
+    letter-spacing: 2px;
+    font-size: 2vmax;
+}
+.licensing .licensing-terms .unlimited{
+    width: 100%;
+}
+
+.licensing .licensing-terms .unlimited .unlimited-top{
+    text-align: center;
+}
+.licensing .licensing-terms .unlimited .unlimited-top h1{
+    font-size: 3vmax;
+}
+.licensing .licensing-terms .unlimited .unlimited-mid{
+    text-align: center;
+}
+.licensing .licensing-terms .unlimited .unlimited-mid h2{
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+.licensing .licensing-terms .unlimited .unlimited-deal{
+    font-weight: 650;
+    letter-spacing: 2px;
+    font-size: 2vmax;
+}    
+}
+
+
+@media (max-width:1150px) and (min-width:601px) {
+.licensing{
+    width: 100%;
+}
+.licensing .licensing-header{
+    display: flex;
+    padding: 20px;
+    align-items: center;
+}
+.licensing .licensing-header .licensing-header-left{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    z-index: 1;
+    padding: 25px 0;
+}
+.licensing .licensing-header .licensing-header-left img{
+    width:25px;
+    height: 25px;
+    opacity: 0.75;
+}
+.licensing .licensing-header .licensing-header-left h1{
+    font-size: 2.5vmax;
+}
+.licensing .licensing-header .licensing-header-right{
+    z-index: 1;
+   
+}
+.licensing .licensing-header .licensing-header-right button{
+    width: 100%;
+    font-size: 1.8vmax;
+    padding: 8px;
+}
+
+.licensing .licensing-circle{
+    width: 100px;
+    height: 100px;
+    transform: translate(-50%, -60%);
+    
+}
+.licensing ol{
+    list-style:circle;
+}
+.licensing ol li{
+    margin: 10px 0;
+    font-size: 2vmax;
+    font-weight: 500;
+}
+.licensing .licensing-terms{
+    width: 100%;
+    display: grid;
+    grid-template-columns:1fr 1fr;
+    padding: 20px;
+    gap: 5px;
+}
+
+.licensing .licensing-terms .basic{
+    width: 100%;
+}
+.licensing .licensing-terms .basic .basic-top{
+    text-align: center;
+}
+.licensing .licensing-terms .basic .basic-top h1{
+    font-size: 3vmax;
+}
+.licensing .licensing-terms .basic .basic-mid{
+    gap: 5px;
+}
+.licensing .licensing-terms .basic .basic-mid h3{
+    text-align: center;
+    color: #000000;
+}
+
+.licensing .licensing-terms .basic .basic-mid h2{
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.licensing .licensing-terms .basic .basic-deal{
+    font-weight: 650;
+    font-size: 2vmax;
+}
+
+.licensing .licensing-terms .standard{
+    width: 100%;
+}
+
+.licensing .licensing-terms .standard .standard-top{
+    text-align: center;
+}
+.licensing .licensing-terms .standard .standard-top h1{
+    font-size: 3vmax;
+}
+.licensing .licensing-terms .standard .standard-mid{
+    gap: 5px;
+}
+
+.licensing .licensing-terms .standard .standard-mid h2{
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.licensing .licensing-terms .standard .standard-deal{
+    font-weight: 650;
+    font-size: 2vmax;
+}
+
+.licensing .licensing-terms .premium{
+    width: 100%;
+}
+.licensing .licensing-terms .premium .premium-top{
+    text-align: center;
+}
+.licensing .licensing-terms .premium .premium-top h1{
+    font-size: 3vmax;
+}
+.licensing .licensing-terms .premium .premium-mid{
+    text-align: center;
+}
+
+.licensing .licensing-terms .premium .premium-mid h2{
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+.licensing .licensing-terms .premium .premium-deal{
+    font-weight: 650;
+    letter-spacing: 2px;
+    font-size: 2vmax;
+}
+.licensing .licensing-terms .unlimited{
+    width: 100%;
+}
+
+.licensing .licensing-terms .unlimited .unlimited-top{
+    text-align: center;
+}
+.licensing .licensing-terms .unlimited .unlimited-top h1{
+    font-size: 3vmax;
+}
+.licensing .licensing-terms .unlimited .unlimited-mid{
+    text-align: center;
+}
+.licensing .licensing-terms .unlimited .unlimited-mid h2{
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+.licensing .licensing-terms .unlimited .unlimited-deal{
+    font-weight: 650;
+    letter-spacing: 2px;
+    font-size: 2vmax;
+}    
+}

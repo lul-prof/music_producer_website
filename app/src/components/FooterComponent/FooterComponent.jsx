@@ -61,7 +61,7 @@ const FooterComponent = () => {
       {/*---------------Footer center---------------- */}
       <div className="footer-center">
         <div className="footer-center-header">
-          <h1>Site Map</h1>
+          <h1>SITE MAP</h1>
         </div>
         <div className="footer-center-links">
           <ul>
@@ -81,7 +81,7 @@ const FooterComponent = () => {
       {/*---------------Footer right---------------- */}
       <div className="footer-right">
         <div className="footer-right-header">
-          <h1>Newsletter</h1>
+          <h1>NEWSLETTER</h1>
         </div>
         <div className="footer-right-form">
           <form onSubmit={handleSubmit} method='post'>

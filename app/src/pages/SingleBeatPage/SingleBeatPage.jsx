@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { assets } from "../../assets/assets";
 import "./SingleBeatPage.css";
@@ -7,6 +7,7 @@ import { ShopContext } from "../../Context/ShopContext";
 const SingleBeatPage = () => {
   const { id } = useParams();
   const navigate=useNavigate();
+  
 
   const { currency, addToCart,token,beats } = useContext(ShopContext);
 
@@ -16,10 +17,15 @@ const SingleBeatPage = () => {
 
   const beat=beats.find(b=>b._id===id);
 
+  useEffect(() => {
+  
+  }, [id])
+  
+
   return (
     <>
       <div className="single-beat-container">
-        <div className="single-beat">
+        <div id={beat?._id} className="single-beat">
           {/*----------------------*/}
           <div className="single-beat-left" id="single-beat-left">
             <div className="single-beat-left-image">
@@ -28,6 +34,7 @@ const SingleBeatPage = () => {
              
               <div className="single-beat-preview">
                 <audio
+                id={beat?._id}
                     controls
                     preload="auto"
                     controlsList="nodownload"

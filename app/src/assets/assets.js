@@ -70,7 +70,6 @@ import blogImage5 from "./blog7.jpeg";
 import blogImage6 from "./blog8.jpeg";
 import blogImage7 from "./blog9.jpeg";
 import blogImage8 from "./blog10.jpeg";
-import heroImage from "./hero.jpeg";
 import heroImage1 from "./hero1.jpeg";
 import heroImage2 from "./hero2.jpeg";
 import heroImage3 from "./hero3.jpeg";
@@ -156,6 +155,9 @@ import producer5 from './producer5.jpeg'
 import producer6 from './producer6.jpeg'
 import producer7 from './producer7.jpeg'
 import producer8 from './producer8.jpeg'
+import hero from './Hero.jpg'
+import hero_banner from './hero_banner.jpg'
+import hero_mobile from './hero_resp.jpg'
 import hero1 from './hero_1.jpeg'
 import hero2 from './hero_2.jpeg'
 import hero3 from './hero_4.jpeg'
@@ -180,6 +182,19 @@ import piano2 from './piano_2.jpeg'
 import piano3 from './piano_3.jpeg'
 import eq from './eq.jpeg'
 import mics from  './miccheck_purple.jpeg'
+import beatsIcon from './beat.png'
+import recording from './voice-rec.png'
+import mixing from './music-mixing.png'
+import brochure from './THE_DON.jpg'
+import bullet from './list-music.png'
+import time from './24-hours.png'
+import preview from './eye.png'
+import preview_y from './eye_2.png'
+import preview_b from './eye_3.png'
+import LCTA from './piano.jpeg'
+import lcta2 from './cta.jpg'
+
+
 
 
 export const assets = {
@@ -255,7 +270,9 @@ export const assets = {
   blogImage6,
   blogImage7,
   blogImage8,
-  heroImage,
+  hero,
+  hero_banner,
+  hero_mobile,
   heroImage1,
   heroImage2,
   heroImage3,
@@ -332,7 +349,27 @@ export const assets = {
   piano2,
   piano3,
   eq,
-  mics
+  mics,
+  stunnaPic,
+  topBPic,
+  profPic,
+  sparrohPic,
+  zienPic,
+  steeviePic,
+  pedroPic,
+  kusuPic,
+  toxicPic,
+  beatsIcon,
+  recording,
+  mixing,
+  brochure,
+  bullet,
+  time,
+  preview,
+  preview_y,
+  preview_b,
+  LCTA,
+  lcta2
 }
 
 export const products = [
@@ -1501,4 +1538,48 @@ export const reviews=[
     "images":[shivaPic],
     "review":"The Don used the B-flat piano concerto to introduce himself to the general public and demonstrate to them his formidable keyboard skills."
   }
+]
+
+export const faqs=[
+  {
+    "_id":"f001",
+    "faq":"Are the beats still tagged when I purchase a license?",
+    "ans":"No, all licenses come with untagged files."
+  },
+  {
+    "_id":"f002",
+    "faq":"Will I own the beat once I purchase it from your store?",
+    "ans":"No. All purchases made from the Beat Store are non-exclusive. This means that the producer still owns the rights and we will still be able to license it to other artists."
+  },
+  {
+    "_id":"f003",
+    "faq":"Which payment methods do you accept?",
+    "ans":"We accept PayPal and Mpesa payments only"
+  },
+  {
+    "_id":"f004",
+    "faq":"Can I download the files directly after I make the payment?",
+    "ans":"Yes. After you've made the payment you will be redirected to a secure download area where you can instantly download the files. A confirmation email, which includes the download links, will be sent as well."
+  },
+  {
+    "_id":"f005",
+    "faq":"I'm looking for a beat but I can't find it in your Beat Store?",
+    "ans":"There’s a search bar top left of the beat store.  1. Click on “Search” 2. Type in the name of the beat and wait till it shows up. If the beat still doesn’t show up, it might be sold exclusively. In that case it’s no longer available."
+  },
+  {
+    "_id":"f006",
+    "faq":"Do you offer package deals?",
+    "ans":"Yes, we offer bundle deals at discounted rates for any type of license"
+  },
+  {
+    "_id":"f007",
+    "faq":"Do I have to pay you any royalties or additional fees when I release my song(s)?",
+    "ans":"Yes, all non-exclusive licenses shall be split 50/50 % in royalties. Exclusive Rights however are 100% royalty-free! See terms and conditions for more info and our BMI info for performance rights registration."
+  },
+  {
+    "_id":"f008",
+    "faq":"How do I give proper credit?",
+    "ans":"Proper credit is given as follows in written form: ‘Beat by The Don’; ‘Beat produced by The Don’; ‘Beat by The Don 254’. Downloadable files need to include ‘(Beat by The Don)’ within the filename. All displayed and uploaded content needs to include written credit in either the title or description. Hard copies such as CDs, LPs, etc. need to include written credit in booklets, covers or labels."
+  }
+
 ]

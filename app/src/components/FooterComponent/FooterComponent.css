@@ -7,26 +7,37 @@
     background-color: #000000;
     color:#FAF9F6;
     border: 0;
-    border-top: 0.5px solid #BF40BF;
     display: flex;
     padding: 10px;
     justify-content: space-between;
+    gap: 10px;
    
 }
 .footer-container .footer-left{
-    width: 35%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 .footer-container .footer-left p{
-    color: #BF40BF;
+    color: #FFFFFF;
+    font-size: 2vmin;
 }
 .footer-container .footer-left .footer-left-links{
     display: flex;
     gap: 0.5rem;
 }
 
+.footer-container .footer-left .footer-left-logo h1{
+    font-size: 2vmax;
+    color: #7b2fbe;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
 .footer-container .footer-left .footer-left-developer a{
     text-decoration: none;
-    color: #BF40BF;
+    color: #FFFFFF;
     font-style: italic;
 }
 
@@ -40,8 +51,18 @@
 }
 
 .footer-container .footer-center{
-    width: 35%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
 
+.footer-container .footer-center h1{
+    font-size: 2vmax;
+    color: #7b2fbe;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    font-weight: 600;
 }
 
 .footer-container .footer-center .footer-center-links ul{
@@ -50,7 +71,8 @@
 }
 .footer-container .footer-center .footer-center-links ul li{
     margin: 10px;
-    color: #BF40BF;
+    color: #FFFFFF;
+    font-size: 2vmin;
 }
 
 .footer-container .footer-center .footer-center-links ul li:hover{
@@ -60,26 +82,35 @@
 }
 
 .footer-container .footer-right{
-    width: 30%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
-
+.footer-container .footer-right h1{
+    font-size: 2vmax;
+    color: #7b2fbe;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
 .footer-right form input{
     background: #FAF9F6;
-    width: 95%;
+    width: 100%;
     padding: 10px;
     border: 1px solid #FAF9F6;
     outline: 0;
     border-radius: 5px;
     color: #000000;
     margin-top: 10px;
+    font-size: 2vmin;
 }
 
 .footer-right form button{
-    width: 95%;
+    width: 100%;
     padding: 10px;
     margin-top: 2px;
-    background-color: #BF40BF;
-    color: #FAF9F6;
+    background-color: #7b2fbe;
+    color: #000000;
     font-weight: 600;
     outline: 0;
     border: 0;
@@ -92,19 +123,21 @@
 }
 
 .footer hr{
-    border: 0.2px solid #BF40BF;
+    border: 0.2px solid #7b2fbe;
     opacity: 0.2;
 }
 
 #footer-p{
     text-align: center;
     padding: 5px;
-    color: #BF40BF;
+    color:#FFFFFF;
+    letter-spacing: 2px;
+    word-spacing: 2px;
 }
 
 .footer-center-links a{
  text-decoration: none;
- color: #BF40BF;
+ color: #7b2fbe;
 }
 
 @media (max-width:765px) and (min-width:100px) {

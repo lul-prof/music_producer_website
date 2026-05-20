@@ -58,7 +58,6 @@ const ShopContextProvider = (props) => {
           const fetchNotifs=async()=>{
               try {
                 const response=await axios.get(`${backend_url}/api/admin/notifications`); 
-                console.log(response);
                 
                 if(response.data.success){
                   setNotifications(response.data.notifications);

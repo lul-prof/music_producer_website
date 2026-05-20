@@ -1,0 +1,291 @@
+.services{
+    width: 100%; 
+    background: linear-gradient(to top,#552586,#9969C7);
+    padding: 10px;
+    padding-bottom: 50px;
+}
+.services .services-header{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px 0;
+}
+.services .services-header .services-header-left h1{
+    font-size: 3vmax;   
+    font-weight: 600;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    color: #FFFFFF;
+    text-shadow: 1px 2px 2px #100D1A;
+}
+.services .services-header .services-header-right img{
+    width: 50px;
+    height: 50px;
+    animation: rotate 5s infinite;
+}
+@keyframes rotate {
+    0%{
+        transform: rotate(0);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+    
+}
+.services .services-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 10px;
+}
+.services .services-container .services-left{
+    width:100%;
+    background: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    background: linear-gradient(to right,#ffd900,#ffd700);
+    box-shadow: 0 8px 32px #100D1A;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid #100D1A;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    animation: opace 5s ease;
+}
+.services .services-container .services-left:hover{
+    cursor: pointer;
+    transform: translateY(5px);
+    transition: 0.5s ease-in;
+}
+.services .services-container .services-left h1{
+    font-size: 3vmin;
+    font-weight: 600;
+    word-spacing: 2px;
+    letter-spacing: 2px;
+}
+.services .services-container .services-left p{
+    font-size: 2vmin;
+    word-spacing: 2px;
+    font-weight: 500;
+}
+.services .services-container .services-left .service-img{
+    max-width: 10vmin;
+    max-height: 10vmax;
+    align-self: center;
+}
+.services .services-container .services-mid{
+    width:100%;
+    background: linear-gradient(to right,#ffd900,#ffd700);
+    box-shadow: 0 8px 32px #100D1A;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid #100D1A;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    animation: opace 5s ease;
+}
+.services .services-container .services-mid:hover{
+    cursor: pointer;
+    transform: translateY(5px);
+    transition: 0.5s ease-in;
+}
+.services .services-container .services-mid h1{
+    font-size: 3vmin;
+    font-weight: 600;
+    word-spacing: 2px;
+    letter-spacing: 2px;
+}
+.services .services-container .services-mid p{
+    font-size: 2vmin;
+    word-spacing: 2px;
+    font-weight: 500;
+}
+.services .services-container .services-mid .service-img{
+    max-width: 10vmin;
+    max-height: 10vmax;
+    align-self: center;
+}
+ 
+.services .services-container .services-right{
+    width:100%;
+    background: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    background: linear-gradient(to right,#ffd900,#ffd700);
+    box-shadow: 0 8px 32px #100D1A;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid #100D1A;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    animation: opace 5s ease;
+}
+.services .services-container .services-right:hover{
+    cursor: pointer;
+    transform: translateY(5px);
+    transition: 0.5s ease-in;
+}
+.services .services-container .services-right h1{
+    font-size: 3vmin;
+    font-weight: 600;
+    word-spacing: 2px;
+    letter-spacing: 2px;
+}
+
+.services .services-container .services-right p{
+    font-size: 2vmin;
+    word-spacing: 2px;
+    font-weight: 500;
+}
+
+.services .services-container .services-right .service-img{
+    max-width: 10vmin;
+    max-height: 10vmax;
+    align-self: center;
+}
+.services .brochure-btn{
+    width: 100%;
+    text-align: center;
+    margin: 50px 0;
+    
+}
+
+.services .brochure-btn button{
+    background:transparent;
+    padding: 10px;
+    border-top-left-radius:10px;
+    border-bottom-right-radius: 10px;
+    border: 2px solid #ffd900;
+    outline: 0;
+    color: #FFFFFF;
+    box-shadow: 0 2px 8px #ffd700;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(8px);
+    letter-spacing: 3px;
+    
+}
+.services .brochure-btn button:hover{
+    cursor: pointer;
+    background: #ffd900;
+    color: #000000;
+    box-shadow: 0 0 0;
+    backdrop-filter: blur(0);
+    -webkit-backdrop-filter: blur(0);
+    transition: 0.5s ease;
+    font-weight: 500;
+}
+
+@keyframes opace {
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0.5;
+    }
+    
+}
+
+@media (max-width:500px) and (min-width:50px) {
+.services{
+    width: 100%; 
+    padding: 10px;
+    min-height: fit-content;
+    overflow-x: hidden;
+    padding-bottom: 35px;
+}
+.services .services-header{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px 0;
+}
+.services .services-header .services-header-left h1{
+    font-size: 3vmax;   
+    font-weight: 600;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    color: #FFFFFF;
+    text-shadow: 1px 2px 2px #100D1A;
+}
+.services .services-header .services-header-right img{
+    width: 35px;
+    height: 35px;
+}
+
+.services .services-container{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+.services .services-container .services-left{
+    width:100%;
+    padding: 20px;
+    text-align: center;
+    gap: 5px;
+}
+
+.services .services-container .services-left h1{
+    font-size: 3vmax;
+}
+.services .services-container .services-left p{
+    font-size: 2vmax;
+}
+.services .services-container .services-left .service-img{
+    max-width: 20vmin;
+    max-height: 20vmax;
+    align-self: center;
+}
+.services .services-container .services-mid{
+    width:100%;
+    gap: 5px;
+}
+.services .services-container .services-mid h1{
+    font-size: 3vmax;
+}
+.services .services-container .services-mid p{
+    font-size: 2vmax;
+}
+.services .services-container .services-mid .service-img{
+    max-width: 20vmin;
+    max-height: 20vmax;
+}
+ 
+.services .services-container .services-right{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.services .services-container .services-right h1{
+    font-size: 3vmax;
+}
+
+.services .services-container .services-right p{
+    font-size: 2vmax;
+}
+
+.services .services-container .services-right .service-img{
+    max-width: 20vmin;
+    max-height: 20vmax;
+    align-self: center;
+}
+.services .brochure-btn{
+    width: 100%;
+    text-align: center;
+    margin:25px 0;    
+}
+.services .brochure-btn button{
+    text-align: center;
+}   
+}

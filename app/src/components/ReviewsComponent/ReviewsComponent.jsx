@@ -1,48 +1,57 @@
 import React from 'react'
 import './ReviewsComponent.css'
-import TitleComponent from '../TitleComponent/TitleComponent'
 import { assets, reviews } from '../../assets/assets'
 
 const ReviewsComponent = () => {
   return (
     <>
-    <div className="reviews">
-        <div className="reviews-header">
-            <h2>CUSTOMER REVIEWS</h2>
-            <h4>WHAT CLIENTS SAY ABOUT US</h4>
-            <h4>YOUR VIEWS AND OPINIONS MATTER</h4>
-            <hr />
+    <section className="reviews">
+        {/*------------------------*/}
+        <div className="reviews-circle">
+
         </div>
-        
-        <div className="reviews-class"> 
-                {
-                reviews.map((review)=>(
-                    <>
-                    <div className="review-class">
-                        <div className="review-class-top">
-                            <div className="review-class-top-left">
-                                <img src={review.images[0]} alt="" />
-                            </div>
-                            <div className="review-class-top-right">
-                                <p>{review.name}</p>
-                            </div>
+        {/*------------------------*/}
+        <div className="reviews-header">
+            <div className="reviews-header-left">
+                <header>
+                    <h1>TESTIMONIALS</h1>
+                </header>
+            </div>
+            <div className="reviews-header-right">
+                <button>BUY NOW</button>
+            </div>
+        </div>
+        <div className="reviews-mid">
+            <h2>GET TO SEE WHAT CLIENTS SAY ABOUT THE DON. THE AIM IS TO ACHIEVE QUALITY WHILE PUTTING OUT QUANTITY.</h2>
+        </div>
+        {/*------------------------*/}
+        <div className="reviews-container">
+            {
+                reviews.map((review,index)=>(
+                    <div key={index} className="review">
+                        <div className="review-top">
+                            <img src={assets.star} alt="rating" />
+                            <img src={assets.star} alt="rating" />
+                            <img src={assets.star} alt="rating" />
+                            <img src={assets.star} alt="rating" />
+                            <img src={assets.star} alt="rating" />
                         </div>
-                        <div className="review-class-center">
-                            <img src={assets.star} alt="image" />
-                            <img src={assets.star} alt="image" />
-                            <img src={assets.star} alt="image" />
-                            <img src={assets.star} alt="image" />
-                        </div>
-                        <div className="review-class-bottom">
+                        <div className="review-mid">
                             <p>{review.review}</p>
                         </div>
+                        <div className="review-bottom">
+                            <div className="review-bottom-left">
+                                <img src={review.images[0]} alt="avatar" />
+                            </div>
+                            <div className="review-bottom-right">
+                                <h2>{review.name}</h2>
+                            </div>
+                        </div>
                     </div>
-                    </>
-                    ))
-                }  
+                ))
+            }
         </div>
-       
-    </div>
+    </section>
     </>
   )
 }

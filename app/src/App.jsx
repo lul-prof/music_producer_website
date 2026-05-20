@@ -35,6 +35,9 @@ import ReviewsComponent from './components/ReviewsComponent/ReviewsComponent'
 import MerchandisePage from './pages/MerchandisePage/MerchandisePage'
 import BeatsPage from './pages/BeatsPage/BeatsPage'
 import UpdateProfilePage from './pages/UpdateProfilePage/UpdateProfilePage'
+import ServicesComponent from './components/ServicesComponent/ServicesComponent'
+import LicensingComponent from './components/LicensingComponent/LicensingComponent'
+import FaqComponent from './components/FaqComponent/FaqComponent'
 
 
 let DefaultIcon = L.icon({
@@ -54,13 +57,11 @@ const App = () => {
       <Route path='/' element={
         <>
         <HeroComponent/>
+        <ServicesComponent/>
         <BeatsComponent/>
-        <HeroSearch/>
-        <MerchandiseComponent/>
+        <LicensingComponent/>
+        <FaqComponent/>
         <ReviewsComponent/>
-        <FeaturedArtistsComponents/>
-        <FeaturedProducersComponents/>
-        <FeaturedBlogsComponent/>
         <AboveFooterComponent/>
         </>
       }>

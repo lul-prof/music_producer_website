@@ -1,31 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap');
 .navbar{
-    margin-bottom: 55px;
+    padding-bottom: 65px;
 }
 .navbar-container{
     position: fixed;
     top: 0;
-    z-index: 1;
+    z-index: 1000;
     width: 100%;
     display: flex;
     justify-content: space-between;
-    background-color:#000000;
-    padding: 5px;
-    border-bottom: 0.5px solid #BF40BF;
+    background:#000000;
+    padding: 10px;
     align-items: center;
 }
-
 .navbar-container img{
     width: 30px;
     height: 30px;
 }
-
+.navbar-container img:hover{
+    cursor: pointer;
+}
 .navbar-container #nav-menu-icon{
     width: 30px;
     height: 40px;
     margin-right: 20px;
 }
-
 .navbar-container #nav-cart-icon{
     width: 30px;
 }
@@ -33,17 +31,6 @@
 .navbar-container #nav-user-icon{
     width: 30px;
 }
-.navbar-container #navbar-dropdown{
-    width: 20px;
-    height: 20px;
-    position: relative;
-    top: 15px;
-}
-
-.navbar-container img:hover{
-    cursor: pointer;
-}
-
 
 .navbar-container .navbar-left{
     display: flex;
@@ -58,68 +45,23 @@
 }
 
 .navbar-container .navbar-left .navbar-logo h1{
-    font-family: "EB Garamond", serif;
     font-optical-sizing: auto;
+    font-size: 2vmax;
     word-spacing: 10px;
     font-style: normal;
     font-weight: 700;
     text-align: center;
-    color: #BF40BF;
+    color: #7b2fbe;
 }
 
 .navbar-container .navbar-right{
     display: flex;
-    gap: 2rem;
+    justify-content: space-between;
+    gap: 20px;
 }
 
 .navbar-container .navbar-right .navbar-user{
     display: flex;
-}
-
-.navbar-container .navbar-right .navbar-user h4{
-    align-self: flex-end;
-    color: #BF40BF;
-    position: relative;
-    
-}
-
-#navbar-dropdown:hover{
-   transform: rotate(180deg);
-}
-
-.drop-down-hover{
-    z-index: 1000;
-    position: fixed;
-    right: 5px;
-    margin-top: 10px;
-    width: 250px;
-    height: fit-content;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 10px;
-    display: none;
-}
-
-.drop-down-hover ul{
-    list-style: none;
-}
-
-.drop-down-hover ul li{
-    margin: 10px;
-    color: #FFF;
-}
-.drop-down-hover ul li:hover{
-    cursor: pointer;
-}
-
-.drop-down-hover ul hr{
-    margin-top: 30px;
-    border-color: #BF40BF;
-    opacity: 0.5;
 }
 
 .nav-sidemenu{
@@ -127,17 +69,30 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 250px;
+    width: 300px;
     height: 100%;
-    background-color: #C0C0C0;
+    background-color: #FAF9F6;
     display: none;
     overflow-y: auto;
+    transition: 0.5s ease-in-out;
 }
 
 .nav-sidemenu .sidemenu-header {
-    background-color: #000000;
+    background-color: #7b2fbe;
+    padding: 20px;
+    text-align: center;
+    font-size: 4vmin;
+    font-weight: 600;
+    letter-spacing: 4px;
+    min-height: 100px;  
 }
-
+.nav-sidemenu .sidemenu-header h1{
+    align-self: center;
+    justify-self: center;
+}
+.nav-sidemenu .sidemenu-header:hover{
+    cursor: pointer;
+}
 .nav-sidemenu .sidemenu-header img{
     width: 50%;
     justify-self: center;
@@ -147,8 +102,8 @@
 .nav-sidemenu .sidemenu-footer{
     position: fixed;
     bottom: 0;
-    width: 250px;
-    background-color: #000000;
+    width:300px;
+    background-color: #7b2fbe;
 }
 .nav-sidemenu .sidemenu-footer img{
     width: 20%;
@@ -168,10 +123,13 @@
 }
 .nav-sidemenu .sidemenu-list ul li{
     margin: 20px 0px;
+    font-size: 2.5vmin;
 }
 .nav-sidemenu .sidemenu-list ul li:hover{
     cursor: pointer;
-    font-size: 15px;
+    transform: translateY(5px);
+    transition: 0.3s ease;
+    letter-spacing: 4px;
 }
 
 #nav-cart-count{
@@ -193,22 +151,8 @@
 #nav-user-icon{
     border-radius: 100px;
 }
-#green-dot-notifs{
-    width: 10px;
-    height: 10px;
-    background-color: #32CD32;
-    border-radius: 100px;
-    position: relative;
-    left: 93px;
-    bottom: 13px;
-}
+
 /*---------------------Mobile screens-------------------------*/
-@media (max-width:768px){
-.drop-down-hover{
-    right: 5px;
-    margin-top: 5px;
-}
-}
 
 @media (max-width:500px) and (min-width:100px) {
 .navbar-container .navbar-left .navbar-logo{
@@ -216,11 +160,9 @@
     word-spacing: 5px;
     letter-spacing: 2px;
 }
-
 .navbar-container .navbar-left .navbar-logo h1{
-    font-size:x-large;
+    font-size: x-large;
 }
-
 .navbar-container .navbar-right{
     display: flex;
     gap: 10px;
