@@ -53,14 +53,14 @@ const HeroComponent = () => {
               <h2>TRUSTED BY MAINSTREAM KENYAN ARTISTS</h2>
             </div>
             <div className="hero-content-left-bottom-2">
-              <p>WELCOME</p>
+              <h2>WELCOME</h2>
             </div>
           </div>
           {/*----------------------------*/}
           <div className="hero-content-right">
             <div className="hero-content-right-text">
-              <h1>TIRED OF MEDIOCRE BEATS</h1>
-              <p>STRESS NO MORE<span> THE DON </span>GOT YOU COVERED</p>
+              <h1>TIRED OF MEDIOCRE BEATS?</h1>
+              <h2>STRESS NO MORE<span> THE DON </span>GOT YOU COVERED</h2>
             </div>
             <div className="hero-content-right-btn">
             <Link to={'/beats'}> <button>SHOP NOW</button></Link> 
@@ -83,7 +83,7 @@ const HeroComponent = () => {
           <div className="mobile-content-top">
             <div className="mobile-content-top-text">
               <h2>LOOKING FOR BEATS?</h2>
-              <p>STRESS NO MORE<span> THE DON </span>GOT YOU COVERED DEAR ARTIST</p>
+              <h3>STRESS NO MORE<span> THE DON </span>GOT YOU COVERED</h3>
             </div>
             <div className="mobile-content-top-btn">
              <Link to={'/beats'}><button>SHOP NOW</button></Link> 
@@ -91,7 +91,7 @@ const HeroComponent = () => {
           </div>
           <div className="hero-mid">
             <div className="hero-mid-text">
-              <p>TRUSTED BY MAINSTREAM KENYAN ARTISTS</p>
+              <h2>TRUSTED BY MAINSTREAM KENYAN ARTISTS</h2>
               <div className="hero-mid-images">
                 <div className="hero-mid-img">
                   <img
@@ -146,36 +146,50 @@ const HeroComponent = () => {
       {/*-----------------------------*/}
       <div className="social-proof">
         <div className="social-proof-content">
-          <div className="artist-1">
+          <div className="artist-0">
+            <p>TRUSTED BY:</p>
+          </div>
+          <div id="artist-proof" className="artist-1">
+            <img src={assets.bullet2} alt="bullet" />
             <p>METRO STUNNA</p>
           </div>
-          <div className="artist-2">
+          <div id="artist-proof" className="artist-2">
+            <img src={assets.bullet2} alt="bullet" />
             <p>TOP BOYZ</p>
           </div>
-          <div className="artist-3">
+          <div id="artist-proof" className="artist-3">
+            <img src={assets.bullet2} alt="bullet" />
             <p>ESS THE ARTIST</p>
           </div>
-          <div className="artist-4">
+          <div id="artist-proof" className="artist-4">
+            <img src={assets.bullet2} alt="bullet" />
             <p>KIRRK</p>
           </div>
-          <div className="artist-5">
+          <div id="artist-proof" className="artist-5">
+            <img src={assets.bullet2} alt="bullet" />
             <p>UNCOJINGJONG</p>
           </div>
-          <div className="artist-6">
+          <div id="artist-proof" className="artist-6">
+            <img src={assets.bullet2} alt="bullet" />
             <p>LOST BOYZ</p>
           </div>
-          <div className="artist-7">
+          <div id="artist-proof" className="artist-7">
+            <img src={assets.bullet2} alt="bullet" />
             <p>KITHONGI</p>
           </div>
-          <div className="artist-8">
+          <div id="artist-proof" className="artist-8">
+            <img src={assets.bullet2} alt="bullet" />
             <p>KAPITANI</p>
           </div>
-          <div className="artist-7">
+          <div id="artist-proof" className="artist-7">
+            <img src={assets.bullet2} alt="bullet" />
             <p>LUL PROF</p>
           </div>
-          <div className="artist-7">
+          <div id="artist-proof" className="artist-7">
+            <img src={assets.bullet2} alt="bullet" />
             <p>METRO STUNNA</p>
           </div>
+          
         </div>
       </div>
     </>

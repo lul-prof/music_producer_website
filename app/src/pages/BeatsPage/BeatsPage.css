@@ -1,117 +1,288 @@
-.beatspage{
+.beats-page{
     width: 100%;
-    padding: 15px;
-    overflow: hidden;
+    padding: 50px;
+    overflow: hidden;  
 }
-.beatspage .beatspage-header{
-    color: #FFF;
-    justify-self: left;
-    margin: 10px 0;
-    color: #BF40BF;
+.beats-page .beats-page-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
-.beatspage .beatspage-class{
+.beats-page .beats-page-header .beats-page-header-left h1{
+    text-align: center;
+}
+.beats-page .beats-page-header .beats-page-header-right button{
+    padding: 10px 30px;
+    background: #FFD900;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    outline: 0;
+    border: 0;
+    font-weight: 600;
+    letter-spacing: 6px;
+}
+.beats-page .beats-page-header .beats-page-header-right button:hover{
+    cursor: pointer;
+}
+.beats-page .beats-page-mid{
+    padding: 25px;
+    width: 100%;
+    text-align: center;
+}
+.beats-page .beats-page-mid input{
+    width: 50%;
+    padding: 10px;
+    border-radius: 10px;
+    outline: 0;
+    border: 0;
+}
+.beats-page .beats-page-beats{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 10px;
-    overflow-x: auto;
+    gap: 24px;
+    padding: 0 25px;
+    width: 100%;
 }
-.beatspage .beatspage-class .beat-class{
-    width: fit-content;
-    height: fit-content;
-    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.37);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+.beats-page .beats-page-beats .beat-container{
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: linear-gradient(to right, rgba(123,47,190,0.3),rgba(148,77,211,0.3));
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(16,13,26,0.5);
+    border: 1px solid rgba(18,18,18,0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+.beats-page .beats-page-beats .beat-container .beat-thumbnail img{
+    max-width: 100%;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.beats-page .beats-page-beats .beat-container .beat-title{
+    padding-left: 10px;
+}
+.beats-page .beats-page-beats .beat-container .beat-price{
+    padding-left: 10px;
+}
+.beats-page .beats-page-beats .beat-container .beat-btn{
+    width: 100%;
+    padding: 10px 10px;
+}
+.beats-page .beats-page-beats .beat-container .beat-btn button{
+    width: 100%;
+    background: #FFD900;
     padding: 10px;
+    outline:0;
+    border: 0;
     border-radius: 10px;
+    font-weight: 600;
 }
-
-.beatspage .beatspage-class .beat-class .beat-img{
-    height: fit-content;
-    border-radius: 10px;
-    margin: 10px 0;
-}
-
-.beatspage .beatspage-class .beat-class .beat-img:hover{
+.beats-page .beats-page-beats .beat-container .beat-btn button:hover{
     cursor: pointer;
-    padding: 5px;
-    transition: 5ms ease-in;
-}
-.beatspage .beatspage-class .beat-class .beat-img img{
-    width: 100%;
-    border-radius: 10px;
+    transform: translateY(-3px);
 }
 
-.beatspage .beatspage-class .beat-class .beat-sample{
-    display:none;
-}
-.beatspage .beatspage-class .beat-class .beat-sample audio{
-    width: 100%;
-}
 
-.beatspage .beatspage-class .beat-class .beat-title{
-    color: #FFF;
-}
-
-.beatspage .beatspage-class .beat-class .beat-price{
-    color: #FFF;
-    margin-top: 5px;
-}
-
-/*---------------------MOBILE SCREEN----------------------*/ 
-
-@media (max-width:768px) and (min-width:100px) {
-  .beatspage{
-    width: 100%;
+/*--------------------------------------------*/
+@media (max-width:450px) and (min-width:50px) {
+.beats-page{
     padding: 10px;
+}
+.beats-page .beats-page-header{
+    gap: 24px;
+    align-items: center;
+    justify-content: center;
+}
+
+.beats-page .beats-page-header .beats-page-header-left h1{
+    text-align: center;
+    font-size: 30px;
+    line-height: 1.2em;
+}
+.beats-page .beats-page-header .beats-page-header-right{
+    align-self: center;
+    display: none;
+}
+.beats-page .beats-page-header .beats-page-header-right button{
+    padding: 8px;
+    font-size: 12px;
+}
+.beats-page .beats-page-mid{
+    padding: 25px 0;
+    width: 100%;
+    text-align: center;
+}
+.beats-page .beats-page-mid input{
+    width: 100%;
+    font-size: 14px;
+}
+.beats-page .beats-page-beats{
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 1px;
+}
+.beats-page .beats-page-beats .beat-container{
+    gap: 12px;
+}
+.beats-page .beats-page-beats .beat-container .beat-thumbnail img{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.beats-page .beats-page-beats .beat-container .beat-title{
+    padding-left: 10px;
+    display: -webkit-box;
+    padding-bottom: 1px;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
     overflow: hidden;
 }
-.beatspage .beatspage-header{
-    color: #FFF;
-    justify-self: left;
-    margin: 5px 0;
-    color: #BF40BF;
+.beats-page .beats-page-beats .beat-container .beat-price{
+    padding-left: 10px;
 }
-.beatspage .beatspage-class{
-    display: grid;
-    grid-template-columns: 1fr 1fr ;
-    gap: 10px;
-    overflow-x: auto;
-}
-.beatspage .beatspage-class .beat-class{
-    width: fit-content;
-    height: fit-content;
-}
-
-.beatspage .beatspage-class .beat-class .beat-img{
-    height: fit-content;
-    border-radius: 10px;
-    margin: 10px 0;
-}
-
-.beatspage .beatspage-class .beat-class .beat-img:hover{
-    cursor: pointer;
-    padding: 5px;
-    transition: 5ms ease-in;
-}
-.beatspage .beatspage-class .beat-class .beat-img img{
+.beats-page .beats-page-beats .beat-container .beat-btn{
     width: 100%;
-    border-radius: 10px;
+    padding: 10px 10px;
 }
-
-.beatspage .beatspage-class .beat-class .beat-sample{
-    display:none;
-}
-.beatspage .beatspage-class .beat-class .beat-sample audio{
+.beats-page .beats-page-beats .beat-container .beat-btn button{
     width: 100%;
 }
-
-.beatspage .beatspage-class .beat-class .beat-title{
-    color: #FFF;
 }
 
-.beatspage .beatspage-class .beat-class .beat-price{
-    color: #FFF;
-    margin-top: 5px;
-}  
+
+@media (max-width:768px) and (min-width:451px) {
+.beats-page{
+    padding: 10px;
+}
+.beats-page .beats-page-header{
+    gap: 24px;
+    align-items: center;
+    justify-content: center;
+    padding-top: 25px;
+}
+
+.beats-page .beats-page-header .beats-page-header-left h1{
+    text-align: center;
+    font-size: 30px;
+    line-height: 1.2em;
+}
+.beats-page .beats-page-header .beats-page-header-right{
+    align-self: center;
+    display: none;
+}
+.beats-page .beats-page-header .beats-page-header-right button{
+    padding: 8px;
+    font-size: 12px;
+}
+.beats-page .beats-page-mid{
+    padding: 25px 0;
+    width: 100%;
+    text-align: center;
+}
+.beats-page .beats-page-mid input{
+    width: 100%;
+    font-size: 14px;
+}
+.beats-page .beats-page-beats{
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    padding: 1px;
+}
+.beats-page .beats-page-beats .beat-container{
+    gap: 12px;
+}
+.beats-page .beats-page-beats .beat-container .beat-thumbnail img{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.beats-page .beats-page-beats .beat-container .beat-title{
+    padding-left: 10px;
+    display: -webkit-box;
+    padding-bottom: 1px;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.beats-page .beats-page-beats .beat-container .beat-price{
+    padding-left: 10px;
+}
+.beats-page .beats-page-beats .beat-container .beat-btn{
+    width: 100%;
+    padding: 10px 10px;
+}
+.beats-page .beats-page-beats .beat-container .beat-btn button{
+    width: 100%;
+}
+}
+
+
+@media (max-width:1100px) and (min-width:769px) {
+.beats-page{
+    padding: 10px;
+}
+.beats-page .beats-page-header{
+    gap: 24px;
+    align-items: center;
+    justify-content: center;
+    padding-top: 25px;
+}
+
+.beats-page .beats-page-header .beats-page-header-left h1{
+    text-align: center;
+    font-size: 30px;
+    line-height: 1.2em;
+}
+.beats-page .beats-page-header .beats-page-header-right{
+    align-self: center;
+    display: none;
+}
+.beats-page .beats-page-header .beats-page-header-right button{
+    padding: 8px;
+    font-size: 12px;
+}
+.beats-page .beats-page-mid{
+    padding: 25px 0;
+    width: 100%;
+    text-align: center;
+}
+.beats-page .beats-page-mid input{
+    width: 100%;
+    font-size: 14px;
+}
+.beats-page .beats-page-beats{
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+    padding: 1px;
+}
+.beats-page .beats-page-beats .beat-container{
+    gap: 12px;
+}
+.beats-page .beats-page-beats .beat-container .beat-thumbnail img{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.beats-page .beats-page-beats .beat-container .beat-title{
+    padding-left: 10px;
+    display: -webkit-box;
+    padding-bottom: 1px;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.beats-page .beats-page-beats .beat-container .beat-price{
+    padding-left: 10px;
+}
+.beats-page .beats-page-beats .beat-container .beat-btn{
+    width: 100%;
+    padding: 10px 10px;
+}
+.beats-page .beats-page-beats .beat-container .beat-btn button{
+    width: 100%;
+}
 }

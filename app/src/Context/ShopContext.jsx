@@ -24,6 +24,7 @@ const ShopContextProvider = (props) => {
   const [loading,setLoading]=useState(false);
 
   const backend_url = import.meta.env.VITE_BACKEND_URL;
+  const admin_url = import.meta.env.VITE_ADMIN_URL;
 
   const [beats, setBeats] = useState([]);
 
@@ -36,6 +37,7 @@ const ShopContextProvider = (props) => {
   const [merchandise, setMerchandise] = useState([]);
 
   const [users,setUsers]=useState([])
+
 
 
   const [notifications,setNotifications]=useState([])
@@ -335,6 +337,7 @@ const ShopContextProvider = (props) => {
     getCartAmount,
     myCart,
     products,
+    setProducts,
     setCartItems,
     cartItems,
     loading,
@@ -345,7 +348,8 @@ const ShopContextProvider = (props) => {
     producers,
     merchandise,
     notifications,
-    users
+    users,
+    admin_url
   };
 
   return (

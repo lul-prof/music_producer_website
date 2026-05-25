@@ -1,92 +1,64 @@
 import React, { useContext } from 'react'
+import { assets } from '../../assets/assets'
+import { ShopContext } from '../../Context/ShopContext'
 import './NavbarComponent.css'
-import {assets} from '../../assets/assets.js'
-import { ShopContext } from '../../Context/ShopContext.jsx'
-import { Link, useNavigate } from 'react-router-dom'
-import toast from 'react-hot-toast'
-
+import {Link, useNavigate} from 'react-router-dom';
 
 const NavbarComponent = () => {
-    const {getCartCount,pic,token}=useContext(ShopContext);
+    const {getCartCount,token}=useContext(ShopContext);
     const navigate=useNavigate();
-    const navigateTo=(id)=>{
-        document.getElementById(id)?.scrollIntoView({behavior:'smooth'})
-    }
-
   return (
     <>
-    <div onDoubleClick={()=>(window.location.reload(), toast.success('Status Updated'))} className="navbar">
-    <div className="navbar-container">
-        {/*--------------Left----------------*/}
-        
-        <div className="navbar-left">
-            <div className="navbar-sidemenu">
-                <img id='nav-menu-icon' onClick={()=>document.getElementById('nav-sidemenu').style.display='block'} src={assets.menuPurple} alt="" />
-                
+    <section className="navbar">
+        <div className="nav-container">
+            {/*---------------------*/}
+            <div className="navbar-left">
+                <img src={assets.menuPurple} alt="menu_icon" onClick={()=>(document.getElementById("sidemenu").style.display="flex")}/>
             </div>
-            <div className="navbar-logo">
-                <h1 style={{cursor:"pointer"}} onClick={()=>navigate('/')}>THE DON</h1>
+            {/*---------------------*/}
+            <div className="navbar-mid">
+                <Link to={'/'}><h1>THE DON</h1></Link>
             </div>
-
-        </div>
-        {/*--------------Right----------------*/}
-        <div className="navbar-right">
-            <div className="navbar-cart">
-                <img onClick={()=>navigate('/cart')} id='nav-cart-icon' src={assets.cartPurple} alt="" />
-                {
-                    getCartCount()>0
-                    ?
-                    <div id='nav-cart-count' className="nav-cart-count">
-                        <p>{getCartCount()}</p> 
-                    </div>
+            {/*---------------------*/}
+            <div className="navbar-right">
+                <div className="navbar-right-left">
+                   <Link to={token===""?'/login':'/profile'}><img src={assets.userPurple} alt="avatar" /></Link> 
+                </div>
+                <div className="navbar-right-right">
+                     <Link to={token===""?'/login':'/cart'}><img src={assets.cartPurple} alt="your cart" /></Link>
+                    {
+                        getCartCount()>0 
+                        ?
+                    <p>{getCartCount()}</p>
                     :
-                    <></>
-                }
-
+                    ""
+                    }   
+                </div>
             </div>
-            <div className="navbar-user">
-                <img onClick={()=>(navigate('/profile'))} id='nav-user-icon' src={pic?pic:assets.userPurple} alt="" />
-            </div>                        
-        </div>    
-    </div>
-    {/*---------------Side Menu-----------------*/}
-
-    <div id='nav-sidemenu' className="nav-sidemenu">
-        <div className="sidemenu-header">
-            <h1 onClick={()=>(document.getElementById('nav-sidemenu').style.display='none')}>THE DON</h1>
         </div>
-        <div className="sidemenu-list">
-            <ul>
-                <li onClick={()=>(navigate('/'), navigateTo('hero-container'),document.getElementById('nav-sidemenu').style.display='none')}>Home</li>
-                <li onClick={()=>(navigate('/beats'),document.getElementById('nav-sidemenu').style.display='none')}>Beats</li>
-                <li onClick={()=>(navigate('/merchandise'),document.getElementById('nav-sidemenu').style.display='none')}>Merchandise</li>
-                <li onClick={()=>(navigate('/'),navigate('/notifications'),document.getElementById('nav-sidemenu').style.display='none')} >
-                    <div>
-                        <p>Notifications</p>
-                        <div id='green-dot-notifs' className='green-dot-notifs'></div>
-                    </div>
-                </li>
-                <li onClick={()=>(navigate('/'), navigateTo('featured-artists-container'),document.getElementById('nav-sidemenu').style.display='none')}>Artists</li>
-                <li onClick={()=>(navigate('/'), navigateTo('featured-producers-container'),document.getElementById('nav-sidemenu').style.display='none')}>Producers</li>
-                <li onClick={()=>(navigate('/order'), navigateTo('featured-producers-container'),document.getElementById('nav-sidemenu').style.display='none')}>My Orders</li>
-                <li onClick={()=>(navigate('/'), navigateTo('hero-container'),document.getElementById('nav-sidemenu').style.display='none')}>FAQs</li>
-                <li onClick={()=>(navigate('/contactUs'),document.getElementById('nav-sidemenu').style.display='none')}>Contact Us</li>
-                <li onClick={()=>(navigate('/profile'),document.getElementById('nav-sidemenu').style.display='none')}>Profile</li>
-                <li onClick={()=>(navigate('/portal'),document.getElementById('nav-sidemenu').style.display='none')}>Dashboard</li>
-                {
-                    token
-                    ?
-                    <li onClick={()=>(localStorage.clear(), localStorage.removeItem("token"),document.getElementById('nav-sidemenu').style.display='none',navigate('/login'))}>Logout</li>
-                    :
-                    <li onClick={()=>(navigate('/login'),document.getElementById('nav-sidemenu').style.display='none')}>Login</li>
-                }
-            </ul>
+        </section>
+        {/*---------SIDEMENU---------*/}
+        <div id='sidemenu' className="sidemenu">
+            <div className="sidemenu-header">
+                <h1 onClick={()=>(document.getElementById("sidemenu").style.display="none")}>WELCOME</h1>
+            </div>
+            <div className="sidemenu-content">
+                <ul>
+                    <Link to={'/'}><li onClick={()=>(document.getElementById("sidemenu").style.display="none")}>HOME</li></Link>  
+                    <Link to={'/beats'}><li onClick={()=>(document.getElementById("sidemenu").style.display="none")}>BEATS</li></Link>
+                    <Link to={'/merchandise'} onClick={()=>(document.getElementById("sidemenu").style.display="none")}><li>MERCHANDISE</li></Link>
+                    <Link to={'/about'}><li onClick={()=>(document.getElementById("sidemenu").style.display="none")}>ABOUT US</li></Link>
+                    <Link to={'/contactUs'}><li onClick={()=>(document.getElementById("sidemenu").style.display="none")}>CONTACT US</li></Link>
+                    <Link to={'/'}><li onClick={()=>(document.getElementById("sidemenu").style.display="none")}>FAQS</li></Link>
+                </ul>
+            </div>
+            <div className="sidemenu-logout">
+                <p onClick={()=>(token!==""?localStorage.removeItem("token"):navigate('/login'),document.getElementById("sidemenu").style.display="none")}>{token===""?"LOGIN":"LOGOUT"}</p>
+            </div>
+            <div className="sidemenu-footer">
+                <button onClick={()=>(document.getElementById("sidemenu").style.display="none")} >CLOSE</button>
+            </div>
         </div>
-        <div className="sidemenu-footer">
-            <img onClick={()=>document.getElementById('nav-sidemenu').style.display='none'} src={assets.closeIcon} alt="Close" />
-        </div>
-    </div>
-    </div>
     </>
   )
 }

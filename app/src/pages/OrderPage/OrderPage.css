@@ -1,16 +1,15 @@
 .order-container{
-    color: #FAF9F6;
-    padding: 10px;
+    padding: 50px;
     width: 100%;
-    padding-bottom: 50px;
 }
-
 .order-container .order-container-header{
-    margin-top: 10px;
-    color: #BF40BF;
+   padding: 25px;
 }
 
 .order-container .order-box{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
     background-color: #C0C0C0;
     height:100%;
     border-radius: 5px;
@@ -36,6 +35,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 12px;
 }
 #order-item-img{
     width: 100px;
@@ -47,5 +47,42 @@
     cursor: pointer;
     padding: 8px;
     border-radius: 10px;
+}
+@media (max-width:500px) and (min-width:50px) {
+.order-container{
+    padding: 10px;
+    width: 100%;
+}
+
+.order-container .order-container-header{
+   padding: 25px 0;
+   width: 100%;
+}
+.order-container .order-container-header h2{
+    line-height: 1.2em;
+    font-size: 24px;
+}
+.order-container .order-box{
+    padding: 10px;
+}
+.order-container .order-box .order-box-header{
+    flex-direction: column;
+    gap: 6px;
+}
+
+.order-container .order-box hr{
+    margin-top: 5px;
+}
+.order-container .order-box .order-item{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+    gap: 12px;
+}
+#order-item-img{
+    width: 100px;
+
+}   
 }
 

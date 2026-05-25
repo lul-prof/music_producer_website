@@ -1,85 +1,55 @@
-import React, { useContext } from "react";
-import "./MerchandiseComponent.css";
-import TitleComponent from "../TitleComponent/TitleComponent";
-import { ShopContext } from "../../Context/ShopContext";
-import { Link } from "react-router-dom";
+import React, { useContext } from 'react'
+import './MerchandiseComponent.css'
+import { ShopContext } from '../../Context/ShopContext'
+import { Link } from 'react-router-dom'
+import {assets} from '../../assets/assets.js'
 
 const MerchandiseComponent = () => {
-  const { currency,merchandise } = useContext(ShopContext);
+  const {merchandise,currency}=useContext(ShopContext);
   
-  if (merchandise.length > 0) {
-    return (
-      <>
-        <div
-          id="featured-merchandise-container"
-          className="featured-merchandise-container"
-        >
-          <div className="featured-merchandise-header">
+  return (
+    <>
+    <div className="merch-component">
+      {/*---------------------------------*/}
+      <div className="merch-component-header">
+        <div className="merch-component-header-left">
             <h2>THE AFRICAN BABA</h2>
-            <h4>GET MUSIC RELATED MERCH</h4>
-            <h4>WELCOME TO THE ULTIMATE FASHION STORE</h4>
-            <hr />
         </div>
-          <div className="featured-merchandise">
-            {merchandise.map((product) =>
-              product.isFeatured ? (
-                <div key={product._id} className="featured-merch">
-                  <div className="featured-merch-image">
-                    <Link to={`/merchandise/${product._id}`}>
-                      <img src={product.image[0]} alt="" />
-                    </Link>
-                  </div>
-                  <div className="featured-merch-details">
-                    <div className="featured-merch-detail1">
-                      <h4>{product.title}</h4>
-                      <p>
-                        {currency}
-                        {product.price}
-                      </p>
-                    </div>
+        <div className="merch-component-header-right">
+         <Link to={'/merchandise'}><button>BUY NOW</button></Link> 
+        </div>
+      </div>
+      {/*---------------------------------*/}
+      <div className="merch-container">
+        {
+          merchandise.map((merch)=>(
+            merch?.isFeatured
+            ?
+            <div className="merch">
+              <div className="merch-img">
+                <Link to={`/merchandise/${merch._id}`}><img src={merch?.image[0]} alt="apparel image" /></Link>  
+              </div>
+              <div className="merch-title">
+                <p>{merch?.title}</p>
+              </div>
+              <div className="merch-price">
+                <p>{currency} {merch?.price.toLocaleString()}</p>
+              </div>
+             </div>
+            :
+            <></>
+          ))
+        }
+      </div>
+      {/*---------------------------------*/}
+      <div className="merch-footer">
+        <h3>THE DON ALSO BRINGS MUSIC RELATED APPAREL TO YOUR DOOR STEP</h3>
+        <h4>WE ALSO HELP ARTISTS BRAND THEIR MERCHANDISE</h4>
+        <img src={assets.bullet3} alt="Music" />
+      </div>
+    </div>
+    </>
+  )
+}
 
-                  </div>
-                </div>
-              ) : (
-                <></>
-              ),
-            )}
-          </div>
-        </div>
-      </>
-    );
-  } else {
-    return (
-      <>
-        <div id="glitter-class" className="glitter-class">
-          <div className="featured-merchandise-header">
-            <h2>THE AFRICAN BABA</h2>
-            <h4>GET MUSIC RELATED MERCH</h4>
-            <h4>WELCOME TO THE ULTIMATE FASHION STORE</h4>
-            <hr />
-          </div>
-          <div className="glitter">
-            <div className="glitter-box">
-              <div className="glitter-main"></div>
-              <div className="glitter-tag"></div>
-            </div>
-            <div className="glitter-box">
-              <div className="glitter-main"></div>
-              <div className="glitter-tag"></div>
-            </div>
-            <div className="glitter-box">
-              <div className="glitter-main"></div>
-              <div className="glitter-tag"></div>
-            </div>
-            <div className="glitter-box">
-              <div className="glitter-main"></div>
-              <div className="glitter-tag"></div>
-            </div>
-          </div>
-        </div>
-      </>
-    );
-  }
-};
-
-export default MerchandiseComponent;
+export default MerchandiseComponent

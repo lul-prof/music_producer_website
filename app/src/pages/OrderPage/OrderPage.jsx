@@ -40,7 +40,7 @@ const OrderPage = () => {
     <>
     <div className="order-container">
         <div className="order-container-header">
-          <h1>Your Orders</h1>
+          <h2>Your Orders</h2>
         </div>
         {
           orders.map((order)=>(

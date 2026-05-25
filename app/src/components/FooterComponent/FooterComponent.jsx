@@ -1,100 +1,79 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './FooterComponent.css'
-import { assets } from '../../assets/assets'
-import { Link, useNavigate } from 'react-router-dom'
-import {toast} from 'react-hot-toast'
-import { useContext } from 'react'
-import {ShopContext} from '../../Context/ShopContext.jsx'
-import axios from 'axios'
-import { useState } from 'react'
+import {Link} from 'react-router-dom'
+import { ShopContext } from '../../Context/ShopContext'
 
 
 const FooterComponent = () => {
-  const navigate=useNavigate()
-  const getYear=()=>{
-    const date=new Date();
-    return date.getFullYear();
-    
-  }
-  const admin_url=import.meta.env.VITE_ADMIN_URL;
-  const {backend_url}=useContext(ShopContext)
-  const [email,setEmail]=useState("");
-  const navigateTo=(id)=>{
-        document.getElementById(id)?.scrollIntoView({behavior:'smooth'})
-    }
-
-    const handleSubmit=async(e)=>{
-      e.preventDefault();
-      try {
-        const response=await axios.post(`${backend_url}/api/user/subscribe`,{email},);
-        if(response.data.success){
-          toast.success(response.data.message);
-        }else{
-          toast.error("You are already a subscriber.");
-        } 
-      } catch (error) {
-        toast.error(error)
-      }
-    }
+  const year=new Date().getFullYear();
+  const {admin_url}=useContext(ShopContext)
+  
   return (
     <>
-    <div className="footer">
-    <div className="footer-container">
-      {/*---------------Footer left---------------- */}
-      <div className="footer-left">
-        <div className="footer-left-logo">
-          <h1>THE DON</h1>
+    <section className="footer-container">
+      <div className="footer">
+        {/*----------------------*/}
+        <div className="footer-left">
+          <div className="footer-left-header">
+              <h2>THE DON</h2>
+          </div>
+          <div className="footer-left-mid">
+            <h3>NON AI INSRUMENTALS ONLY</h3>
+          </div>
+          <div className="footer-left-bottom">
+              <p>DEVELOPED BY <span><a href="https://portofolio-two-rosy-31.vercel.app/" target='_blank'>CAPIOF</a></span></p>
+          </div>
         </div>
-        <div className="footer-left-text">
-          <p>Premium beats destination</p>
+        {/*----------------------*/}
+        <div className="footer-center">
+          <div className="footer-center-header">
+            <h2>QUICK LINKS</h2>
+          </div>
+          <div className="footer-center-mid">
+            <ul>
+              <Link to={'/'}><li>HOME</li></Link> 
+              <Link to={'/about'}><li>ABOUT</li></Link>
+              <Link to={'/contactUs'}><li>CONTACT</li></Link>
+              <Link to={'/order'}><li>ORDERS</li></Link>
+              <Link to={'/login'}><li>LOGIN</li></Link>
+              <Link to={admin_url} target='_blank'><li>ADMIN</li></Link>
+            </ul>
+          </div>
         </div>
-        <div className="footer-left-links">
-          <Link to='https://wa.me/+254793909678' target='_blank'><img src={assets.whatsappIcon} alt="" /></Link> 
-          <Link to='https://www.instagram.com/the._.don._/' target='_blank'><img src={assets.instagramIcon} alt="" /></Link>
-          <Link to='https://www.instagram.com/the._.don._/' target='_blank'><img src={assets.facebookIcon} alt="" /></Link>
-          <Link to='mailto:thedon254@gmail.com?subject=Hello&body=Message' target='_blank'><img src={assets.emailIcon} alt="" /></Link>
+        {/*----------------------*/}
+        <div className="footer-right">
+          <div className="footer-right-header">
+            <h2>CATEGORIES</h2>
+          </div>
+          <div className="footer-right-mid">
+            <ul>
+              <Link to={'/beats'}><li>BEATS</li></Link>
+              <Link to={'/merchandise'}><li>APPAREL</li></Link>
+            </ul>
+          </div>
         </div>
-        <div className="footer-left-developer">
-          <p>Developed by <Link to={'https://portofolio-two-rosy-31.vercel.app/'} target='_blank'>HighValueTech</Link></p>
+        {/*----------------------*/}
+        <div className="footer-newsletter">
+          <div className="footer-newsletter-header">
+            <h2>NEWSLETTER</h2>
+          </div>
+          <div className="footer-newsletter-form">
+            <form>
+              <div className="footer-form-class">
+                <input type="text" placeholder='EMAIL ADDRESS' />
+              </div>
+              <div className="footer-form-class">
+                <button>SUBSCRIBE</button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
-      {/*---------------Footer center---------------- */}
-      <div className="footer-center">
-        <div className="footer-center-header">
-          <h1>SITE MAP</h1>
-        </div>
-        <div className="footer-center-links">
-          <ul>
-            <li onClick={()=>(navigate('/'), navigateTo('hero-container'))}>Home</li>
-            <Link to={'/beats'}> <li>Beats</li></Link>
-            <li onClick={()=>(navigate('/'),navigateTo('featured-artists-container'))}>Artists</li>
-            <li onClick={()=>(navigate('/'),navigateTo('featured-producers-container'))}>Producers</li>
-            <Link to='/contactUs'><li>Contact Us</li></Link>
-            <Link to='/login'><li>Register</li></Link>
-            <Link to={admin_url} target="_blank"><li>Admin panel</li></Link>
-            <Link to={'/merchandise'}> <li>Merchandise</li></Link>
-          </ul>
-        </div>
+      <hr />
+      <div className="footer-year">
+        <h5>&copy;{year} THE DON. ALL RIGHTS RESERVED</h5>
       </div>
-
-
-      {/*---------------Footer right---------------- */}
-      <div className="footer-right">
-        <div className="footer-right-header">
-          <h1>NEWSLETTER</h1>
-        </div>
-        <div className="footer-right-form">
-          <form onSubmit={handleSubmit} method='post'>
-            <input type="email" name="" id="" value={email} onChange={(e)=>(setEmail(e.target.value))} placeholder='Email Address' required/><br/>
-            <button type='submit'>Subscribe</button>
-          </form>
-        </div>
-      </div>
-        
-    </div>
-    <hr/>
-    <p id='footer-p'>&copy;{getYear()} The Don. All rights reserved.</p>
-    </div>
+    </section>
     </>
   )
 }

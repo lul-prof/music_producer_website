@@ -1,0 +1,43 @@
+.cta{
+    width: 100%;
+    position: relative;   
+}
+.cta img{
+    width: 100%;
+    object-fit: cover;
+    
+}
+.cta .cta-main{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.cta .cta-main h2{
+    line-height: 1.4em;
+}
+.cta .cta-main button{
+    padding: 10px;
+    background: #FFD900;
+    border: 0;
+    outline: 0;
+    border-top-left-radius:15px ;
+    border-bottom-right-radius: 15px;
+    font-weight: 700;
+    letter-spacing: 6px;
+}
+.cta .cta-main button:hover{
+    cursor: pointer;
+    transform: translateY(4px);
+}
+/*
+padding: 50px;
+background: linear-gradient(to right,rgba(27,13,37,0.5),rgba(5,0,23,0.5));
+backdrop-filter: blur(10px);
+-webkit-backdrop-filter: blur(10px);
+box-shadow: 0 2px 4px #100d2a;
+*/

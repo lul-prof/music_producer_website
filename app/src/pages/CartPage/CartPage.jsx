@@ -7,33 +7,16 @@ import axios from 'axios'
 const CartPage = () => {
   const navigate = useNavigate();
   const [cartData, setCartData] = useState([]);
-  const [products,setProducts]=useState([]);
+ 
   const {
     currency,
     updateQuantity,
     cartItems,
     addToCart,
     getCartAmount,
-    backend_url
+    products
   } = useContext(ShopContext);
   
-
-  useEffect(()=>{
-    const fetchProducts=async()=>{
-      try {
-        const response=await axios.get(`${backend_url}/api/user/products`);
-        if(response.data.success){
-          setProducts(response.data.products)
-        }else{
-          console.log(response.data.message);
-        }
-      } catch (error) {
-        console.log(error);
-        
-      }
-    }
-    fetchProducts()
-  },[products,backend_url])
 
   useEffect(() => {    
     if (products.merchandise && Object.keys(cartItems).length > 0) {
@@ -55,26 +38,24 @@ const CartPage = () => {
   }, [cartItems, products]);
   return (
     <>
-      <div className="cart-container">
         <div className="cart">
           <div className="cart-top">
             <div className="cart-top-item">
-              <h3>Item</h3>
+              <p>Item</p>
             </div>
             <div className="cart-top-price">
-              <h3>Price</h3>
+              <p>Price</p>
             </div>
             <div className="cart-top-quantity">
-              <h3>Quantity</h3>
+              <p>Quantity</p>
             </div>
             <div className="cart-top-total">
-              <h3>Total</h3>
+              <p>SubTotal</p>
             </div>
           </div>
-          <hr />
           {/*----------------------------------*/}
           {
-          cartData.map((item, index) => {
+          cartData.map((item) => {
             const product =
               products.merchandise.find(
                 (product) => product._id === item._id,
@@ -82,17 +63,17 @@ const CartPage = () => {
 
             return (
               <>
-                <div key={index} className="cart-center">
+                <div key={product._id} className="cart-center">
                   <div className="cart-center-item">
                     <div className="cart-center-item-image">
                       <img
                         id="cart-center-item-image"
                         src={product.image || product.thumbnail}
-                        alt=""
+                        alt="Image"
                       />
                     </div>
                     <div className="cart-center-item-details">
-                      <h6 style={{marginLeft:"5px"}}>{product.title}</h6>
+                      <h6>{product.title}</h6>
                     </div>
                   </div>
                   <div className="cart-center-price">
@@ -110,17 +91,16 @@ const CartPage = () => {
                     </div>
                   </div>
                   <div className="cart-center-total">
-                    <p>{item.quantity*product.price}</p>
+                    <p>{(item.quantity*product.price).toLocaleString()}</p>
                   </div>
                 </div>
               </>
             );
           })}
-          <hr />
           <div className="cart-bottom">
             <div className="cart-bottom-subtotal">
               <p>Subtotal:</p>
-              <p>{currency} {getCartAmount()}</p>
+              <p>{currency} {getCartAmount().toLocaleString()}</p>
             </div>
             <div className="cart-bottom-vat">
               <p>VAT Tax:</p>
@@ -135,7 +115,6 @@ const CartPage = () => {
             </div>
           </div>
         </div>
-      </div>
     </>
   );
 };

@@ -193,8 +193,14 @@ import preview_y from './eye_2.png'
 import preview_b from './eye_3.png'
 import LCTA from './piano.jpeg'
 import lcta2 from './cta.jpg'
-
-
+import star2 from './star.png'
+import bullet2 from './vinyl.png'
+import bullet3 from './shirt.png'
+import bullet4 from './headphones.png'
+import pattern from './pattern.png'
+import theDon from './theDon.jpeg'
+import addI from './add.png'
+import minusI from './minus.png'
 
 
 export const assets = {
@@ -369,7 +375,15 @@ export const assets = {
   preview_y,
   preview_b,
   LCTA,
-  lcta2
+  lcta2,
+  star2,
+  bullet2,
+  pattern,
+  bullet3,
+  bullet4,
+  theDon,
+  addI,
+  minusI
 }
 
 export const products = [
@@ -1521,22 +1535,22 @@ export const reviews=[
   {
     "name":"SickBoss",
     "images":[topBPic],
-    "review":" Once again it's not a frequent occurrence I give a song a 10 on first listen, especially if my prior feelings on the album have been problematic, so that's how you know this song is THAT good"
+    "review":" Once again it's not a frequent occurrence I give a song a 10 on first listen."
   },
   {
     "name":"Metro Stunna",
     "images":[stunnaPic],
-    "review":"Every song delivers instrumentally. With thrashing, mental guitars and incredible solos, drums that kick so fucking hard its impossible not to headbang."
+    "review":"Every song delivers instrumentally its impossible not to headbang."
   },
   {
     "name":"Lul Prof",
     "images":[profPic],
-    "review":"The production throughout is consistently excellent, with the rocking guitars and consistently hard-hitting drums accompanying every track wonderfully."
+    "review":"The production throughout is consistently excellent. Kudos to the Don"
   },
   {
     "name":"Shiva",
     "images":[shivaPic],
-    "review":"The Don used the B-flat piano concerto to introduce himself to the general public and demonstrate to them his formidable keyboard skills."
+    "review":"It's not dawn until you visit the Don. Kama hujafika unajiangusha msanii."
   }
 ]
 

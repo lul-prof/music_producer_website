@@ -1,182 +1,217 @@
-.faq{
+.faqs{
     width: 100%;
-    color: #FFFFFF;
-    padding: 20px;
-    padding-bottom: 50px;
+    background: linear-gradient(to right,#532081,#3d175f);
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    overflow: hidden;
 }
-.faq .faq-circle{
-    width: 150px;
-    height: 150px;
-    border-radius: 100px;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #100D1A;
-    position: absolute;
-}
-.faq .faq-header{
-    justify-self: center;
+.faqs .faqs-header{
     text-align: center;
-    min-width: 100%;
-    margin: 25px 0;
-    
-}
-.faq .faq-header .faq-header-top{
-    z-index: 0;
-    position: relative;
-}
-.faq .faq-header .faq-header-top h1{
-    font-size: 3vmax;
-    letter-spacing: 2px; 
-
-}
-.faq .faq-header .faq-header-mid p{
-    font-size: 2vmax;
-    letter-spacing: 2px;
-    margin: 10px 0;
-}
-.faq .faq-header .faq-header-bottom{
-    margin: 25px 0;
-}
-.faq .faq-header .faq-header-bottom button{
-    background-color: #FFD900;
-    padding: 10px;
-    color: #000000;
-    font-size: 2vmax;
-    outline: 0;
-    border: 0;
-    border-top-left-radius:20px ;
-    border-bottom-right-radius: 20px;
-    letter-spacing: 2px;
-}
-.faq .faq-header .faq-header-bottom button:hover{
-    cursor: pointer;
-    transform: translateY(5px);
-    border-top-right-radius:20px ;
-    border-bottom-left-radius: 20px;
-    border-top-left-radius:0px ;
-    border-bottom-right-radius: 0px;
-    transition: 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-bottom: 25px;
 }
 
-.faq .faqs{
-    min-width: 100%;
+.faqs .faqs-container{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    gap: 24px;
 }
-.faq .faqs .faq-container{
-    border-radius: 5px;
-    outline: 0;    
-    z-index: 1;
-}
-.faq .faqs .faq-container:hover{
-    cursor: pointer;
-    transform: translateY(-2px);
-}
-.faq .faqs .faq-container .faq-title{
-    display: flex;
-    background:rgba(123, 47, 190, 0.15);
-    box-shadow: 0 4px 16px 0 rgba(31, 38, 135, 0.37),inset 0 0 0 1px rgba(255, 255, 255, 0.3);;
+.faqs .faqs-container .faq{
+    background: rgba(22,13,42,0.5); 
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px 1px rgba(22,13,42,0.8);
     backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    border-radius: 5px;
-    max-height: 150px;
-    flex-direction: row-reverse;
-    padding: 10px;
-    justify-content: space-between;
-    gap: 10px;
-
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid #100D1A;
 }
-.faq .faqs .faq-container .faq-title img{
-    width: 40px;
-    height: 40px;
-}
-.faq .faqs .faq-container .faq-title img:hover{
-    transform: rotateY(180deg);
-    transition: 1s;
-}
-.faq .faqs .faq-container .faq-title h1{
-    font-size: 1.5vmax;
-}
-.faq .faqs .faq-container hr{
-    opacity: 0.1;
-    border-width: 2px;
-}
-.faq .faqs .faq-container .faq-answer{
-    transition: 0.3s ease;
-    background:#ffdd45;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    color: #000000;
-}
-.faq .faqs .faq-container .faq-answer p{
-    font-size: 2vmax;
-    padding: 10px;
+.faqs .faqs-container .faq:hover{
+    cursor: pointer;
+    transform: translateY(2px);
 }
 
-
-
-/*---------------------------------------------*/
-
-@media (max-width:600px) and (min-width:50px) {
-.faq{
-    padding: 10px;
-}
-.faq .faq-circle{
-    width: 100px;
-    height: 100px;
-}
-.faq .faq-header{
-    margin: 25px 0;
-}
-.faq .faq-header .faq-header-top{
-    z-index: 0;
-    position: relative;
-}
-.faq .faq-header .faq-header-top h1{
-    font-size: 2.5vmax;
-    text-shadow: 1px 1px 2px #FFFFFF;
-}
-.faq .faq-header .faq-header-mid p{
-    font-size: 2.5vmax;
-    letter-spacing: 2px;
-    margin: 5px 0;
-}
-.faq .faq-header .faq-header-bottom{
-    margin: 10px 0;
-}
-.faq .faq-header .faq-header-bottom button{
-    font-weight: 600;
-    font-size: 2vmax;
-}
-.faq .faqs{
-    grid-template-columns: 1fr;
-}
-.faq .faqs .faq-container{
-    border-radius: 5px;
-}
-.faq .faqs .faq-container .faq-title{
+.faqs .faqs-container .faq .faq-title{
     display: flex;
-    border-radius: 5px;
-    max-height: 85px;
-}
-.faq .faqs .faq-container .faq-title img{
-    width: 30px;
-    height: 30px;
-}
-
-.faq .faqs .faq-container .faq-title h1{
-    font-size: 2.5vmax;
-}
-
-.faq .faqs .faq-container .faq-answer{
+    flex-direction: column;
+    gap: 12px;
     transition: 0.3s ease;
-    background:#ffdd45;
-}
-.faq .faqs .faq-container .faq-answer p{
-    font-size: 2.5vmax;
-    padding: 10px;
 }
 
+.faqs .faqs-container .faq .faq-title .faq-title-top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.faqs .faqs-container .faq .faq-title .faq-title-top img{
+    max-width: 25px;
+    max-height: 25px;
+    box-shadow: 0 2px 4px rgba(22,13,42,0.5);
+    align-self: baseline;
+    padding: 3px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.faqs .faqs-container .faq .faq-title-bottom{
+    display: flex;
+    transition: 0.3s ease;
+    border-top: 1px solid #7b2fbe;
+    padding-top: 12px;
+}
+.faqs .faqs-btn{
+    align-self: center;
+    padding: 50px 0;
+}
+
+.faqs .faqs-btn button{
+    padding: 10px 30px;
+    outline: 0;
+    border: 0;
+    background: #FFD900;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    box-shadow: 0 8px 16px 1px rgba(22,13,42,0.8);
+}
+
+.faqs .faqs-btn button:hover{
+    cursor: pointer;
+    transform: translateX(6px);
+}
+
+/*----------------------------------*/
+
+@media (max-width:600px) and (min-width:50px) {  
+.faqs{
+    width: 100%;
+    gap: 24px;
+    padding: 25px;
+}
+.faqs .faqs-header{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.faqs .faqs-header .faqs-header-top h2{
+    font-size: 20px;
+}
+.faqs .faqs-header .faqs-header-bottom h3{
+    font-size: 16px;
+}
+.faqs .faqs-container{
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+.faqs .faqs-container .faq{
+    border: 1px solid #100D1A;
+}
+.faqs .faqs-container .faq .faq-title{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: 0.3s ease;
+}
+
+.faqs .faqs-container .faq .faq-title .faq-title-top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3px;
+}
+.faqs .faqs-container .faq .faq-title .faq-title-top p{
+    font-size: 16px;
+}
+.faqs .faqs-container .faq .faq-title .faq-title-top img{
+    max-width: 25px;
+    max-height: 25px;
+    align-self: baseline;
+}
+
+.faqs .faqs-container .faq .faq-title-bottom{
+    display: flex;
+    transition: 0.3s ease;
+    padding-top: 12px;
+}
+.faqs .faqs-container .faq .faq-title-bottom p{
+    font-size: 16px;
+}
+.faqs .faqs-btn{
+    align-self: center;
+    padding: 25px 0;
+}
+.faqs .faqs-btn button{
+    padding: 10px 30px;
+}
+}
+
+
+@media (max-width:900px) and (min-width:601px) {  
+.faqs{
+    width: 100%;
+    gap: 24px;
+    padding: 25px;
+}
+.faqs .faqs-header{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.faqs .faqs-header .faqs-header-top h2{
+    font-size: 20px;
+}
+.faqs .faqs-header .faqs-header-bottom h3{
+    font-size: 16px;
+}
+.faqs .faqs-container{
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+.faqs .faqs-container .faq{
+    border: 1px solid #100D1A;
+}
+.faqs .faqs-container .faq .faq-title{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: 0.3s ease;
+}
+
+.faqs .faqs-container .faq .faq-title .faq-title-top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3px;
+}
+.faqs .faqs-container .faq .faq-title .faq-title-top p{
+    font-size: 16px;
+}
+.faqs .faqs-container .faq .faq-title .faq-title-top img{
+    max-width: 25px;
+    max-height: 25px;
+    align-self: baseline;
+}
+
+.faqs .faqs-container .faq .faq-title-bottom{
+    display: flex;
+    transition: 0.3s ease;
+    padding-top: 12px;
+}
+.faqs .faqs-container .faq .faq-title-bottom p{
+    font-size: 18px;
+}
+.faqs .faqs-btn{
+    align-self: center;
+    padding: 25px 0;
+}
+.faqs .faqs-btn button{
+    padding: 10px 30px;
+}
 }

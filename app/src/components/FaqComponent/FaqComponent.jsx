@@ -1,56 +1,53 @@
 import React, { useState } from 'react'
+import {assets, faqs} from '../../assets/assets'
 import './FaqComponent.css'
-import { assets, faqs } from '../../assets/assets'
-import {Link} from 'react-router-dom'
+import {toast} from 'react-hot-toast'
 
 const FaqComponent = () => {
-  const [open, setOpen]=useState(false)
-  const [id,setId]=useState("")
+  const [open,setOpen]=useState(false);
+  const [id,setId]=useState("");
   return (
     <>
-    <section className="faq">
-      <div className="faq-circle">
-
+    <div className="faqs">
+      {/*-----------------------*/}
+      <div className="faqs-header">
+        <div className="faqs-header-top">
+          <h2>HAVE QUESTIONS?</h2>
+        </div>
+        <div className="faqs-header-bottom">
+          <h3>Clients often struggle to understand beat licensing</h3>
+        </div>
       </div>
-        {/*-----------------------*/}
-        <div className="faq-header">
-           <div className="faq-header-top">
-            <h1>FREQUENTLY ASKED QUESTIONS</h1>
-           </div>
-           <div className="faq-header-mid">
-            <p>For some people beat licensing can be confusing. You might have a bunch of questions about it. We strive to make sure you understand it. Reach out of you still have questions.</p>
-           </div>
-           <div className="faq-header-bottom">
-           <Link to={'/contactUs'}> <button>CONTACT US</button></Link>
-           </div>
-        </div>
-        {/*-----------------------*/}
-        <div className="faqs">
-          {
-            faqs.map((faq)=>(
-              <div key={faq._id} id='faq-container' className="faq-container">
-                <div className="faq-title">
-                  <img key={faq._id} src={open&&id===faq._id?assets.preview_y:assets.preview} alt="preview" onClick={()=>(setOpen(!open),setId(faq._id))}/>
-                  <h1>{faq.faq}</h1>
+      {/*-----------------------*/}
+      <div className="faqs-container">
+        {
+          faqs.map((faq)=>(
+            <div key={faq._id} className="faq">
+              <div className="faq-title">
+                <div className="faq-title-top">
+                  <p>{faq.faq}</p>
+                  <img src={open && faq._id===id?assets.minusI:faq._id==id?assets.minusI:assets.addI} alt="preview" onClick={()=>(setOpen(!open),setId(faq._id))} />
                 </div>
-                
                 {
-                  open?
-                  id===faq._id?
-                  <div id='faq-answer' className="faq-answer">
+                  open && faq._id===id
+                  ?
+                  <div className="faq-title-bottom">
                     <p>{faq.ans}</p>
-                </div>
-                :
-                <></>
-                :
-                <></>
+                  </div>
+                  :
+                  <></>
                 }
+                
               </div>
-              
-            ))
-          }
-        </div>
-    </section>
+            </div>
+          ))
+        }
+      </div>
+      {/*-----------------------*/}
+      <div className="faqs-btn">
+        <button onClick={()=>(toast.success('Feature Under development.'))}>ASK A QUESTION</button>
+      </div>
+    </div>
     </>
   )
 }

@@ -4,13 +4,11 @@ import NavbarComponent from './components/NavbarComponent/NavbarComponent'
 import FooterComponent from './components/FooterComponent/FooterComponent'
 import {Toaster} from 'react-hot-toast'
 import HeroComponent from './components/HeroComponent/HeroComponent'
-import HeroSearch from './components/HeroSearch/HeroSearch'
 import BeatsComponent from './components/BeatsComponent/BeatsComponent'
 import MerchandiseComponent from './components/MerchandiseComponent/MerchandiseComponent'
 import FeaturedArtistsComponents from './components/FeaturedArtistsComponents/FeaturedArtistsComponents'
 import FeaturedProducersComponents from './components/FeaturedProducersComponents/FeaturedProducersComponents'
 import FeaturedBlogsComponent from './components/FeaturedBlogsComponent/FeaturedBlogsComponent'
-import AboveFooterComponent from './components/AboveFooterComponent/AboveFooterComponent'
 import SingleBeatPage from './pages/SingleBeatPage/SingleBeatPage'
 import SingleMerchandisePage from './pages/SingleMerchandisePage/SingleMerchandisePage'
 import SingleArtistPage from './pages/SingleArtistPage/SingleArtistPage'
@@ -38,6 +36,9 @@ import UpdateProfilePage from './pages/UpdateProfilePage/UpdateProfilePage'
 import ServicesComponent from './components/ServicesComponent/ServicesComponent'
 import LicensingComponent from './components/LicensingComponent/LicensingComponent'
 import FaqComponent from './components/FaqComponent/FaqComponent'
+import WhyusComponent from './components/WhyusComponent/WhyusComponent'
+import AboutComponent from './components/AboutComponent/AboutComponent'
+import ProjectsPage from './pages/ProjectsPage/ProjectsPage'
 
 
 let DefaultIcon = L.icon({
@@ -56,13 +57,13 @@ const App = () => {
     <Routes>
       <Route path='/' element={
         <>
-        <HeroComponent/>
-        <ServicesComponent/>
-        <BeatsComponent/>
-        <LicensingComponent/>
-        <FaqComponent/>
-        <ReviewsComponent/>
-        <AboveFooterComponent/>
+          <HeroComponent/>
+          <BeatsComponent/>
+          <ReviewsComponent/>
+          <WhyusComponent/>
+          <MerchandiseComponent/>
+          <AboutComponent/>
+          <FaqComponent/>
         </>
       }>
       </Route>
@@ -84,6 +85,7 @@ const App = () => {
       <Route path='/beats' element={<BeatsPage/>}></Route>
       <Route path='/merchandise' element={<MerchandisePage/>}></Route>
       <Route path='/updateProfile' element={<UpdateProfilePage/>}></Route>
+      <Route path='/projects' element={<ProjectsPage/>}></Route>
       
     </Routes>
     <FooterComponent/>
