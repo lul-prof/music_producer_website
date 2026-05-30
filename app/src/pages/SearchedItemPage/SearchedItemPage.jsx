@@ -28,108 +28,90 @@ const SearchedItemPage = () => {
     }
     navigate(`/searchResults/${term}`);
   };
-
+  if(searched.length<=0){
+    return(
+      <div className="searched">
+        <p>Could not find {search}</p>
+      </div>
+    )
+  }
+  else{
   return (
     <>
-      <div className="searched-container">
-        <div className="searched-results">
-          <div className="searched-bar">
-            <form onSubmit={handleSubmit} method="post">
-              <input
-                value={term}
-                onChange={(e) => setTerm(e.target.value)}
-                type="text"
-                placeholder={search}
-              />
+      <div className="searched">
+        {/*-----------------------*/}
+        <div className="searched-top">
+          <div className="searched-top-form">
+            <form method="post" onSubmit={handleSubmit}>
+              <input type="text" id="searched" value={term} onChange={(e)=>(setTerm(e.target.value))} placeholder={search} />
             </form>
           </div>
-          <div className="searched-header">
-            <h3>Search results for {search} </h3>
+          <div className="searched-top-header">
+            <h2>search results for {search}</h2>
           </div>
-          <div className="searched-items">
-          {searched.length > 1 ? (
-            searched.map((beat) => (
-              <div className="searched-item">
-                <div className="searched-item-image">
-                  <img id="searched-item-image" src={beat.thumbnail} alt="" />
+          <div className="searched-top-results">
+            {
+              searched.map((item)=>(
+                <div key={item?._id} className="result">
+                    <div className="result-image">
+                      <img src={item?.thumbnail} alt="image" />
+                    </div>
+                    <div className="result-details">
+                      <div className="result-left">
+                        <p className="title">{item?.title}</p>
+                        <p>{currency} {item?.price}</p>
+                      </div>
+                      <div className="result-right">
+                        <audio
+                          controls
+                          preload="auto"
+                          controlsList="nodownload"
+                          onContextMenu={(e) => e.preventDefault()}
+                          >
+                          <source src={item?.audio} type="audio/mpeg" />
+                          <source src={item?.audio} type="audio/ogg"/>
+                          Your browser does not support the audio element.
+                        </audio>
+                      </div>
+                    </div>
+                    <div className="result-btn">
+                      <button onClick={()=>(addToCart(item?._id))}>ADD TO CART</button>
+                    </div>
                 </div>
-                <div className="searched-item-details">
-                  <p>{beat.title}</p>
-                  <Link to={`/producer/${beat.producer}?id=${beat.producer._id}`}><p>@{beat.producer}</p></Link> 
-                  <b>
-                    {currency} {beat.price}
-                  </b>
-                  <br />
-                  <img onClick={()=>(addToCart(beat._id))} id="searched-cart" src={assets.cartPurple} alt="image" />
-                </div>
-
-                <div className="searched-item-preview">
-                  <p style={{ textAlign: "center", margin: "20px 0" }}>
-                    Beat Preview with reduced quality
-                  </p>
-                  <audio
-                    controls
-                    preload="auto"
-                    controlsList="nodownload"
-                    onContextMenu={(e) => e.preventDefault()}
-                  >
-                    <source src={beat.audio} type="audio/mpeg" />
-                    Your browser does not support the audio element.
-                  </audio>
-                </div>
-              </div>
-            ))
-          ) : (
-            <>
-              <p>No Beats Found</p>
-            </>
-          )}
+              ))
+            }
           </div>
-
-          <div className="searched-related">
-            <div className="searched-related-header">
-              <h3>Related Beats</h3>
-            </div>
-            <div className="searched-related-container">
-              {beats.map((beat) => (
-                <div key={beat._id} className="beat-related">
-                  <div className="beat-related-thumbnail">
-                    <Link to={`/beat/${beat._id}`}>
-                      {" "}
-                      <img src={beat.thumbnail} alt="" />
-                    </Link>
+        </div>
+        {/*-----------------------*/}
+        <div className="searched-mid">
+          <div className="searched-mid-header">
+            <h2>RELATED BEATS</h2>
+          </div>
+            {
+              beats.map((beat)=>(
+                <div key={beat?._id} className="searched-mid-result">
+                  <div className="searched-mid-result-img">
+                   <Link to={`/beat/${beat?._id}`}><img src={beat?.thumbnail} alt="image" /></Link> 
                   </div>
-                  <div className="beat-related-title">
-                    <p>{beat.title}</p>
+                  <div className="searched-mid-result-details">
+                    <p>{beat?.title}</p>
+                    <p>{currency} {beat?.price}</p>
                   </div>
-                  <div className="beat-related-producer">
-                    <Link to={`/producer/${beat.producer}`}>
-                      <p>
-                        @{beat.producer}{" "}
-                        <img
-                          id="verified-mark"
-                          src={assets.goldCheckMark}
-                          alt=""
-                        />{" "}
-                      </p>
-                    </Link>
-                  </div>
-                  <div className="beat-related-price">
-                    <p>
-                      {currency} {beat.price}
-                    </p>
-                  </div>
-                  <div className="beat-related-cart">
-                    <img onClick={()=>(addToCart(beat._id))} id="beat-related-cart" src={assets.cartPurple} alt="cart" />
+                  <div className="searched-mid-result-btn">
+                    <button onClick={()=>(addToCart(beat?._id))}>ADD TO CART</button>
                   </div>
                 </div>
-              ))}
-            </div>
-          </div>
+              ))
+            }
+        </div>
+        {/*-----------------------*/}
+        <div className="searched-bottom">
+           <Link to={'/beats'}><button>BEAT STORE</button></Link> 
         </div>
       </div>
     </>
   );
+}
 };
 
 export default SearchedItemPage;

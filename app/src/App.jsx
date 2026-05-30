@@ -81,7 +81,7 @@ const App = () => {
       <Route path='/profile' element={token===""?<AuthPage/>:<ProfilePage/>}></Route>
       <Route path='/cart' element={getCartAmount()>100?<CartPage/>:<BeatsPage/>}></Route>
       <Route path='/checkout' element={getCartAmount()>100?<CheckoutPage/>:<BeatsPage/>}></Route>
-      <Route path='/order' element={<OrderPage/>}></Route>
+      <Route path='/order' element={token===""?<AuthPage/>:<OrderPage/>}></Route>
       <Route path='/notifications' element={<NotificationsPage/>}></Route>
       <Route path='/download' element={<DownloadPage/>} ></Route>
       <Route path='/beats' element={<BeatsPage/>}></Route>

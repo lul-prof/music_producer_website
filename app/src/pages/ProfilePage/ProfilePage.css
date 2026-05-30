@@ -158,7 +158,7 @@
 }
 .profile .profile-mid .profile-mid-left iframe{
     border-radius: 10px;
-    max-height: 400px;
+    min-height: 400px;
 }
 .profile .profile-mid .profile-mid-right{
     width: 50%;
@@ -323,7 +323,7 @@
 }
 .profile .profile-mid .profile-mid-left iframe{
     border-radius: 10px;
-    max-height: 400px;
+    min-height: 250px;
     width: 100%;
 }
 .profile .profile-mid .profile-mid-right{

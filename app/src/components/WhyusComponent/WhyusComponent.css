@@ -25,6 +25,7 @@
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     min-height: 300px;
+    width: 100%;
 }
 .why-component .why-component-right{
     min-width: 50%;

@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./SingleArtistPage.css";
-import { Link, useParams, useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import toast from "react-hot-toast";
 import { assets } from "../../assets/assets";
 import axios from 'axios'
@@ -8,16 +8,14 @@ import { useContext } from "react";
 import { ShopContext } from "../../Context/ShopContext";
 
 const SingleArtistPage = () => {
-  const { username } = useParams();
-  const [artist, setArtist] = useState(false);
 
-  const defaultFollowers={1:"default"};
-
-  const {backend_url,token}=useContext(ShopContext)
+  const {backend_url,token,artists}=useContext(ShopContext)
 
   const [searchParams,setSearchParams]=useSearchParams();
   
   const artistId=searchParams.get("id");
+
+  const artist=artists.find(artist=>artist._id===artistId)
 
   const userId=localStorage.getItem("user");
 
@@ -64,100 +62,138 @@ const SingleArtistPage = () => {
     }
   }
 
-
-  useEffect(() => {
-    const fetchArtist = async () => {
-    try {
-      const response=await axios.post(`${backend_url}/api/user/artist/${username}`);      
-      if(response.data.success){
-        setArtist(response.data.artist);
-      }else{
-        toast.error(response.data.message);
-      }
-    } catch (error) {
-      toast.error(error);
-    }
-  }
-    fetchArtist();
-  }, [username, artist,backend_url]);
   return (
     <>
-      <div className="single-artist-container">
+      <div key={artist?._id} className="single-artist">
         {/*----------------------------*/}
-        <div className="single-artist-left">
-          <div className="single-artist-image">
-            <img id="single-artist-image" src={artist.avatar} alt="" />
-          </div>
-          <div className="single-artist-details">
-            <h4>
-              {artist.username}{" "}
-              <img
-                id="single-artist-verify"
-                src={assets.blueCheckMark}
-                alt=""
-              />{" "}
-            </h4>
-
-            <h6 style={{margin:"20px 0"}}>Followers {artist?artist.followers.length:""} Following {artist?artist.following.length:""}</h6>
-            {
-              artist?
-            artist.followers.find(follower=>follower===userId)?
-              <div id="single-artist-unfollow-button" className="single-artist-button">
-                <button onClick={unfollow}>UnFollow</button>    
+        <div className="single-artist-top">
+          <div className="single-artist-top-left">
+            <div className="single-artist-top-left-top">
+              <img src={artist?.avatar} alt="avatar"/>
             </div>
-            :
-            <div id="single-artist-button" className="single-artist-button">
-                <button onClick={follow}>Follow</button>
-            </div>
-            :""
+            <div className="single-artist-top-left-bottom">
+              <div className="single-artist-top-left-bottom-top">
+                  <div className="single-artist-top-left-bottom-top-1">
+                    <p>{artist?.followers.length}</p>
+                    <p>Followers</p>
+                  </div>
+                  <div className="single-artist-top-left-bottom-top-2">
+                    <p>{artist?.following.length}</p>
+                    <p>Following</p>
+                  </div>
+              </div>
+              {
+                token!==""
+                ?
+              <div className="single-artist-top-left-bottom-mid">
+                {
+                  artist?.followers.find(follower=>follower===userId)
+                  ?
+                  <button onClick={()=>(unfollow())}>Unfollow</button>
+                  :
+                  <button onClick={()=>(follow())}>Follow</button>
+                }
+              </div>
+              :
+              <>
+              <Link to={'/login'}><button>Login</button></Link>
+              </>
             }
-            
-            
+            </div>
+          </div>
+          <div className="single-artist-top-mid">
+            <div className="single-artist-top-mid-username">
+              <p>{artist?.username}</p>
+            </div>
+            <div className="single-artist-top-mid-name">
+              <p>{artist?.first_name} {artist?.last_name}</p>
+            </div>
+            <div className="single-artist-top-mid-email">
+              <p>{artist?.email}</p>
+            </div>
+            <div className="single-artist-top-mid-phone">
+              <p>{artist?.phone}</p>
+            </div>
+          </div>
+          <div className="single-artist-top-right">
+              <div className="single-artist-top-right-date">
+                <p>
+                 Joined {new Date(artist?.createdAt).toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })}
+                </p>
+              </div>
+              <div className="single-artist-top-right-bio">
+                <p>{artist?.bio}</p>
+              </div>
           </div>
         </div>
         {/*----------------------------*/}
-        <div className="single-artist-right">
-          <div className="single-artist-right-bio">
-            <h1 style={{color:"#BF40BF"}}>BIO</h1>
-            <p>{artist.bio}</p>
-          </div>
-
-          <div className="single-artist-right-Links">
-            <div className="single-artist-right-Links-header">
-              <h1>Social Links</h1>
-            </div>
-            <div className="single-artist-right-Links-details">
-              <Link to={`${artist.instagram}`} target="_blank">
-                <p> <img id="social-link-icon" src={assets.instagramIcon} alt="" /> Instagram</p>
-              </Link>
-              <Link  to={`${artist.spotify}`} target="_blank">
-                <p><img id="social-link-icon" src={assets.spotifyIcon} alt="" />Spotify</p>
-              </Link>
-              <Link to={`${artist.itunes}`} target="_blank">
-                <p><img id="social-link-icon" src={assets.itunesIcon} alt="" />Itunes</p>
-              </Link>
-              <Link to={`${artist.youtube}`} target="_blank">
-                <p><img id="social-link-icon" src={assets.youtubeIcon} alt="" />Youtube</p>
-              </Link>
-              <Link to={`${artist.whatsapp}`} target="_blank">
-                <p><img id="social-link-icon" src={assets.whatsappIcon} alt="" />Whatsapp</p>
-              </Link>
-            </div>
-          </div>
-
-          <div className="single-artist-right-frame">
-            <h1 style={{color:"#BF40BF"}}>LATEST PROJECT</h1>
+        <div className="single-artist-mid">
+          <div className="single-artist-mid-left">
             <iframe
-              src={artist.latest_project}
-              frameBorder="0"
-              title="Latest Song"
-              width="100%"
-              height="400"
-              loading="lazy"
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
+                    src={artist?.latest_project}
+                    title="YouTube video player"
+                    frameBorder="0"
+                    allow="accelerometer; 
+                                    autoplay;
+                                    clipboard-write; 
+                                    encrypted-media; 
+                                    gyroscope; 
+                                    picture-in-picture; 
+                                    web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                ></iframe>
           </div>
+          <div className="single-artist-mid-right">
+             <Link to={artist?.instagram} target="_blank"><div className="single-artist-mid-right-class">
+                <div className="single-artist-mid-right-class-left">
+                  <img src={assets.instagramIcon} alt="Instagram" />
+                </div>
+                <div className="single-artist-mid-right-class-right">
+                  <h3>Instagram</h3>
+                </div> 
+              </div></Link>
+              <Link to={artist?.whatsapp} target="_blank"><div className="single-artist-mid-right-class">
+                <div className="single-artist-mid-right-class-left">
+                  <img src={assets.whatsappIcon} alt="Whats app" />
+                </div>
+                <div className="single-artist-mid-right-class-right">
+                  <h3>WhatsApp</h3>
+                </div>
+              </div></Link>
+              <Link to={artist?.itunes} target="_blank"><div className="single-artist-mid-right-class">
+                <div className="single-artist-mid-right-class-left">
+                  <img src={assets.itunesIcon} alt="Itunes" />
+                </div>
+                <div className="single-artist-mid-right-class-right">
+                  <h3>Itunes</h3>
+                </div>
+              </div></Link>
+              <Link to={artist?.youtube} target="_blank"><div className="single-artist-mid-right-class">
+                <div className="single-artist-mid-right-class-left">
+                  <img src={assets.youtubeIcon} alt="youtube" />
+                </div>
+                <div className="single-artist-mid-right-class-right">
+                  <h3>YouTube</h3>
+                </div>
+              </div></Link>
+              <Link to={artist?.spotify} target="_blank"><div className="single-artist-mid-right-class">
+                <div className="single-artist-mid-right-class-left">
+                  <img src={assets.spotifyIcon} alt="spotify" />
+                </div>
+                <div className="single-artist-mid-right-class-right">
+                  <h3>Spotify</h3>
+                </div>
+              </div></Link>
+          </div>
+        </div>
+        {/*----------------------------*/}
+        <div className="single-artist-bottom">
+            <Link to={'/beats'}> <button>SHOP NOW</button> </Link>
         </div>
       </div>
     </>

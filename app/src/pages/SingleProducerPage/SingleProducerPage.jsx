@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./SingleProducerPage.css";
-import { Link, useParams, useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import toast from "react-hot-toast";
 import { assets } from "../../assets/assets.js";
 import axios from "axios";
@@ -8,11 +8,8 @@ import { useContext } from "react";
 import { ShopContext } from "../../Context/ShopContext.jsx";
 
 const SingleProducerPage = () => {
-  const { username } = useParams();
 
-  const [producer, setproducer] = useState(false);
-
-  const { backend_url, token } = useContext(ShopContext);
+  const { backend_url, token,producers } = useContext(ShopContext);
 
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -30,7 +27,7 @@ const SingleProducerPage = () => {
 
       const response = await axios.post(`${backend_url}/api/user/follow`, {
         userId,
-        artistId:producerId,
+        producerId:producerId,
       });
       console.log(response);
       if (response.data.success) {
@@ -42,6 +39,8 @@ const SingleProducerPage = () => {
       console.log(error);
     }
   };
+
+  const producer=producers.find(producer=>producer._id===producerId)
 
   const unfollow = async () => {
     try {
@@ -53,7 +52,7 @@ const SingleProducerPage = () => {
 
       const response = await axios.post(`${backend_url}/api/user/unfollow`, {
         userId,
-        artistId:producerId,
+        producerId:producerId,
       });
       console.log(response);
       if (response.data.success) {
@@ -66,132 +65,141 @@ const SingleProducerPage = () => {
     }
   };
 
-  useEffect(() => {
-    const fetchproducer = async () => {
-      try {
-        const response = await axios.post(
-          `${backend_url}/api/user/producer/${username}`,
-        );
-        if (response.data.success) {
-          setproducer(response.data.producer);
-          console.log(response);
-        } else {
-          toast.error(response.data.message);
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchproducer();
-  }, [username, producer, backend_url]);
-  return (
-    <>
-      <div className="single-producer-container">
-        {/*----------------------------*/}
-        <div className="single-producer-left">
-          <div className="single-producer-image">
-            <img id="single-producer-image" src={producer.avatar} alt="" />
-          </div>
-          <div className="single-producer-details">
-            <h4>
-              {producer.username}{" "}
-              <img
-                id="single-producer-verify"
-                src={assets.goldCheckMark}
-                alt=""
-              />{" "}
-            </h4>
-            <h6 style={{ margin: "20px 0" }}>
-              Followers {producer ? producer.followers.length : 0} Following{" "}
-              {producer ? producer.following.length : 0}
-            </h6>
-            {producer ? (
-              producer.followers.find((follower) => follower === userId) ? (
-                <div
-                  id="single-producer-unfollow-button"
-                  className="single-producer-button"
-                >
-                  <button onClick={unfollow}>UnFollow</button>
+   return (
+      <>
+        <div key={producer?._id} className="single-producer">
+          {/*----------------------------*/}
+          <div className="single-producer-top">
+            <div className="single-producer-top-left">
+              <div className="single-producer-top-left-top">
+                <img src={producer?.avatar} alt="avatar"/>
+              </div>
+              <div className="single-producer-top-left-bottom">
+                <div className="single-producer-top-left-bottom-top">
+                    <div className="single-producer-top-left-bottom-top-1">
+                      <p>{producer?.followers.length}</p>
+                      <p>Followers</p>
+                    </div>
+                    <div className="single-producer-top-left-bottom-top-2">
+                      <p>{producer?.following.length}</p>
+                      <p>Following</p>
+                    </div>
                 </div>
-              ) : (
-                <div
-                  id="single-producer-button"
-                  className="single-producer-button"
-                >
-                  <button onClick={follow}>Follow</button>
+                {
+                  token!==""
+                  ?
+                <div className="single-producer-top-left-bottom-mid">
+                  {
+                    producer?.followers.find(follower=>follower===userId)
+                    ?
+                    <button onClick={()=>(unfollow())}>Unfollow</button>
+                    :
+                    <button onClick={()=>(follow())}>Follow</button>
+                  }
                 </div>
-              )
-            ) : (
-              ""
-            )}
-          </div>
-        </div>
-        {/*----------------------------*/}
-        <div className="single-producer-right">
-          <div className="single-producer-right-bio">
-            <h1 style={{ color: "#BF40BF" }}>BIO</h1>
-            <p>{producer.bio}</p>
-          </div>
-
-          <div className="single-producer-right-Links">
-            <div className="single-producer-right-Links-header">
-              <h1>Social Links</h1>
+                :
+                <>
+                <Link to={'/login'}><button>Login</button></Link>
+                </>
+              }
+              </div>
             </div>
-            <div className="single-producer-right-Links-details">
-              <Link to={`${producer.instagram}`} target="_blank">
-                <p>
-                  {" "}
-                  <img
-                    id="social-link-icon"
-                    src={assets.instagramIcon}
-                    alt=""
-                  />{" "}
-                  Instagram
-                </p>
-              </Link>
-              <Link to={`${producer.spotify}`} target="_blank">
-                <p>
-                  <img id="social-link-icon" src={assets.spotifyIcon} alt="" />
-                  Spotify
-                </p>
-              </Link>
-              <Link to={`${producer.itunes}`} target="_blank">
-                <p>
-                  <img id="social-link-icon" src={assets.itunesIcon} alt="" />
-                  Itunes
-                </p>
-              </Link>
-              <Link to={`${producer.youtube}`} target="_blank">
-                <p>
-                  <img id="social-link-icon" src={assets.youtubeIcon} alt="" />
-                  Youtube
-                </p>
-              </Link>
-              <Link to={`${producer.whatsapp}`} target="_blank">
-                <p>
-                  <img id="social-link-icon" src={assets.whatsappIcon} alt="" />
-                  Whatsapp
-                </p>
-              </Link>
+            <div className="single-producer-top-mid">
+              <div className="single-producer-top-mid-username">
+                <p>{producer?.username}</p>
+              </div>
+              <div className="single-producer-top-mid-name">
+                <p>{producer?.first_name} {producer?.last_name}</p>
+              </div>
+              <div className="single-producer-top-mid-email">
+                <p>{producer?.email}</p>
+              </div>
+              <div className="single-producer-top-mid-phone">
+                <p>{producer?.phone}</p>
+              </div>
+            </div>
+            <div className="single-producer-top-right">
+                <div className="single-producer-top-right-date">
+                  <p>
+                   Joined {new Date(producer?.createdAt).toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
+                  </p>
+                </div>
+                <div className="single-producer-top-right-bio">
+                  <p>{producer?.bio}</p>
+                </div>
             </div>
           </div>
-
-          <div className="single-producer-right-frame">
-            <h2 style={{ color: "#BF40BF" }}>LATEST PROJECT</h2>
-            <iframe
-              src={producer.latest_project}
-              frameBorder="0"
-              title="Latest Song"
-              width="100%"
-              height="400"
-              loading="lazy"
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
+          {/*----------------------------*/}
+          <div className="single-producer-mid">
+            <div className="single-producer-mid-left">
+              <iframe
+                      src={producer?.latest_project}
+                      title="YouTube video player"
+                      frameBorder="0"
+                      allow="accelerometer; 
+                                      autoplay;
+                                      clipboard-write; 
+                                      encrypted-media; 
+                                      gyroscope; 
+                                      picture-in-picture; 
+                                      web-share"
+                      referrerPolicy="strict-origin-when-cross-origin"
+                      allowFullScreen
+                  ></iframe>
+            </div>
+            <div className="single-producer-mid-right">
+               <Link to={producer?.instagram} target="_blank"><div className="single-producer-mid-right-class">
+                  <div className="single-producer-mid-right-class-left">
+                    <img src={assets.instagramIcon} alt="Instagram" />
+                  </div>
+                  <div className="single-producer-mid-right-class-right">
+                    <h3>Instagram</h3>
+                  </div> 
+                </div></Link>
+                <Link to={producer?.whatsapp} target="_blank"><div className="single-producer-mid-right-class">
+                  <div className="single-producer-mid-right-class-left">
+                    <img src={assets.whatsappIcon} alt="Whats app" />
+                  </div>
+                  <div className="single-producer-mid-right-class-right">
+                    <h3>WhatsApp</h3>
+                  </div>
+                </div></Link>
+                <Link to={producer?.itunes} target="_blank"><div className="single-producer-mid-right-class">
+                  <div className="single-producer-mid-right-class-left">
+                    <img src={assets.itunesIcon} alt="Itunes" />
+                  </div>
+                  <div className="single-producer-mid-right-class-right">
+                    <h3>Itunes</h3>
+                  </div>
+                </div></Link>
+                <Link to={producer?.youtube} target="_blank"><div className="single-producer-mid-right-class">
+                  <div className="single-producer-mid-right-class-left">
+                    <img src={assets.youtubeIcon} alt="youtube" />
+                  </div>
+                  <div className="single-producer-mid-right-class-right">
+                    <h3>YouTube</h3>
+                  </div>
+                </div></Link>
+                <Link to={producer?.spotify} target="_blank"><div className="single-producer-mid-right-class">
+                  <div className="single-producer-mid-right-class-left">
+                    <img src={assets.spotifyIcon} alt="spotify" />
+                  </div>
+                  <div className="single-producer-mid-right-class-right">
+                    <h3>Spotify</h3>
+                  </div>
+                </div></Link>
+            </div>
+          </div>
+          {/*----------------------------*/}
+          <div className="single-producer-bottom">
+              <Link to={'/beats'}> <button>SHOP NOW</button> </Link>
           </div>
         </div>
-      </div>
-    </>
+      </>
   );
 };
 
