@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import {assets, faqs} from '../../assets/assets'
 import './FaqComponent.css'
-import {toast} from 'react-hot-toast'
+import {Link} from 'react-router-dom'
 
 const FaqComponent = () => {
   const [open,setOpen]=useState(false);
@@ -26,7 +26,7 @@ const FaqComponent = () => {
               <div className="faq-title">
                 <div className="faq-title-top">
                   <p>{faq.faq}</p>
-                  <img src={open && faq._id===id?assets.minusI:faq._id==id?assets.minusI:assets.addI} alt="preview" onClick={()=>(setOpen(!open),setId(faq._id))} />
+                  <img src={open && faq._id===id?assets.minusI:assets.addI} alt="preview" onClick={()=>(setOpen(!open),setId(faq._id))} />
                 </div>
                 {
                   open && faq._id===id
@@ -45,7 +45,7 @@ const FaqComponent = () => {
       </div>
       {/*-----------------------*/}
       <div className="faqs-btn">
-        <button onClick={()=>(toast.success('Feature Under development.'))}>ASK A QUESTION</button>
+        <Link to={'/contactUs'}><button>ASK A QUESTION</button></Link>
       </div>
     </div>
     </>

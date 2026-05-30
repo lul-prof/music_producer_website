@@ -1,255 +1,436 @@
 .checkout-container{
-    color: #FAF9F6;
-    padding: 10px;
     width: 100%;
-    padding-bottom: 50px;
+    padding: 50px;
+    overflow: hidden;
+}
+.checkout-container form{
     display: flex;
-    gap: 2rem;
+    flex-direction: row;
+    gap: 24px;
 }
 
-.checkout-container .checkout-left{
-    width: 70%;
-    margin-top: 10px;
-}
-.checkout-container .checkout-left .checkout-left-form{
-    width: 100%;
-    margin-top: 20px;
-}
-
-.checkout-container .checkout-left .checkout-left-form form{
-    width: 100%;
-}
-.checkout-container .checkout-left .checkout-left-form form input,textarea{
-    color: #FAF9F6;
-}
-
-.checkout-container .checkout-left .checkout-left-form form .form-class{
+.checkout-container form .checkout-left{
     display: flex;
-    gap: 5px;
-}
-
-.checkout-container .checkout-left .checkout-left-form form input[name=fname]{
+    flex-direction: column;
+    gap: 24px;
     width: 50%;
-    background: transparent;
-    outline: 0;
-    border: 2px solid #FAF9F6;
-    padding: 10px;
-    border-radius: 5px;
-}
-.checkout-container .checkout-left .checkout-left-form form input[name=lname]{
-    width: 50%;
-    background: transparent;
-    outline: 0;
-    border: 2px solid #FAF9F6;
-    padding: 10px;
-    border-radius: 5px;
 }
 
-.checkout-container .checkout-left .checkout-left-form form input[name=email]{
-    width: 100%;
-    background: transparent;
-    outline: 0;
-    border: 2px solid #FAF9F6;
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
-
-.checkout-container .checkout-left .checkout-left-form form input[name=phone]{
-    width: 100%;
-    background: transparent;
-    outline: 0;
-    border: 2px solid #FAF9F6;
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
-
-.checkout-container .checkout-left .checkout-left-form form input[name=county]{
-    width: 50%;
-    background: transparent;
-    outline: 0;
-    border: 2px solid #FAF9F6;
-    padding: 10px;
-    border-radius: 5px;
-}
-.checkout-container .checkout-left .checkout-left-form form input[name=code]{
-    width: 50%;
-    background: transparent;
-    outline: 0;
-    border: 2px solid #FAF9F6;
-    padding: 10px;
-    border-radius: 5px;
-}
-
-.checkout-container .checkout-left .checkout-left-form form input[name=ward]{
-    width: 50%;
-    background: transparent;
-    outline: 0;
-    border: 2px solid #FAF9F6;
-    padding: 10px;
-    border-radius: 5px;
-}
-.checkout-container .checkout-left .checkout-left-form form input[name=street]{
-    width: 50%;
-    background: transparent;
-    outline: 0;
-    border: 2px solid #FAF9F6;
-    padding: 10px;
-    border-radius: 5px;
-}
-
-.checkout-container .checkout-left .checkout-left-form form textarea{
-    width: 100%;
-    background: transparent;
-    outline: 0;
-    border: 2px solid #FAF9F6;
-    padding: 10px;
-    border-radius: 5px;
-}
-
-.checkout-container .checkout-right{
-    margin-top: 10px;
-    width: 30%;
-}
-
-.checkout-container .checkout-right .checkout-right-order{
-    margin: 20px 0;
-}
-
-.checkout-container .checkout-right hr{
-    width: 58%;
-    border-color: #BF40BF;
-    opacity: 0.6;
-    margin: 5px 0;
-}
-.checkout-container .checkout-right .checkout-right-payment{
-    margin-top: 20px;
-}
-.checkout-container .checkout-right .checkout-right-payment h4{
-    margin-bottom: 10px;
-}
-.checkout-container .checkout-right .checkout-right-payment .checkout-right-mpesa{
-    display: flex;
-    margin-bottom: 10px;
-}
-.checkout-container .checkout-right .checkout-right-payment .checkout-right-mpesa .mpesa-box{
-    width: 15px;
-    height: 15px;
-    border: 1px solid #FAF9F6;
-    border-radius: 100px;
-    margin-right: 5px;
-    cursor: pointer;
-}
-.checkout-container .checkout-right .checkout-right-payment .checkout-right-paypal{
-    display: flex;
-    margin-bottom: 10px;
-}
-.checkout-container .checkout-right .checkout-right-payment .checkout-right-paypal .paypal-box{
-    width: 15px;
-    height: 15px;
-    border: 1px solid #FAF9F6;
-    border-radius: 100px;
-    margin-right: 5px;
-    cursor: pointer;
-}
-
-.checkout-container .checkout-right .checkout-right-payment .checkout-right-cod{
+.checkout-container form .checkout-left .checkout-left-header{
     display: flex;
 }
-.checkout-container .checkout-right .checkout-right-payment .checkout-right-cod .cod-box{
-    width: 15px;
-    height: 15px;
-    border: 1px solid #FAF9F6;
-    border-radius: 100px;
-    margin-right: 5px;
-    cursor: pointer;
+.checkout-container form .checkout-left .checkout-left-header h2{
+    line-height: 1.2em;
+}
+.checkout-container form .checkout-left .checkout-left-form{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: linear-gradient(to right, rgba(123,47,190,0.3),rgba(148,77,211,0.3));
+    border-radius: 10px;
+    box-shadow: 0 8px 32px rgba(16,13,26,0.5);
+    border: 1px solid rgba(18,18,18,0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); 
+    padding: 10px;
 }
 
-.checkout-container .checkout-right .checkout-right-payment button{
-    padding: 5px 30px;
+.checkout-container form .checkout-left .checkout-left-form .form-class-small{
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+}
+.checkout-container form .checkout-left .checkout-left-form .form-class-small input{
+    width: 50%;
+    padding: 10px;
     outline: 0;
     border: 0;
     border-radius: 5px;
-    font-weight: 800;
-    margin-top: 10px;
 }
-
-.checkout-container .checkout-right .checkout-right-payment button:hover{
-    cursor: pointer;
-}
-
-.checkout-container .checkout-right .checkout-right-order{
-    display: flex;
-    gap: 5px;
-}
-#checkout-right-order-img{
-    width: 100px;
+.checkout-container form .checkout-left .checkout-left-form .form-class-small-large input{
+    width: 100%;
+    padding: 10px;
+    outline: 0;
+    border: 0;
     border-radius: 5px;
 }
-#checkout-right-order-img:hover{
+
+.checkout-container form .checkout-left .checkout-left-form .form-class-small-large textarea{
+    width: 100%;
+    padding: 10px;
+    outline: 0;
+    border: 0;
+    border-radius: 5px;
+}
+.checkout-container form .checkout-right{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 50%;
+}
+.checkout-container form .checkout-right .checkout-right-header{
+    align-self: flex-end;
+}
+.checkout-container form .checkout-right .checkout-right-orders{
+    display: flex;
+    gap: 12px;
+    overflow-x: scroll;
+    align-self: flex-end;
+}
+.checkout-container form .checkout-right .checkout-right-orders .checkout-right-order{
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: rgba(192,192,192,0.3);
+    box-shadow: 0 8px 32px rgba(16,13,26,0.6);
+    border: 1px solid rgba(22,13,42,0.5);
+    border-radius: 10px;
+    
+}
+.checkout-container form .checkout-right .checkout-right-orders .checkout-right-order:hover{
     cursor: pointer;
-    padding: 8px;
+    transform: translateY(-3px);
+}
+.checkout-container form .checkout-right .checkout-right-orders .checkout-right-order .checkout-right-order-img img{
+    width: 300px;
+    max-height: 300px;
+    object-fit:cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
-#checkout-right-items{
+.checkout-container form .checkout-right .checkout-right-orders .checkout-right-order .checkout-right-order-details{
     display: flex;
-    gap: 10px;
-    overflow-x: auto;
+    flex-direction: column;
+    gap: 12px;
+    max-width:100%;
+    padding: 10px;
 }
 
-@media (max-width:765px) and (min-width:100px) {
+.checkout-container form .checkout-right .checkout-right-mid{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    align-self: flex-end;
+    border-top: 1px solid #7b2fbe;
+    border-bottom: 1px solid #7b2fbe;
+    border-radius: 5px;
+    padding: 13px;
+}
+.checkout-container form .checkout-right .checkout-right-mid .subtotal{
+    font-weight: 600;
+    text-shadow: 0 2px 4px #121212;
+}
+.checkout-container form .checkout-right .checkout-right-mid img{
+    max-width: 25px;
+    max-height: 25px;
+    animation: rotate 6s infinite;
+}
+.checkout-container form .checkout-right .checkout-right-options{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-self: flex-end;
+    line-height: 1.2;
+}
+.checkout-container form .checkout-right .checkout-right-options .mpesa{
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    align-items: center;
+}
+.checkout-container form .checkout-right .checkout-right-options .mpesa .mpesa-box{
+    width: 25px;
+    height: 25px;
+    border: 2px solid #E9E9E9;
+    border-radius: 100px;
+}
+.checkout-container form .checkout-right .checkout-right-options .mpesa .mpesa-box:hover{
+    cursor: pointer;
+}
+.checkout-container form .checkout-right .checkout-right-options .paypal{
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    align-items: center;
+}
+.checkout-container form .checkout-right .checkout-right-options .paypal .paypal-box{
+    width: 25px;
+    height: 25px;
+    border: 2px solid #E9E9E9;
+    border-radius: 100px;
+}
+.checkout-container form .checkout-right .checkout-right-options .paypal .paypal-box:hover{
+    cursor: pointer;
+}
+.checkout-container form .checkout-right .checkout-right-options .cod{
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    align-items: center;
+}
+.checkout-container form .checkout-right .checkout-right-options .cod .cod-box{
+    width: 25px;
+    height: 25px;
+    border: 2px solid #E9E9E9;
+    border-radius: 100px;
+}
+.checkout-container form .checkout-right .checkout-right-options .cod .cod-box:hover{
+    cursor: pointer;
+}
+.checkout-container form .checkout-right .checkout-right-btn{
+    align-self: flex-end;
+}
+
+.checkout-container form .checkout-right .checkout-right-btn .mpesa-btn button{
+    padding: 10px 90px;
+    outline: 0;
+    border: 0;
+    font-weight: 600;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background: #4CBB17;
+}
+.checkout-container form .checkout-right .checkout-right-btn .mpesa-btn button:hover{
+    cursor: pointer;
+    transform: translateY(3px);
+    transition: 0.3s ease;
+}
+.checkout-container form .checkout-right .checkout-right-btn .paypal-btn button{
+    padding: 10px 120px;
+    outline: 0;
+    border: 0;
+    font-weight: 600;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background: #1F51FF;
+}
+.checkout-container form .checkout-right .checkout-right-btn .paypal-btn button:hover{
+    cursor: pointer;
+    transform: translateY(3px);
+    transition: 0.3s ease;
+}
+.checkout-container form .checkout-right .checkout-right-btn .cod-btn button{
+    padding: 10px 70px;
+    outline: 0;
+    border: 0;
+    font-weight: 600;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background: #FFD900;
+}
+.checkout-container form .checkout-right .checkout-right-btn .cod-btn button:hover{
+    cursor: pointer;
+    transform: translateY(3px);
+    transition: 0.3s ease;
+}
+
+.checkout-container .order-class{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+    text-align: center;
+    line-height: 1.5em;
+}
+.checkout-container .order-class button{
+    padding: 10px 30px;
+    outline: 0;
+    border: 0;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background: #FFD900;
+    font-weight: 600;
+}
+.checkout-container .order-class button:hover{
+    cursor: pointer;
+}
+@keyframes rotate {
+    0%{
+        transform: rotate(-360deg);
+    }
+    50%{
+        transform: rotate(0);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+/*-------------------------------*/
+@media (max-width:700px) and (min-width:50px) {
 .checkout-container{
-    padding-bottom: 50px;
-    flex-direction: column;
-    gap: 1rem;
+    padding: 10px;
 }
-.checkout-container .checkout-left{
-    margin-top: 10px;
-    width: 100%;
-}
-.checkout-container .checkout-left .checkout-left-form{
-    width: 100%;
-    margin-top: 20px;
-}
-
-.checkout-container .checkout-left .checkout-left-form form{
-    width: 100%;
-}
-
-.checkout-container .checkout-left .checkout-left-form form .form-class{
-    display: flex;
-    gap: 4px;
-}
-
-.checkout-container .checkout-right{
-    margin-top: 10px;
-    width: 100%;
-}
-
-.checkout-container .checkout-right .checkout-right-order{
-    margin: 10px 0;
-    width: 100%;
-    display: flex;
+.checkout-container form{
     flex-direction: column;
 }
+.checkout-container form .checkout-left{
+    width: 100%;
+}
 
-
-.checkout-container .checkout-right .checkout-right-order{
+.checkout-container form .checkout-left .checkout-left-header{
+    align-self: center;
+}
+.checkout-container form .checkout-left .checkout-left-header h2{
+    font-size: 20px;
+}
+.checkout-container form .checkout-left .checkout-left-form{
     display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
-#checkout-right-order-img{
-    width: 100px;
-}
-
-#checkout-right-items{
+.checkout-container form .checkout-left .checkout-left-form .form-class-small{
     display: flex;
-    gap: 5px;
-    overflow-x: auto;
-}  
-.checkout-container .checkout-right hr{
-    width: 45%;
-    margin: 5px 0;
+    flex-direction: row;
+    gap: 6px;
 }
+.checkout-container form .checkout-left .checkout-left-form .form-class-small input{
+    border-radius: 5px;
+}
+.checkout-container form .checkout-left .checkout-left-form .form-class-small-large input{
+    border-radius: 5px;
+}
+
+.checkout-container form .checkout-left .checkout-left-form .form-class-small-large textarea{
+    border-radius: 5px;
+}
+.checkout-container form .checkout-right{
+    gap: 24px;
+    width: 100%;
+}
+.checkout-container form .checkout-right .checkout-right-header{
+    align-self: center;
+}
+.checkout-container form .checkout-right .checkout-right-header h2{
+    font-size: 20px;
+}
+.checkout-container form .checkout-right .checkout-right-orders{
+    align-self: flex-start;
+}
+.checkout-container form .checkout-right .checkout-right-orders .checkout-right-order{
+    max-width: 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;    
+}
+.checkout-container form .checkout-right .checkout-right-orders .checkout-right-order p{
+    font-size: smaller;
+}
+.checkout-container form .checkout-right .checkout-right-orders .checkout-right-order .title{
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    
+}
+.checkout-container form .checkout-right .checkout-right-orders .checkout-right-order .checkout-right-order-img img{
+    width: 150px;
+    max-height: 150px;
+    object-fit:cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.checkout-container form .checkout-right .checkout-right-orders .checkout-right-order .checkout-right-order-details{
+    display: flex;
+    gap: 6px;
+}
+
+.checkout-container form .checkout-right .checkout-right-mid{
+    display: flex;
+    align-self: flex-start;
+}
+.checkout-container form .checkout-right .checkout-right-mid p{
+    font-size: 16px;
+}
+
+.checkout-container form .checkout-right .checkout-right-mid img{
+    max-width: 25px;
+    max-height: 25px;
+}
+.checkout-container form .checkout-right .checkout-right-options{
+    display: flex;
+    align-self: flex-start;
+}
+.checkout-container form .checkout-right .checkout-right-options .checkout-right-options-header h2{
+    line-height: 1.2;
+    font-size: 20px;
+}
+.checkout-container form .checkout-right .checkout-right-options .mpesa{
+    display: flex;
+
+}
+.checkout-container form .checkout-right .checkout-right-options .mpesa .mpesa-box{
+    width: 25px;
+    height: 25px;
+}
+
+.checkout-container form .checkout-right .checkout-right-options .paypal{
+    display: flex;
+    flex-direction: row;
+}
+.checkout-container form .checkout-right .checkout-right-options .paypal .paypal-box{
+    width: 25px;
+    height: 25px;
+}
+
+.checkout-container form .checkout-right .checkout-right-options .cod{
+    display: flex;
+    flex-direction: row;
+}
+.checkout-container form .checkout-right .checkout-right-options .cod .cod-box{
+    width: 25px;
+    height: 25px;
+}
+.checkout-container form .checkout-right .checkout-right-btn{
+    align-self: flex-start;
+    width: 100%;
+}
+
+.checkout-container form .checkout-right .checkout-right-btn .mpesa-btn button{
+    width: 100%;
+    padding: 10px;
+    outline: 0;
+    border: 0;
+}
+
+.checkout-container form .checkout-right .checkout-right-btn .paypal-btn button{
+    width: 100%;
+    padding: 10px;
+    outline: 0;
+    border: 0;
+}
+
+.checkout-container form .checkout-right .checkout-right-btn .cod-btn button{
+    width: 100%;
+    padding: 10px;
+    outline: 0;
+    border: 0;
+}
+.checkout-container .order-class{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+    text-align: center;
+    
+}
+.checkout-container .order-class p{
+    font-size: 20px;
+    line-height: 1.5em;
+}
+.checkout-container .order-class h2{
+    font-size: 20px;
+    line-height: 1.5em;
+}
+.checkout-container .order-class button{
+    padding: 10px 30px;
+
+}
+   
 }

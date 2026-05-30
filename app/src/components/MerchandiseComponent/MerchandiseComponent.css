@@ -77,7 +77,7 @@
 }
 .merch-component .merch-container .merch .merch-price{
     padding:0 12px ;
-    padding-bottom: 6px;
+    padding-bottom: 12px;
 }
 .merch-component .merch-container .merch .merch-price p{
     font-weight: 700;
@@ -171,9 +171,7 @@
 .merch-component .merch-container .merch .merch-title p{
     font-weight: 500;
 }
-.merch-component .merch-container .merch .merch-price{
-    padding:0 12px ;
-}
+
 .merch-component .merch-container .merch .merch-price p{
     font-weight: 700;
 }
@@ -252,9 +250,7 @@
 .merch-component .merch-container .merch .merch-title p{
     font-weight: 500;
 }
-.merch-component .merch-container .merch .merch-price{
-    padding:0 12px ;
-}
+
 .merch-component .merch-container .merch .merch-price p{
     font-weight: 700;
 }

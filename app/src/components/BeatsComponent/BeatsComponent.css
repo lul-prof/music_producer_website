@@ -76,9 +76,11 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
     padding:0 10px;
+    padding-bottom: 4px;
 }
 .beats-component .featured-beats .featured-beat  .featured-beat-title h5{
     font-size: clamp(20px, 24px, 28px);
+    line-height: 1.2em;
 }
 .beats-component .featured-beats .featured-beat .featured-beat-price{
     padding:0 10px;

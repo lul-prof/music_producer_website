@@ -1,0 +1,182 @@
+.projects{
+    padding: 50px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.projects .projects-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.projects .projects-header .projects-header-left{
+    display: flex;
+}
+.projects .projects-header .projects-header-right button{
+    padding: 10px 30px;
+    outline: 0;
+    border: 0;
+    background: #FFD900;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+.projects .projects-header .projects-header-right button:hover{
+    cursor: pointer;
+    transform: translateY(6px);
+}
+.projects .projects-mid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+}
+.projects .projects-mid .project{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: linear-gradient(to right, rgba(123,47,190,0.3),rgba(148,77,211,0.3));
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(16,13,26,0.5);
+    border: 1px solid rgba(18,18,18,0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+.projects .projects-mid .project:hover{
+    cursor: pointer;
+    transform: translateY(-6px);
+    transition: -0.3s ease;
+}
+.projects .projects-mid .project .project-frame iframe{
+   border-top-left-radius: 10px;
+   border-top-right-radius: 10px; 
+   max-height: 400px;
+}
+.projects .projects-mid .project .project-title{
+    padding-left: 12px;
+}
+.projects .projects-mid .project .project-artist{
+    padding-bottom: 12px;
+    padding-left: 12px;
+}
+
+.projects .projects-bottom{
+    align-self: center;
+}
+.projects .projects-bottom button{
+    padding: 10px;
+    background: #FFD900;
+    outline: 0;
+    border: 0;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+/*---------------------------------------------*/
+@media (max-width:500px) and (min-width:50px)  {
+.projects{
+    padding: 10px;
+    width: 100%;
+}
+.projects .projects-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.projects .projects-header .projects-header-left{
+    display: flex;
+}
+.projects .projects-header .projects-header-left h1{
+   font-size: 20px;
+   line-height: 1.2em;
+}
+.projects .projects-header .projects-header-right button{
+    padding: 5px;
+}
+.projects .projects-mid{
+    display: grid;
+    grid-template-columns: 1fr ;
+    gap: 12px;
+}
+.projects .projects-mid .project{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.projects .projects-mid .project .project-frame iframe{
+   border-top-left-radius: 10px;
+   border-top-right-radius: 10px; 
+   max-height: 400px;
+}
+.projects .projects-mid .project .project-title{
+    padding-left: 6px;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.projects .projects-mid .project .project-title p{
+    font-size: 16px;
+}
+.projects .projects-mid .project .project-artist{
+    padding-bottom: 12px;
+    padding-left: 6px;
+    
+} 
+.projects .projects-mid .project .project-artist p{
+    font-size: 16px;
+}   
+}
+
+@media (max-width:1000px) and (min-width:501px)  {
+.projects{
+    padding: 25px;
+    width: 100%;
+}
+.projects .projects-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.projects .projects-header .projects-header-left{
+    display: flex;
+}
+.projects .projects-header .projects-header-left h1{
+   font-size: 24px;
+   line-height: 1.2em;
+}
+.projects .projects-header .projects-header-right button{
+    padding: 12px;
+}
+.projects .projects-mid{
+    display: grid;
+    grid-template-columns: 1fr  1fr;
+    gap: 12px;
+}
+.projects .projects-mid .project{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.projects .projects-mid .project .project-frame iframe{
+   border-top-left-radius: 10px;
+   border-top-right-radius: 10px; 
+   max-height: 400px;
+}
+.projects .projects-mid .project .project-title{
+    padding-left: 6px;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.projects .projects-mid .project .project-title p{
+    font-size: 16px;
+}
+.projects .projects-mid .project .project-artist{
+    padding-bottom: 12px;
+    padding-left: 6px;
+    
+} 
+.projects .projects-mid .project .project-artist p{
+    font-size: 16px;
+}   
+}

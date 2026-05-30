@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 const AboutComponent = () => {
   return (
     <>
-    <section className='about'>
+    <section className='about' id='about'>
       {/*---------------------*/}
       <div className="about-top">
         <div className="about-top-left">

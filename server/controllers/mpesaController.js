@@ -3,16 +3,33 @@ import dayjs from 'dayjs';
 import userModel from '../models/userModel.js';
 import orderModel from '../models/orderModel.js';
 
+
+const phoneValidate=(phone)=> {
+  let clean=phone.trim()
+
+  if(clean.startsWith(0)){
+    return '254' + clean.slice(1);
+  }
+
+  if(clean.startsWith(+254)){
+    return '254' + clean.slice(1);
+  }
+
+
+  return clean;
+
+}
+
+
 const handleSTKPush = async (req, res) => {
   const { phone, amount,userId,items,address } = req.body;
+  console.log(phoneValidate(phone));
   
   const user=await userModel.findById(userId)
   if(!user){
     console.log("Not Found");
     
-  }
-  console.log(user);
-  
+  }  
   
   //get timestamp
   const year = dayjs().format("YYYY");
@@ -41,9 +58,9 @@ const handleSTKPush = async (req, res) => {
     Timestamp: timestamp,
     TransactionType: "CustomerPayBillOnline",
     Amount: amount,
-    PartyA: phone,
+    PartyA: phoneValidate(phone),
     PartyB: shortCode,
-    PhoneNumber: phone,
+    PhoneNumber: phoneValidate(phone),
     CallBackURL: callbackURL,
     AccountReference: "The Don",
     TransactionDesc: "Payment",

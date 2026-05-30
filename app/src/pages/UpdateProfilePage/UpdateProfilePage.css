@@ -1,13 +1,12 @@
 .profile-container{
-    background-color: #282828;
-    color: #FAF9F6;
-    padding: 10px;
-    padding-bottom: 100px;
+    padding: 50px;
     display: flex;
-    gap: 2rem;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 24px;
 }
 .profile-left{
-    margin-top: 10px;
+    max-width: 50%;
 }
 .profile-left .profile-left-avatar{
     max-width: 100%;
@@ -25,7 +24,6 @@
     margin-left: 20px;
 }
 .profile-right{
-    margin-top: 10px;
     width: 50%;
 }
 
@@ -36,33 +34,29 @@
     width: 100%;
     padding: 10px;
     outline: 0;
-    border:1px solid #FAF9F6;
-    background: transparent;
+    border: 0;
     border-radius: 5px;
     margin: 10px 0;
-    color: #FAF9F6;
 }
-.profile-right .profile-right-form form label{
-    color: #FAF9F6;
-}
+
 .profile-right .profile-right-form form textarea{
     width: 100%;
     padding: 10px;
     outline: 0;
-    border:1px solid #FAF9F6;
-    background: transparent;
+    border: 0;
     border-radius: 5px;
     margin: 10px 0;
-    color: #FAF9F6;
 }
 
 .profile-right .profile-right-form form button{
     width: 100%;
     padding: 15px;
-    background-color: #BF40BF;
-    color: #FAF9F6;
+    background-color: #FFD900;
     border: 0;
     outline: 0;
+    font-weight: 600;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 .profile-left input[type=file]:hover{
     cursor: pointer;
@@ -73,21 +67,18 @@
 
 @media (max-width:500px) and (min-width:100px) {
 .profile-container{
-    padding-bottom: 50px;
     flex-direction: column;
-    gap: 1px;
+    padding: 25px;
 }
 .profile-left{
-    margin-top: 10px;
+    width: 100%;
+    align-self: center;
 }
-.profile-left .profile-left-avatar{
-    max-width: 100%;
-    justify-self: center;
+.profile-left .profile-left-avatar img{
+    width: 150px;
+    height: 150px;
 }
-
-
 .profile-right{
-    margin-top: 10px;
     width: 100%;
 }
  

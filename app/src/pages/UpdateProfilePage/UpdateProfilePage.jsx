@@ -21,7 +21,9 @@ const UpdateProfilePage = () => {
   const [itunes, setItunes] = useState("");
   const [youtube, setYoutube] = useState("");
   const [whatsapp, setWhatsapp] = useState("");
-  const [bio, setBio] = useState("Update your bio to let the fans know more about you.");
+  const [bio, setBio] = useState(
+    "Update your bio to let the fans know more about you.",
+  );
 
   const navigate = useNavigate();
 
@@ -29,7 +31,16 @@ const UpdateProfilePage = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        `${backend_url}/api/user/update/${uId}`,{latest_project:latestProject,instagram,spotify,itunes,youtube,whatsapp,bio},
+        `${backend_url}/api/user/update/${uId}`,
+        {
+          latest_project: latestProject,
+          instagram,
+          spotify,
+          itunes,
+          youtube,
+          whatsapp,
+          bio,
+        },
       );
       if (response.data.success) {
         toast.success(response.data.message);
@@ -76,7 +87,7 @@ const UpdateProfilePage = () => {
       }
     };
     fetchUser();
-  }, [user, backend_url,uId]);
+  }, [user, backend_url, uId]);
   return (
     <>
       <div className="profile-container">
@@ -111,8 +122,6 @@ const UpdateProfilePage = () => {
                 <label htmlFor="lp">Latest project(Embedded Link)</label>
                 <input
                   type="text"
-                  name=""
-                  id=""
                   value={latestProject}
                   onChange={(e) => setLatestProject(e.target.value)}
                   placeholder={user.latest_project}
@@ -121,8 +130,6 @@ const UpdateProfilePage = () => {
                 <label htmlFor="ig">Instagram</label>
                 <input
                   type="text"
-                  name=""
-                  id=""
                   value={instagram}
                   onChange={(e) => setInstagram(e.target.value)}
                   placeholder={user.instagram}
@@ -133,8 +140,6 @@ const UpdateProfilePage = () => {
                 <label htmlFor="spotify">Spotify</label>
                 <input
                   type="text"
-                  name=""
-                  id=""
                   value={spotify}
                   onChange={(e) => setSpotify(e.target.value)}
                   placeholder={user.spotify}
@@ -145,8 +150,6 @@ const UpdateProfilePage = () => {
                 <label htmlFor="itunes">Itunes</label>
                 <input
                   type="text"
-                  name=""
-                  id=""
                   value={itunes}
                   onChange={(e) => setItunes(e.target.value)}
                   placeholder={user.itunes}
@@ -155,8 +158,6 @@ const UpdateProfilePage = () => {
                 <label htmlFor="youtube">YouTube</label>
                 <input
                   type="text"
-                  name=""
-                  id=""
                   value={youtube}
                   onChange={(e) => setYoutube(e.target.value)}
                   placeholder={user.youtube}
@@ -167,8 +168,6 @@ const UpdateProfilePage = () => {
                 <label htmlFor="whatsapp">Whatsapp</label>
                 <input
                   type="text"
-                  name=""
-                  id=""
                   value={whatsapp}
                   onChange={(e) => setWhatsapp(e.target.value)}
                   placeholder={user.whatsapp}
@@ -177,7 +176,12 @@ const UpdateProfilePage = () => {
               </div>
               <div className="input-class">
                 <label htmlFor="bio">BIO</label>
-                <textarea name="" rows={5} id="" value={bio} onChange={(e)=>setBio(e.target.value)} placeholder={user.bio}></textarea>
+                <textarea
+                  rows={5}
+                  value={bio}
+                  onChange={(e) => setBio(e.target.value)}
+                  placeholder={user.bio}
+                ></textarea>
               </div>
               <div className="input-btn">
                 <button type="submit">Change</button>

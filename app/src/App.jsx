@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import {BrowserRouter, Route, Router, Routes} from 'react-router-dom'
 import NavbarComponent from './components/NavbarComponent/NavbarComponent'
 import FooterComponent from './components/FooterComponent/FooterComponent'
@@ -39,6 +39,7 @@ import FaqComponent from './components/FaqComponent/FaqComponent'
 import WhyusComponent from './components/WhyusComponent/WhyusComponent'
 import AboutComponent from './components/AboutComponent/AboutComponent'
 import ProjectsPage from './pages/ProjectsPage/ProjectsPage'
+import { ShopContext } from './Context/ShopContext'
 
 
 let DefaultIcon = L.icon({
@@ -50,6 +51,7 @@ let DefaultIcon = L.icon({
 L.Marker.prototype.options.icon = DefaultIcon;
 
 const App = () => {
+  const {getCartAmount,token}=useContext(ShopContext);
   return (
     <BrowserRouter>
     <NavbarComponent/>
@@ -74,11 +76,11 @@ const App = () => {
       <Route path='/blog/:id' element={<SingleBlogPage/>} ></Route>
       <Route path='/contactUs' element={<ContactsPage/>}></Route>
       <Route path='/login' element={<AuthPage/>}></Route>
-      <Route path='/portal' element={<PortalPage/>}></Route>
+      <Route path='/portal' element={token===""?<AuthPage/>:<PortalPage/>}></Route>
       <Route path='/searchResults/:search' element={<SearchedItemPage/>}></Route>
-      <Route path='/profile' element={<ProfilePage/>}></Route>
-      <Route path='/cart' element={<CartPage/>}></Route>
-      <Route path='/checkout' element={<CheckoutPage/>}></Route>
+      <Route path='/profile' element={token===""?<AuthPage/>:<ProfilePage/>}></Route>
+      <Route path='/cart' element={getCartAmount()>100?<CartPage/>:<BeatsPage/>}></Route>
+      <Route path='/checkout' element={getCartAmount()>100?<CheckoutPage/>:<BeatsPage/>}></Route>
       <Route path='/order' element={<OrderPage/>}></Route>
       <Route path='/notifications' element={<NotificationsPage/>}></Route>
       <Route path='/download' element={<DownloadPage/>} ></Route>

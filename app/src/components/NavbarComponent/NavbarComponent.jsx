@@ -5,8 +5,10 @@ import './NavbarComponent.css'
 import {Link, useNavigate} from 'react-router-dom';
 
 const NavbarComponent = () => {
-    const {getCartCount,token}=useContext(ShopContext);
+    const {getCartCount,token,pic}=useContext(ShopContext);
     const navigate=useNavigate();
+
+    
   return (
     <>
     <section className="navbar">
@@ -22,7 +24,7 @@ const NavbarComponent = () => {
             {/*---------------------*/}
             <div className="navbar-right">
                 <div className="navbar-right-left">
-                   <Link to={token===""?'/login':'/profile'}><img src={assets.userPurple} alt="avatar" /></Link> 
+                   <Link to={token===""?'/login':'/profile'}><img src={pic?pic:assets.userPurple} alt="avatar" /></Link> 
                 </div>
                 <div className="navbar-right-right">
                      <Link to={token===""?'/login':'/cart'}><img src={assets.cartPurple} alt="your cart" /></Link>
@@ -45,15 +47,18 @@ const NavbarComponent = () => {
             <div className="sidemenu-content">
                 <ul>
                     <Link to={'/'}><li onClick={()=>(document.getElementById("sidemenu").style.display="none")}>HOME</li></Link>  
-                    <Link to={'/beats'}><li onClick={()=>(document.getElementById("sidemenu").style.display="none")}>BEATS</li></Link>
-                    <Link to={'/merchandise'} onClick={()=>(document.getElementById("sidemenu").style.display="none")}><li>MERCHANDISE</li></Link>
-                    <Link to={'/about'}><li onClick={()=>(document.getElementById("sidemenu").style.display="none")}>ABOUT US</li></Link>
+                    <Link to={'/beats'}><li onClick={()=>(document.getElementById("sidemenu").style.display="none")}>BEATS</li></Link> 
+                    <Link to={token===""?'/login':'/order'}><li onClick={()=>(document.getElementById("sidemenu").style.display="none")}>ORDERS</li></Link>
+                    <Link to={'/profile'}><li onClick={()=>(document.getElementById("sidemenu").style.display="none")}>PROFILE</li></Link>
+                    <Link to={'/portal'}><li onClick={()=>(document.getElementById("sidemenu").style.display="none")}>DASHBOARD</li></Link>
+                    <Link to={'/projects'}><li onClick={()=>(document.getElementById("sidemenu").style.display="none")}>PORTFOLIO</li></Link>
                     <Link to={'/contactUs'}><li onClick={()=>(document.getElementById("sidemenu").style.display="none")}>CONTACT US</li></Link>
-                    <Link to={'/'}><li onClick={()=>(document.getElementById("sidemenu").style.display="none")}>FAQS</li></Link>
+                    <Link to={'/merchandise'} onClick={()=>(document.getElementById("sidemenu").style.display="none")}><li>MERCHANDISE</li></Link>
+                    
                 </ul>
             </div>
             <div className="sidemenu-logout">
-                <p onClick={()=>(token!==""?localStorage.removeItem("token"):navigate('/login'),document.getElementById("sidemenu").style.display="none")}>{token===""?"LOGIN":"LOGOUT"}</p>
+                <p onClick={()=>(token!==""?localStorage.clear() :navigate('/login'),document.getElementById("sidemenu").style.display="none")}>{token===""?"LOGIN":"LOGOUT"}</p>
             </div>
             <div className="sidemenu-footer">
                 <button onClick={()=>(document.getElementById("sidemenu").style.display="none")} >CLOSE</button>

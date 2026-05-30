@@ -201,6 +201,10 @@ import pattern from './pattern.png'
 import theDon from './theDon.jpeg'
 import addI from './add.png'
 import minusI from './minus.png'
+import phoneI from './phone.png'
+import emailI from './email.png'
+import hoursI from './24-7.png'
+import locationI from './location.png'
 
 
 export const assets = {
@@ -383,7 +387,11 @@ export const assets = {
   bullet4,
   theDon,
   addI,
-  minusI
+  minusI,
+  phoneI,
+  emailI,
+  hoursI,
+  locationI
 }
 
 export const products = [
@@ -1596,4 +1604,69 @@ export const faqs=[
     "ans":"Proper credit is given as follows in written form: ‘Beat by The Don’; ‘Beat produced by The Don’; ‘Beat by The Don 254’. Downloadable files need to include ‘(Beat by The Don)’ within the filename. All displayed and uploaded content needs to include written credit in either the title or description. Hard copies such as CDs, LPs, etc. need to include written credit in booklets, covers or labels."
   }
 
+]
+
+export const projects=[
+  {
+    "_id":"pr001",
+    "artist":"Metro Stunna",
+    "title":"Cash WYFL Riddim",
+    "url":"https://www.youtube.com/embed/05WUetr_6t8?si=nvgg1wLoNhd2ac0h"
+  },
+  {
+    "_id":"pr002",
+    "artist":"Metro Stunna",
+    "title":"Matunda ft Mistari Teller",
+    "url":"https://www.youtube.com/embed/ZBQ4Q-Hthmo?si=2VpyMtrKlCidiwxV"
+  },
+  {
+    "_id":"pr003",
+    "artist":"UncoJingJong",
+    "title":"Paparazzi",
+    "url":"https://www.youtube.com/embed/tPcL1WuLqcM?si=bR58Dd7RZSD3vJG0"
+  },
+  {
+    "_id":"pr004",
+    "artist":"Top Boyz",
+    "title":"Top Skanka",
+    "url":"https://www.youtube.com/embed/7BmgOWhZ0rA?si=ZY7b0Ve4N7R4ZT7r"
+  },
+  {
+    "_id":"pr006",
+    "artist":"Ess the Artist",
+    "title":"HeartBreak Song",
+    "url":"https://www.youtube.com/embed/RfPfGBQ2MBk?si=5lfwwTjfDhhMg9Lf"
+  },
+  {
+    "_id":"pr006",
+    "artist":"Metro Stunna",
+    "title":"Real",
+    "url":"https://www.youtube.com/embed/gynXuoEJ194?si=tcVuY49mL8LRT6Gp"
+  },
+  {
+    "_id":"pr007",
+    "artist":"Marvin Josix",
+    "title":"Chess WYFL Riddim",
+    "url":"https://www.youtube.com/embed/j0PF-HZJ-4g?si=rHMY3SnmCHfhqVXF"
+  },
+  {
+    "_id":"pr008",
+    "artist":"Lul prof x Pedro",
+    "title":"Real Pain",
+    "url":"https://www.youtube.com/embed/umLfAKx6ZQI?si=VuvKX3vApIlXpI0w"
+  },
+  {
+    "_id":"pr009",
+    "artist":"The Don",
+    "title":"Falseto",
+    "url":"https://www.youtube.com/embed/h2WkSepEtFs?si=9TS4_p7puHT41x5Q"
+  },
+  {
+    "_id":"pr010",
+    "artist":"Metro Stunna",
+    "title":"Madiwa",
+    "url":"https://www.youtube.com/embed/qvto64gE4SI?si=ICgkswDYAktssD_q"
+  },
+  
+  
 ]

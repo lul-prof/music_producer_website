@@ -1,85 +1,355 @@
-.contacts-container{
-    padding: 10px;
-    padding-bottom: 50px;
+.contacts{
+    width: 100%;
+    padding: 50px;
+    overflow: hidden;
     display: flex;
-    margin-top: 60px;
-}
-.contacts-map{
-    width: 50%; 
-    padding: 10px;
-}
-.contacts-map h3{
-    margin-bottom: 20px;
-    
-}
-.contacts-form{
-    width: 50%;
-}
-.contacts-form h3{
-    padding-left: 20px;
-}
-.contacts-form form{
-    color: #FAF9F6;
-}
-.contacts-form form input{
-    padding: 20px ;
-    width: 100%;
-    border-radius: 5px;
-    outline: 0;
-    color: #FAF9F6;
-    background: transparent;
-    border: 0;
-    border: 1px solid #E9E9E9;
-}
-
-.contacts-form form textarea{
-    color: #FAF9F6;
-    padding: 20px;
-    width: 100%;
-    border-radius: 5px;
-    outline: 0;
-    background: transparent;    
-    border: 0;
-    border: 1px solid #E9E9E9;
-}
-.contacts-form form button{
-    width: 100%;
-    background: #FFD900;
-    padding: 12px;
-    border-radius: 5px;
-    outline: 0;
-    border: 0;
-}
-.contacts-form form button:hover{
-    cursor: pointer;
-}
-
-.contacts-container .contacts-form .input-class{
-    margin: 20px;
-}
-/*------------------Resp Desg-----------------*/
-@media (max-width:575px) and (min-width:100px) {
-.contacts-container{
-    padding: 10px;
-    padding-bottom: 10px;
     flex-direction: column;
-    margin-top: 60px;
+    gap: 24px;
 }
-.contacts-map{
-    width: 100%; 
+.contacts .contacts-top{
+    display: flex;
+    gap: 24px;
+    justify-content: space-between;
+}
+
+.contacts .contacts-top .contacts-top-left{
+    background: linear-gradient(to right, rgba(123,47,190,0.3),rgba(148,77,211,0.3));
     padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 8px 32px rgba(16,13,26,0.5);
+    border: 1px solid rgba(18,18,18,0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); 
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 100%;
 }
-.contacts-map h3{
-    margin-bottom: 10px;
-    
+.contacts .contacts-top .contacts-top-left .contacts-top-left-header{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
-.contacts-form{
+.contacts .contacts-top .contacts-top-left .contacts-top-left-header h3{
+    font-weight: 600;
+}
+.contacts .contacts-top .contacts-top-left .contacts-top-left-header p{
+    font-size: 16px;
+    line-height: 1.3em;
+}
+.contacts .contacts-top .contacts-top-left .contacts-top-left-options{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.contacts .contacts-top .contacts-top-left .contacts-top-left-options hr{
+    border-color: #7b2fbe;
+    opacity: 0.6;
+}
+
+.contacts .contacts-top .contacts-top-left .contacts-top-left-options .contacts-top-left-option{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+}
+.contacts .contacts-top .contacts-top-left .contacts-top-left-options .contacts-top-left-option:hover{
+    cursor: pointer;
+    transform: translateY(-3px);
+    transition: 0.3s ease;
+}
+.contacts .contacts-top .contacts-top-left .contacts-top-left-options .contacts-top-left-option .contacts-top-left-option-left img{
+    max-width: 40px;
+    max-height: 40px;
+}
+.contacts .contacts-top .contacts-top-left .contacts-top-left-options .contacts-top-left-option .contacts-top-left-option-right{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.contacts .contacts-top .contacts-top-left .contacts-top-left-options .contacts-top-left-option .contacts-top-left-option-right span{
+    font-size: smaller;
+}
+.contacts .contacts-top .contacts-top-right{
+    max-width: 70%;
+    background: linear-gradient(to right, rgba(123,47,190,0.3),rgba(148,77,211,0.3));
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 8px 32px rgba(16,13,26,0.5);
+    border: 1px solid rgba(18,18,18,0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); 
+    display: flex;
+    flex-direction: column;
+    gap: 24px; 
+}
+.contacts .contacts-top .contacts-top-right .contacts-top-right-header{
+    background: rgba(192,192,192,0.3);
+    max-width: fit-content;
+    border-radius: 50px;
+    padding: 6px;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+}
+.contacts .contacts-top .contacts-top-right .contacts-top-right-header img{
+    max-width: 25px;
+    max-height: 25px;
+    animation: rotate 6s infinite;
+}
+.contacts .contacts-top .contacts-top-right .contacts-top-right-mid{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.contacts .contacts-top .contacts-top-right .contacts-top-right-mid span{
+    font-size: smaller;
+}
+.contacts .contacts-top .contacts-top-right  .contacts-top-right-form form{
     width: 100%;
 }
-.contacts-form h3{
-    padding-left: 20px;
+.contacts .contacts-top .contacts-top-right  .contacts-top-right-form form .form-class{
+    margin: 10px 0;
 }
-.contacts-form form{
-    color: #FAF9F6;
-}   
+.contacts .contacts-top .contacts-top-right  .contacts-top-right-form form .form-class-s {
+    display: flex;
+    gap: 3px;
+    margin: 10px 0;
 }
+.contacts .contacts-top .contacts-top-right  .contacts-top-right-form form .form-class-s input{
+    width: 50%;
+    padding: 12px;
+    outline: 0;
+    border:0;
+    border-radius: 5px;
+}
+.contacts .contacts-top .contacts-top-right  .contacts-top-right-form form .form-class-l input{
+    width: 100%;
+    padding: 12px;
+    outline: 0;
+    border: 0;
+    border-radius: 5px;
+}
+
+.contacts .contacts-top .contacts-top-right  .contacts-top-right-form form textarea{
+    width: 100%;
+    padding: 12px;
+    outline: 0;
+    border: 0;
+    border-radius: 5px;
+    color: #121212;
+    font-size: 16px;
+    letter-spacing: 2px;
+    background: rgba(255,255,255,1);
+    box-shadow: 0 4px 8px rgba(16,13,26,0.5);
+}
+.contacts .contacts-top .contacts-top-right  .contacts-top-right-form .form-btn button{
+    padding: 10px;
+    border-radius: 50px;
+    outline: 0;
+    border: 0;
+    font-weight: 600;
+    background: #FFD900;
+    cursor:pointer;
+}
+.contacts .contacts-top .contacts-top-right  .contacts-top-right-form .form-btn button:hover{
+    cursor: pointer;
+    transform: translateY(3px);
+    transition: 0.3s ease;
+}
+.contacts .contacts-bottom{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: linear-gradient(to right, rgba(123,47,190,0.3),rgba(148,77,211,0.3));
+    border-radius: 10px;
+    box-shadow: 0 8px 32px rgba(16,13,26,0.5);
+    border: 1px solid rgba(18,18,18,0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); 
+    text-align: center;
+    padding-top: 10px;
+}
+.contacts .contacts-bottom .contacts-bottom-header{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.contacts .contacts-bottom .contacts-bottom-header .contacts-bottom-header-top{
+    display: flex;
+    align-self: center;
+    align-items: center;
+    gap: 6px;
+    background: rgba(192,192,192,0.3);
+    max-width: fit-content;
+    padding: 10px;
+    border-radius: 50px;
+}
+.contacts .contacts-bottom .contacts-bottom-header .contacts-bottom-header-top img{
+    max-width: 25px;
+    max-height: 25px;
+    animation: rotate 6s infinite;
+}
+@keyframes rotate {
+    0%{
+        transform: rotate(-360deg);
+    }
+    50%{
+        transform: rotate(0);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+
+/*------------------------------------*/
+
+@media (max-width:769px) and (min-width:50px) {
+.contacts{
+    width: 100%;
+    padding: 12px;
+    gap: 24px;
+}
+.contacts .contacts-top{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    justify-content: space-between;
+}
+
+.contacts .contacts-top .contacts-top-left{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 100%;
+}
+.contacts .contacts-top .contacts-top-left .contacts-top-left-header{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.contacts .contacts-top .contacts-top-left .contacts-top-left-header h3{
+    font-size: 20px;
+    line-height: 1.2em;
+}
+.contacts .contacts-top .contacts-top-left .contacts-top-left-header p{
+    font-size: 16px;
+    line-height: 1.3em;
+}
+.contacts .contacts-top .contacts-top-left .contacts-top-left-options{
+    gap: 6px;
+}
+
+.contacts .contacts-top .contacts-top-left .contacts-top-left-options .contacts-top-left-option{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 6px;
+}
+.contacts .contacts-top .contacts-top-left .contacts-top-left-options .contacts-top-left-option .contacts-top-left-option-left img{
+    max-width: 40px;
+    max-height: 40px;
+}
+.contacts .contacts-top .contacts-top-left .contacts-top-left-options .contacts-top-left-option .contacts-top-left-option-right{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.contacts .contacts-top .contacts-top-left .contacts-top-left-options .contacts-top-left-option .contacts-top-left-option-right span{
+    font-size: smaller;
+}
+.contacts .contacts-top .contacts-top-right{
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px; 
+}
+.contacts .contacts-top .contacts-top-right .contacts-top-right-header{
+    padding: 6px;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+}
+
+.contacts .contacts-top .contacts-top-right .contacts-top-right-header img{
+    max-width: 25px;
+    max-height: 25px;
+    animation: rotate 6s infinite;
+}
+.contacts .contacts-top .contacts-top-right .contacts-top-right-mid{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.contacts .contacts-top .contacts-top-right  .contacts-top-right-form form{
+    width: 100%;
+}
+.contacts .contacts-top .contacts-top-right  .contacts-top-right-form form .form-class{
+    margin: 10px 0;
+}
+.contacts .contacts-top .contacts-top-right  .contacts-top-right-form form .form-class-s {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 10px 0;
+}
+.contacts .contacts-top .contacts-top-right  .contacts-top-right-form form .form-class-s input{
+    width: 100%;
+    padding: 12px;
+    outline: 0;
+    border:0;
+    border-radius: 5px;
+}
+.contacts .contacts-top .contacts-top-right  .contacts-top-right-form form .form-class-l input{
+    width: 100%;
+    padding: 12px;
+    outline: 0;
+    border: 0;
+    border-radius: 5px;
+    
+}
+
+.contacts .contacts-top .contacts-top-right  .contacts-top-right-form form textarea{
+    width: 100%;
+    padding: 12px;
+    outline: 0;
+    border: 0;
+    border-radius: 5px;
+    font-size: 16px;
+    letter-spacing: 2px;
+}
+.contacts .contacts-top .contacts-top-right  .contacts-top-right-form .form-btn{
+    justify-self: center;
+}
+.contacts .contacts-top .contacts-top-right  .contacts-top-right-form .form-btn button{
+    padding: 10px;
+    border-radius: 50px;
+    outline: 0;
+    border: 0;
+    font-weight: 600;
+}
+.contacts .contacts-bottom{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+    padding-top: 10px;
+}
+.contacts .contacts-bottom .contacts-bottom-header{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.contacts .contacts-bottom .contacts-bottom-header .contacts-bottom-header-top{
+    display: flex;
+}
+.contacts .contacts-bottom .contacts-bottom-header .contacts-bottom-header-top img{
+    max-width: 25px;
+    max-height: 25px;
+}    
+}
+

@@ -1,9 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react'
 import './CheckoutPage.css'
 import toast from 'react-hot-toast';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ShopContext } from "../../Context/ShopContext";
 import axios from 'axios'
+import { assets } from '../../assets/assets';
 
 const CheckoutPage = () => {
     const [mpesa,setMpesa]=useState(false);
@@ -21,13 +22,14 @@ const CheckoutPage = () => {
     const navigate=useNavigate();
     const [cartData, setCartData] = useState([]);
     const [item,setItem]=useState([]);
-  const [products,setProducts]=useState([]);
+    const [success,setSuccess]=useState(false);
   const {
     currency,
     cartItems,
     getCartAmount,
     token,
-    backend_url
+    backend_url,
+    products
   } = useContext(ShopContext);
 
   const getTimestamp = () => {
@@ -38,14 +40,14 @@ const CheckoutPage = () => {
     const hours = String(date.getHours()).padStart(2, "0");
     const minutes = String(date.getMinutes()).padStart(2, "0");
     const seconds = String(date.getSeconds()).padStart(2, "0");
-
     return `TDE${year}${month}${day}${hours}${minutes}${seconds}`;
   };
 
   const reference=getTimestamp();
 
   //Cash On Delivery
-  const placeOrderCod=async()=>{
+  const placeOrderCod=async(e)=>{
+    e.preventDefault();
     const formData=new FormData();
     formData.append("fname",fname);
     formData.append("email",email);
@@ -60,10 +62,11 @@ const CheckoutPage = () => {
       console.log(response);
       if(response.data.success){
         toast.success(response.data.message);
-        navigate('/order');
+        setSuccess(true)
       }else{
         console.log(response.data.message);
-        toast.error(response.data.message)
+        toast.error(response.data.message);
+        setSuccess(false);
       }
       
     } catch (error) {
@@ -74,7 +77,8 @@ const CheckoutPage = () => {
 
 
   //Paypal
-  const placeOrderPaypal=async()=>{
+  const placeOrderPaypal=async(e)=>{
+    e.preventDefault();
     const address={fname,lname,email,phone,county,postal,ward,street,note};
     console.log(address);
     
@@ -85,29 +89,31 @@ const CheckoutPage = () => {
         for(let i=0;i<response.data.payment.links.length;i++){
           if(response.data.payment.links[i].rel==="approval_url"){
             toast.success("Redirecting you to paypal.")
-            window.location.href=response.data.payment.links[i].href
+            window.open(response.data.payment.links[i].href,'_blank');
             //console.log(response.data.payment.links[i].href); 
+          }else{
+            setSuccess(false);
           }
         }
       }
     } catch (error) {
       console.log(error);
-      
     }
   }
 
   //Mpesa
-  const placeOrderMpesa=async()=>{
+  const placeOrderMpesa=async(e)=>{
+    e.preventDefault();
     const address={fname,lname,email,phone,county,postal,ward,street,note};
     try {
       const response=await axios.post(`${backend_url}/api/user/lipa`,{phone:address.phone,amount:getCartAmount(),items:cartData,address:address},{headers:{token}});
       console.log(response.data);
       if(response.data.data.ResponseCode===0){
         toast.success(response.data.data.ResponseDescription);
-        navigate('/order')
+        setSuccess(true)
       }else{
         toast.error(response.data.data.ResponseDescription);
-        navigate('/order')
+        setSuccess(true);
       }
     } catch (error) {
       console.log(error);
@@ -142,22 +148,6 @@ const CheckoutPage = () => {
     fetchItem()
   },[products,cartItems])
 
-  useEffect(()=>{   
-    const fetchProducts=async()=>{
-      try {
-        const response=await axios.get(`${backend_url}/api/user/products`);
-        if(response.data.success){
-          setProducts(response.data.products)
-        }else{
-          console.log(response.data.message);
-        }
-      } catch (error) {
-        console.log(error);
-        
-      }
-    }
-    fetchProducts()
-  },[products,backend_url])
 
   useEffect(() => {    
     if (products.merchandise && Object.keys(cartItems).length > 0) {
@@ -177,124 +167,160 @@ const CheckoutPage = () => {
 
     
   }, [cartItems, products]);
- 
-  return (
+
+  const handleSubmit=(e)=>{
+    e.preventDefault()
+  }
+if(success){
+  return(
+  <div className="checkout-container">
+    {
+      mpesa
+      ?
+      <>
+      <div className="order-class">
+        <p>A prompt has been sent to the phone number you provided at the Delivery details section. Check your Phone and Confirm Payment.</p>
+        <Link to={'/order'}> <button>View Orders</button> </Link>
+      </div>
+      </>
+      :
+      <>
+      <div className="order-class">
+        <h2>Your Order is Currently being Processed.</h2>
+        <Link to={'/order'}> <button>View Orders</button> </Link>
+      </div>
+      </>
+    }
+  </div>
+  )
+}
+else{
+   return (
     <>
     <div className="checkout-container">
-        {/*---------------------------------*/}
+      <form method='post' onSubmit={paypal?placeOrderPaypal:cod?placeOrderCod:mpesa?placeOrderMpesa:handleSubmit}>
+        {/*----------------------*/}
         <div className="checkout-left">
-            <h1 style={{color:"#BF40BF"}}>Delivery Address</h1>
-            <div className="checkout-left-form">
-                <form onSubmit={(e)=>e.preventDefault()}>
-                    <div className="form-class">
-                        <input type="text" value={fname} onChange={(e)=>setFname(e.target.value)} name="fname" id="" placeholder='First Name' />
-                        <input type="text" value={lname} onChange={(e)=>setLname(e.target.value)} name="lname" id=""  placeholder='Last Name'/>
-                    </div>
-                    <br></br>
-                    <input type="email" name="email" value={email} onChange={(e)=>setEmail(e.target.value)} id=""  placeholder='Email Address'/>
-                    <br></br>
-                    <input type="text" name="phone" value={phone} onChange={(e)=>setPhone(e.target.value)} id="" placeholder='Phone Number' />
-                    <br></br>
-                    <div className="form-class">
-                        <input type="text" name="county" value={county} onChange={(e)=>setCounty(e.target.value)} id="" placeholder='County' />
-                        <input type="text" name="code" value={postal} onChange={(e)=>setPostal(e.target.value)} id="" placeholder='Postal Code'/>
-                    </div>
-                    <br></br>
-                    <div className="form-class">
-                        <input type="text" name="ward" value={ward} onChange={(e)=>setWard(e.target.value)} id="" placeholder='Ward'/>
-                        <input type="text" name="street" value={street} onChange={(e)=>setStreet(e.target.value)} id="" placeholder='Street'/>
-                    </div>
-                    <br></br>
-                    <textarea name="notes" value={note} onChange={(e)=>setNote(e.target.value)} id="" rows={3} placeholder='Order Notes(Sizes for merchandise & length for beats)'></textarea>
-                </form>
+          <div className="checkout-left-header">
+            <h2>DELIVERY ADDRESS</h2>
+          </div>
+          <div className="checkout-left-form">
+            <div className="form-class-small">
+              <input type="text" value={fname} onChange={(e)=>setFname(e.target.value)} name="fname" id="" placeholder='First Name' required />
+              <input type="text" value={lname} onChange={(e)=>setLname(e.target.value)} name="lname" id=""  placeholder='Last Name' required/>
             </div>
+            <div className="form-class-small-large">
+              <input type="email" name="email" value={email} onChange={(e)=>setEmail(e.target.value)} id=""  placeholder='Email Address' required/>
+            </div>    
+            <div className="form-class-small-large">
+              <input type="text" name="phone" value={phone} onChange={(e)=>setPhone(e.target.value)} id="" placeholder='Phone Number'  required/>
+            </div> 
+            <div className="form-class-small">
+              <input type="text" name="county" value={county} onChange={(e)=>setCounty(e.target.value)} id="" placeholder='County'  required/>
+              <input type="text" name="code" value={postal} onChange={(e)=>setPostal(e.target.value)} id="" placeholder='Postal Code' required/>
+            </div>  
+             <div className="form-class-small">
+                <input type="text" name="ward" value={ward} onChange={(e)=>setWard(e.target.value)} id="" placeholder='Ward'/>
+                <input type="text" name="street" value={street} onChange={(e)=>setStreet(e.target.value)} id="" placeholder='Street' required/>
+              </div>   
+              <div className="form-class-small-large">
+                <textarea name="notes" value={note} onChange={(e)=>setNote(e.target.value)} id="" rows={3} placeholder='Order Notes(Sizes for merchandise & length for beats)'></textarea>
+              </div>              
+          </div>
         </div>
-        {/*---------------------------------*/}
+        {/*----------------------*/}
         <div className="checkout-right">
-            <h1 style={{color:"#BF40BF"}}>Your Orders</h1>
-            <div id='checkout-right-items' className="checkout-right-items">
-            
-             {
-                cartData.map((item, index) => {
-                const product =
-                products.merchandise.find(
-                    (product) => product._id === item._id,
-                ) || products.beats.find((product) => product._id === item._id);              
+          <div className="checkout-right-header">
+            <h2>YOUR ORDERS</h2>
+          </div>
+          <div className="checkout-right-orders">
+            {
+            cartData.map((item, index) => {
+              const product =
+              products.merchandise.find(
+                (product) => product._id === item._id,
+              ) || products.beats.find((product) => product._id === item._id);              
 
-                return (
-                    <>
-                    <div key={index} className="checkout-right-order">
-                        <div className="checkout-right-order-img">
-                            <img id='checkout-right-order-img' src={product.image || product.thumbnail} alt="" />
-                        </div>
-                        <div  className="checkout-right-order-details">
-                            <p>{product.title}</p>
-                            <p style={{color:"#BF40BF"}}>{currency} {product.price}</p>
-                        </div>
-                    </div>
+              return (
+                <>
+                <div key={index} className="checkout-right-order">
+                  <div className="checkout-right-order-img">
+                      <img id='checkout-right-order-img' src={product.image || product.thumbnail} alt="product" />
+                  </div>
+                  <div  className="checkout-right-order-details">
+                    <p className='title'>{product.title}</p>
+                    <p>{currency} {product.price?.toLocaleString()}</p>
+                  </div>
+                </div>   
+                </>
+                )
                     
-                    </>
-                    )
-                    
-                }  
+              }  
             )} 
+          </div>
+          <div className="checkout-right-mid">
+            <img src={assets.bullet2} alt="image" />
+            <p>SubTotal:</p>
+            <p className='subtotal'>{currency} {getCartAmount().toLocaleString()}</p>
+          </div>
+          <div className="checkout-right-options">
+            <div className="checkout-right-options-header">
+              <h2>Payment Options</h2>
             </div>
+            <div className="mpesa">
+              <div style={{border:mpesa?"0":"2px solid #E9E9E9",background:mpesa?"#4CBB17":"transparent"}} onClick={()=>(setMpesa(!mpesa),setPaypal(false),setCod(false))} className="mpesa-box">
 
-             <hr />   
-            <p>Subtotal: {currency} {getCartAmount()}</p>
-            <hr />
-
-            <div className="checkout-right-payment">
-                <h4 style={{color:"#BF40BF"}}>Payment Options</h4>
-
-                <div className="checkout-right-mpesa">
-                    <div onClick={()=>(setMpesa(!mpesa),setPaypal(false),setCod(false))} style={{background:mpesa?"#32CD32":"",border:mpesa?"0":""}} className="mpesa-box">
-
-                    </div>
-                    <p>Mpesa</p>
-                </div>
-
-                <div className="checkout-right-paypal">
-                    <div onClick={()=>(setMpesa(false),setPaypal(!paypal),setCod(false))} style={{background:paypal?"#1F51FF":"",border:paypal?"0":""}} className="paypal-box">
-
-                    </div>
-                    <p>PayPal</p>
-                </div>
-
-                <div className="checkout-right-cod">
-                    <div onClick={()=>(setMpesa(false),setPaypal(false),setCod(!cod))} style={{background:cod?"#FFD700":"",border:cod?"0":""}} className="cod-box">
-
-                    </div>
-                    <p>Cash On Delivery</p>
-                </div>
-
-                {
-                    mpesa
-                    ?
-                    <>
-                    <button onClick={()=>(placeOrderMpesa())} style={{backgroundColor:mpesa?"#32CD32":""}}>Lipa Na Mpesa</button>
-                    </>
-                    :
-                    paypal
-                    ?
-                    <>
-                    <button onClick={()=>placeOrderPaypal()} style={{backgroundColor:paypal?"#1F51FF":"",color:paypal?"#FAF9F6 ":""}}>Pay With PayPay</button>
-                    </>
-                    :
-                    cod
-                    ?
-                    <>
-                    <button onClick={()=>(placeOrderCod())} style={{backgroundColor:cod?"#FFD700":""}}>Order Now</button>
-                    </>
-                    :
-                    <></>
-                }
+              </div>
+              <div className="mpesa-text">
+                <p>Mpesa</p>
+              </div>
             </div>
+            <div className="paypal">
+              <div style={{border:paypal?"0":"2px solid #E9E9E9",background:paypal?"#1F51FF":"transparent"}} onClick={()=>(setMpesa(false),setPaypal(!paypal),setCod(false))} className="paypal-box">
 
+              </div>
+              <div className="paypal-text">
+                <p>PayPal</p>
+              </div>
+            </div>
+            <div className="cod">
+              <div style={{border:cod?"0":"2px solid #E9E9E9",background:cod?"#FFD900":"transparent"}}  onClick={()=>(setMpesa(false),setPaypal(false),setCod(!cod))} className="cod-box">
+
+              </div>
+              <div className="cod-text">
+                <p>COD</p>
+              </div>
+            </div>
+          </div>
+          <div className="checkout-right-btn">
+            {
+              mpesa
+              ?
+              <div className="mpesa-btn">
+                <button type='submit'>Lipa Na Mpesa</button>
+              </div>
+              :
+              paypal
+              ?
+              <div className="paypal-btn">
+                <button type='submit'>PayPal</button>
+              </div>
+              :
+              cod
+              ?
+              <div className="cod-btn">
+                <button type='submit'>Cash On Delivery</button>
+              </div>
+              :
+              <></>
+            }
+          </div>
         </div>
+      </form>
     </div>
     </>
   )
+}
 }
 
 export default CheckoutPage

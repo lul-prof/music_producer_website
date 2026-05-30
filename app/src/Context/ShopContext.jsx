@@ -317,6 +317,27 @@ const ShopContextProvider = (props) => {
     fetchProducts()
   },[])
 
+
+  const [myOrders,setMyOrders]=useState([]);
+
+  useEffect(()=>{
+    const fetchOrders=async()=>{
+      try {
+        const response=await axios.post(`${backend_url}/api/user/orders`,{},{headers:{token}})
+        if(response.data.success){
+          setMyOrders(response.data.orders)
+          
+        }else{
+          console.log(response.data.message);
+        } 
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchOrders()
+      
+  },[myOrders,backend_url,token])
+
   const value = {
     username,
     currency,
@@ -349,7 +370,9 @@ const ShopContextProvider = (props) => {
     merchandise,
     notifications,
     users,
-    admin_url
+    admin_url,
+    myOrders,
+    setMyOrders
   };
 
   return (

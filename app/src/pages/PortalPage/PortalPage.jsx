@@ -1,178 +1,106 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import './PortalPage.css'
 import {ShopContext} from '../../Context/ShopContext'
-import {artists, assets, producers} from '../../assets/assets'
-import toast from 'react-hot-toast'
-import { Link, useNavigate } from 'react-router-dom'
-import axios from 'axios'
+import {assets} from '../../assets/assets'
+import { Link } from 'react-router-dom'
 
 const PortalPage = () => {
-    const {backend_url}=useContext(ShopContext);
-    const [user,setUser]=useState({});
+    const {users,producers,artists,blogs}=useContext(ShopContext);
 
-    const navigate=useNavigate()
+    const id=localStorage.getItem("user")
 
-    useState(()=>{
-        const fetchUser=async()=>{
-            const userId=localStorage.getItem("user");
-            if(!userId){
-                toast.error('Login to access Dashboard');
-                navigate('/login');
-            } 
-            try {               
-                const response=await axios.post(`${backend_url}/api/user/user/${userId}`);
-                console.log(response);
-                if(response.data.success){
-                    setUser(response.data.user);                    
-                }else{
-                    console.log(response.data.message);
-                }
-                
-            } catch (error) {
-                console.log(error); 
-            }
-        }
-        fetchUser()
-    },[backend_url])
+    const user=users.find(user=>user._id===id);
+
   return (
     <>
-    <div className="portal-container">
-    {
-        user.role==="fan"
-        ?
-        <>
-        <div className="fan-portal">
-            <div className="artist-portal-header">
-                <h1>Fan Dashboard</h1>
-                <p>Welcome back {user.username}</p>
-            </div>
+    <div className="portal">
+        <div className="portal-header">
+            <h2>Welcome back {user?.username}</h2>
         </div>
-        </>
-        :
-        user.role==="artist"
-        ?
-        <>
-        <div className="artist-portal">
-             <div className="artist-portal-header">
-                <h1>Artist Dashboard</h1>
-                <p>Welcome back {user.username}</p>
+        <div className="portal-artists">
+            <div className="portal-artists-header">
+                <h2>{user?.role==="artist"?"Other Artists":"Available Artists"}</h2>
             </div>
-
-            <div className="artist-portal-prod">
-                <div className="artist-prod-header">
-                    <h3>Available Producers</h3>
-                </div>
-                <div className="artist-prod-list">
-                    {
-                        producers.map((producer)=>(
-                            <div key={producer._id} className="artist-prod">
-                                <div className="artist-prod-img">
-                                 <Link to={`/producer/${producer.name}`}> <img id='artist-prod-img' src={producer.avatar} alt="" /></Link>  
-                                </div> 
-                                <div className="artist-prod-details">
-                                    <p>{producer.name} <img id='producer-verify' src={producer.featured?assets.goldCheckMark:""} alt="" /> </p>
+            <div className="portal-artists-all">
+                {
+                    artists.map((artist)=>(
+                        artist?.isVerified && artist?._id !==id
+                        ?
+                        <div key={artist?._id} className="artist">
+                            <div className="artist-img">
+                               <Link to={`/artist/${artist?.username}?id=${artist?._id}`}> <img src={artist?.avatar} alt="avatar" /></Link>
+                            </div>
+                            <div className="artist-details">
+                                <div className="artist-name">
+                                    <p>{artist?.username}</p>
+                                </div>
+                                <div className="artist-verify">
+                                    <img src={assets.blueCheckMark} alt="verified" />
                                 </div>
                             </div>
-                        ))
-                    }
-                    
-                </div>
-            </div>
-
-            <div className="artist-portal-artists">
-                <div className="artist-artists-header">
-                    <h3>Other Artists</h3>
-                </div>
-                <div className="artist-artists-list">
-                    {
-                        artists.map((artist)=>(
-                            <div key={artist._id} className="artist-artist">
-                                <div className="artist-artist-img">
-                                  <Link to={`/artist/${artist.name}`}> <img id='artist-artist-img' src={artist.avatar} alt="" /></Link> 
-                                </div> 
-                                <div className="artist-artist-details">
-                                    <p>{artist.name} <img id='artist-verify' src={artist.featured?assets.blueCheckMark:""} alt="" /> </p>
-                                </div>
-                            </div>
-                        ))
-                    }
-                    
-                </div>
-            </div>
-
-
-            
-
-            <div className="artist-sessions">
-                <button onClick={()=>(toast.success('Feature Under Development.'))} >Book Session</button>
+                        </div>
+                        :
+                        <></>
+                    ))
+                }
             </div>
         </div>
-        </>
-        :
-        user.role==="producer"
-        ?
-        <>
-        <div className="producer-portal">
-            <div className="producer-portal-header">
-                <h1>Producer Dashboard</h1>
-                <p>Welcome back {user.username}</p>
+        <div className="portal-producers">
+            <div className="portal-producers-header">
+                <h2>{user?.role==="producer"?"Other Producers":"Available Producers"}</h2>
             </div>
-            <div className="producer-portal-artists">
-                <div className="producer-artists-header">
-                    <h3>Available Artists</h3>
-                </div>
-                <div className="producer-artists-list">
-                    {
-                        artists.map((artist)=>(
-                            <div key={artist._id} className="producer-artist">
-                                <div className="producer-artist-img">
-                                   <Link to={`/artist/${artist.name}`}><img id='producer-artist-img' src={artist.avatar} alt="" /></Link> 
-                                </div> 
-                                <div className="producer-artist-details">
-                                    <p>{artist.name} <img id='artist-verify' src={artist.featured?assets.blueCheckMark:""} alt="" /> </p>
+            <div className="portal-producers-all">
+                {
+                    producers.map((producer)=>(
+                        producer?.isVerified && producer?._id !==id
+                        ?
+                        <div key={producer?._id} className="producer">
+                            <div className="producer-img">
+                               <Link to={`/producer/${producer?.username}?id=${producer?._id}`}> <img src={producer?.avatar} alt="producer avatar" /></Link>
+                            </div>
+                            <div className="producer-details">
+                                <div className="producer-name">
+                                    <p>{producer?.username}</p>
+                                </div>
+                                <div className="producer-verify">
+                                    <img src={assets.goldCheckMark} alt="verified" />
                                 </div>
                             </div>
-                        ))
-                    }
-                    
-                </div>
+                        </div>
+                        :
+                        <></>
+                    ))
+                }
             </div>
-
-
-            <div className="producer-portal-prod">
-                <div className="producer-prod-header">
-                    <h3>Other Producers</h3>
-                </div>
-                <div className="producer-prod-list">
-                    {
-                        producers.map((producer)=>(
-                            <div key={producer._id} className="producer-prod">
-                                <div className="producer-prod-img">
-                                  <Link to={`/producer/${producer.name}`}> <img id='producer-prod-img' src={producer.avatar} alt="" /></Link> 
-                                </div> 
-                                <div className="producer-prod-details">
-                                    <p>{producer.name} <img id='producer-verify' src={producer.featured?assets.goldCheckMark:"https://share.google/Alz9KVeznyw7wJrOl"} alt="" /> </p>
+        </div>
+        <div className="portal-blogs">
+            <div className="portal-blogs-header">
+                <h2>Latest Blogs</h2>
+            </div>
+            <div className="portal-blogs-all">
+                {
+                    blogs.map((blog)=>(
+                        blog.isFeatured 
+                        ?
+                        <div key={blog?._id} className="blog">
+                            <div className="blog-image">
+                               <Link to={`/blog/${blog?._id}`}><img src={blog?.image} alt="blog"/></Link>
+                            </div>
+                            <div className="blog-details">
+                                <div className="blog-title">
+                                    <p>{blog?.title}</p>
                                 </div>
                             </div>
-                        ))
-                    }
-                    
-                </div>
+                        </div>
+                        :
+                        <></>
+                    ))
+                }
             </div>
-
-            <div className="producer-sessions">
-                <button onClick={()=>(toast.success('Feature Under Development.'))} >Booked Sessions</button>
-            </div>
-            
         </div>
-        </>
-        :
-        <>
-        <div className="default-portal">
-            <p>You don't have permission to access this Dashboard.</p>
+        <div className="portal-btn">
+            <Link to={'https://wa.me/254793909678?text=I%20want%20to%20book%20a%20session'} target='_blank'><button>BOOK SESSION</button></Link> 
         </div>
-        </>
-    }
     </div>
     </>
   )
