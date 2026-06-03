@@ -40,6 +40,8 @@ import WhyusComponent from './components/WhyusComponent/WhyusComponent'
 import AboutComponent from './components/AboutComponent/AboutComponent'
 import ProjectsPage from './pages/ProjectsPage/ProjectsPage'
 import { ShopContext } from './Context/ShopContext'
+import CtaComponent from './components/CtaComponent/CtaComponent'
+import AboutPage from './pages/AboutPage/AboutPage'
 
 
 let DefaultIcon = L.icon({
@@ -64,8 +66,9 @@ const App = () => {
           <ReviewsComponent/>
           <WhyusComponent/>
           <MerchandiseComponent/>
-          <AboutComponent/>
+          <ServicesComponent/>
           <FaqComponent/>
+          <CtaComponent/>
         </>
       }>
       </Route>
@@ -88,6 +91,7 @@ const App = () => {
       <Route path='/merchandise' element={<MerchandisePage/>}></Route>
       <Route path='/updateProfile' element={<UpdateProfilePage/>}></Route>
       <Route path='/projects' element={<ProjectsPage/>}></Route>
+      <Route path='/about' element={<AboutPage/>}></Route>
       
     </Routes>
     <FooterComponent/>

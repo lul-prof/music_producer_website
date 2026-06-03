@@ -11,6 +11,9 @@ const FaqComponent = () => {
     <div className="faqs">
       {/*-----------------------*/}
       <div className="faqs-header">
+        <div className="faqs-header-img">
+          <img src={assets.faqI} alt="image" />
+        </div>
         <div className="faqs-header-top">
           <h2>HAVE QUESTIONS?</h2>
         </div>

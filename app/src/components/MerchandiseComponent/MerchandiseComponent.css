@@ -6,30 +6,28 @@
 }
 .merch-component .merch-component-header{
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    padding: 25px;
+    text-align: center;
 }
-
-.merch-component .merch-component-header .merch-component-header-left{
-    display: flex;
-}
-
-.merch-component .merch-component-header .merch-component-header-right button{
-    background: #FFD900;
-    padding: 10px 30px;
-    outline: 0;
-    border: 0;
-    border-top-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    border: 1px solid rgba(22,13,42,0.5);
-    box-shadow:0 8px 12px 0 rgba(16,13,26,0.5);
+.merch-component .merch-component-header .merch-component-header-img img{
+    width: 75px;
+    height: 75px;
+    box-shadow:0 4px 8px 1px rgba(123,47,190,0.6);
+    border-radius: 100px;
+    padding: 6px;
+    border: 1px solid rgba(16,13,26,0.5);
+    animation: rotate 10s infinite;
     backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(8px);
+    animation: rotate 6s infinite;
 }
 
-.merch-component .merch-component-header .merch-component-header-right button:hover{
-    cursor: pointer;
-    transform: translateY(5px);
-    transition: 0.3s ease;
+.merch-component .merch-component-header .merch-component-header-top{
+    display: flex;
 }
 
 .merch-component .merch-container{
@@ -37,7 +35,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 24px;
-    padding: 25px 0;
+    padding-bottom: 25px ;
     
 }
 .merch-component .merch-container .merch{
@@ -84,26 +82,27 @@
 }
 
 .merch-component .merch-footer{
-    max-width: 85%;
     justify-self: center;
     text-align: center;
-    padding: 50px 0;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
+    padding: 50px;
 }
-.merch-component .merch-footer img{
-    max-width: 100px;
-    max-height: 100px;
-    align-self: center;
-    box-shadow:0 4px 8px 1px rgba(123,47,190,0.6);
-    border-radius: 100px;
-    padding: 6px;
-    border: 1px solid rgba(16,13,26,0.5);
-    animation: rotate 10s infinite;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(8px);
+
+.merch-component .merch-footer button{
+    padding: 10px 60px;
+    background: #FFD900;
+    outline: 0;
+    border: 0;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    font-weight: 600;
 }
+
+.merch-component .merch-footer button:hover{
+    cursor: pointer;
+    transform: translateY(6px);
+    transition: 0.3s ease;
+}
+
 
 .merch-component .merch-footer img:hover{
     cursor: pointer;
@@ -126,10 +125,23 @@
     padding: 25px;
 }
 .merch-component .merch-component-header{
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+}
+.merch-component .merch-component-header .merch-component-header-img img{
+    width: 50px;
+    height: 50px;
+}
+
+.merch-component .merch-component-header .merch-component-header-top h2{
+    font-size: 20px;
+    line-height: 1.3em;
+}
+.merch-component .merch-component-header .merch-component-header-mid{
+    text-align: center;
+}
+.merch-component .merch-component-header .merch-component-header-mid p{
+   line-height: 1.2em; 
 }
 
 .merch-component .merch-component-header .merch-component-header-left{

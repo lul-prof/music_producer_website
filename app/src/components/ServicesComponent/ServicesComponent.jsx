@@ -1,46 +1,84 @@
 import React from 'react'
 import './ServicesComponent.css'
 import { assets } from '../../assets/assets'
+import {toast} from 'react-hot-toast'
 
 const ServicesComponent = () => {
   return (
     <>
-    
-    <section className="services">
-        
+    <div className="services">
+        {/*---------------------------*/}
         <div className="services-header">
-            <div className="services-header-left">
-                <h1 className='header'>OUR SERVICES</h1>
+            <div className="services-header-img">
+                <img src={assets.bullet2} alt="bullet" />
             </div>
-            <div className="services-header-right">
-                <img src={assets.time} alt="Image" />
+            <div className="services-header-top">
+                <h2>OUR SERVICES</h2>
             </div>
-        </div>
-        
-        <div className="services-container">
-            {/*------------------------*/}
-            <div className="services-left">
-                <img className='service-img' src={assets.beatsIcon} alt="image" />
-                <h1>BEAT MAKING</h1>
-                <p>The Don is a leading kenyan beat maker who is currently working with house-hold names like Metro Stunna and UncoJingJong. Any genre, anytime, anyday.  Welcome</p>
+            <div className="services-header-mid">
+                <h4>Feel free to reach out for inquiries</h4>
             </div>
-            {/*------------------------*/}
-            <div className="services-mid">
-                <img className='service-img' src={assets.recording} alt="image" />
-                <h1>RECORDING</h1>
-                <p>Equiped with top not recording devices, the studio is always open to artists who wish to showcase their talent to the world. Trust the Don to develop your unique industry sound.</p>
-            </div>
-            {/*------------------------*/}
-            <div className="services-right">
-                <img className='service-img' src={assets.mixing} alt="image" />
-                <h1>MIXING & MASTERING</h1>
-                <p>If you are tired of your tracks sounding muddy and dusty, you are at the right place. The Don has a proven track record of producing industry standard hits like "Cash-Metro Stunna"</p>
+            <div className="services-header-bottom">
+                <p>The Don deals with a wide range of services with the ones below being the main sought after</p>
             </div>
         </div>
-        <div className="brochure-btn">
-            <a href={assets.brochure} download="brochure.jpeg" ><button>BROCHURE</button></a>
+        {/*---------------------------*/}
+        <div className="services-mid">
+            <div className="service-1">   
+                <div className="service-1-top">
+                    <img src={assets.recording} alt="mic image" />
+                </div>
+                <div className="service-1-mid">
+                    <h3>Vocal Recording</h3>
+                </div>
+                <div className="service-1-bottom">
+                    <p>The Don offers all vocal recording services charged on per hour basis</p>
+                </div>
+            </div>
+            <div className="service-2">
+                <div className="service-2-top">
+                    <img src={assets.mixing} alt="image" />
+                </div>
+                <div className="service-2-mid">
+                    <h3>Mixing</h3>
+                </div>
+                <div className="service-2-bottom">
+                    <p>Tired of rusty mixes? The Don got you covered with industry best plugins</p>
+                </div>
+            </div>
+            <div className="service-3">
+                <div className="service-3-top">
+                    <img src={assets.beatsIcon} alt="" />
+                </div>
+                <div className="service-3-mid">
+                    <h3>Mastering</h3>
+                </div>
+                <div className="service-3-bottom">
+                    <p>The Don specializes in optimizing your music to sound good accross all platforms</p>
+                </div>
+            </div>
+            <div className="service-4">
+                <div className="service-4-top">
+                    <img src={assets.podcast} alt="image" />
+                </div>
+                <div className="service-4-mid">
+                    <h3>Podcasts and V.O</h3>
+                </div>
+                <div className="service-4-bottom">
+                    <p>The Don specializes in real time podcast sound design and dynamic voice overs</p>
+                </div>
+            </div>
         </div>
-    </section>
+        {/*---------------------------*/}
+        <div className="services-bottom">
+            <div className="services-bottom-top">
+                <h2>For all the services offered</h2>
+            </div>
+            <div className="services-bottom-mid">
+                <button onClick={()=>(toast.success('Feature under development.'))}>VIEW SERVICES</button>
+            </div>
+        </div>
+    </div>
     </>
   )
 }

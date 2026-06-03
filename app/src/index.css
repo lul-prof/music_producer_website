@@ -91,3 +91,19 @@ label{
   background: #100D1A;
   border-radius: 5px;
 }
+
+/*------------------------------*/
+@media (max-width:2560px) and (min-width:900px) {
+*::-webkit-scrollbar {
+  width: 15px; 
+  height: 0;
+}
+*::-webkit-scrollbar-track { 
+  background-color: #E9E9E9; 
+}
+*::-webkit-scrollbar-thumb {
+  background: #100D1A;
+  border-radius: 50px;
+  cursor: pointer;
+}
+}

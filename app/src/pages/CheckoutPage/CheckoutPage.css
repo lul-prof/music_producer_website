@@ -93,7 +93,7 @@
     transform: translateY(-3px);
 }
 .checkout-container form .checkout-right .checkout-right-orders .checkout-right-order .checkout-right-order-img img{
-    width: 300px;
+    width: 100%;
     max-height: 300px;
     object-fit:cover;
     border-top-left-radius: 10px;
@@ -304,7 +304,7 @@
     width: 100%;
 }
 .checkout-container form .checkout-right .checkout-right-header{
-    align-self: center;
+    align-self: flex-start;
 }
 .checkout-container form .checkout-right .checkout-right-header h2{
     font-size: 20px;

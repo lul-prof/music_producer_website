@@ -5,9 +5,14 @@ import tailwindcss from '@tailwindcss/vite'
 // https://vite.dev/config/
 export default defineConfig({
   server:{
-    port:5173
+    port:5173,
+    historyApiFallback: true
   },
   plugins: [react(),
     tailwindcss()
   ],
+  base: "/",
+  build: {
+    outDir: "dist"
+  }
 })

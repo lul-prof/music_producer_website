@@ -1,43 +1,174 @@
 .cta{
     width: 100%;
-    position: relative;   
-}
-.cta img{
-    width: 100%;
-    object-fit: cover;
-    
-}
-.cta .cta-main{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
+    padding: 50px;
     display: flex;
     flex-direction: column;
     gap: 24px;
+    overflow: hidden;
 }
-.cta .cta-main h2{
-    line-height: 1.4em;
+.cta .cta-header{
+    text-align: center;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
 }
-.cta .cta-main button{
-    padding: 10px;
-    background: #FFD900;
-    border: 0;
-    outline: 0;
-    border-top-left-radius:15px ;
-    border-bottom-right-radius: 15px;
-    font-weight: 700;
-    letter-spacing: 6px;
-}
-.cta .cta-main button:hover{
+.cta .cta-header .cta-header-img img{
+    width: 75px;
+    height: 75px;
+    animation: rotate 6s infinite;
     cursor: pointer;
-    transform: translateY(4px);
+    box-shadow:0 2px 4px  rgba(123,47,190,0.6);
+    border-radius: 100px;
+    padding: 6px;
+    border: 1px solid rgba(16,13,26,0.5);
+    animation: rotate 10s infinite;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(8px);
 }
-/*
-padding: 50px;
-background: linear-gradient(to right,rgba(27,13,37,0.5),rgba(5,0,23,0.5));
-backdrop-filter: blur(10px);
--webkit-backdrop-filter: blur(10px);
-box-shadow: 0 2px 4px #100d2a;
-*/
+
+.cta .cta-mid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    align-items: center;
+    gap: 24px;
+    padding: 50px 0;
+}
+.cta .cta-mid .cta-mid-class{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    border-right: 1px solid rgba(123,47,190,0.4);
+    padding: 10px;
+}
+.cta .cta-mid .cta-mid-class:hover{
+    cursor: pointer;
+    transform: translateY(6px);
+    transition: 0.3s ease;
+}
+
+.cta .cta-mid .cta-mid-class .cta-mid-class-in {
+    background: rgba(123,47,190,0.6); 
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(123,47,190,0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid #100D1A;
+}
+.cta .cta-mid .cta-mid-class .cta-mid-class-in:hover{
+    opacity: 0.5;
+    cursor: pointer;
+}
+.cta .cta-mid .cta-mid-class .cta-mid-class-in img{
+    width: 50px;
+    height: 50px;
+}
+.cta .cta-mid .cta-mid-class .cta-mid-text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 6px;
+}
+
+.cta .cta-bottom{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    align-items: center;
+    gap: 24px;
+    padding: 50px 0;
+}
+
+.cta .cta-bottom .cta-bottom-mid button{
+    padding: 10px 30px;
+    outline: 0;
+    border: 0;
+    background: #FFD900;
+    border-radius: 50px;
+    font-weight: 600;
+}
+
+.cta .cta-bottom .cta-bottom-mid button:hover{
+    cursor: pointer;
+    transform: translateY(6px);
+    transition: 0.3s ease;
+}
+
+@keyframes rotate {
+    0%{
+        transform: rotate(-360deg);
+    }
+    50%{
+        transform: rotate(0);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+/*-------------------------------------------*/
+@media (max-width:500px) and (min-width:50px) {
+.cta{
+    width: 100%;
+    padding:25px 10px;
+}
+.cta .cta-header{
+    gap: 12px;
+}
+.cta .cta-header .cta-header-img img{
+    width: 50px;
+    height: 50px;
+    padding: 3px;
+}
+
+.cta .cta-header .cta-header-top h2{
+    font-size: 20px;
+}
+.cta .cta-mid{
+    gap: 6px;
+    padding: 25px 0;
+    overflow-x: auto;
+}
+.cta .cta-mid .cta-mid-class{
+    gap: 12px;
+    padding: 3px;
+}
+.cta .cta-mid .cta-mid-class .cta-mid-class-in {
+    padding: 5px;
+}
+.cta .cta-mid .cta-mid-class .cta-mid-class-in img{
+    width: 40px;
+    height: 40px;
+}
+.cta .cta-mid .cta-mid-class .cta-mid-text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 6px;
+}
+.cta .cta-mid .cta-mid-class .cta-mid-text h5{
+    font-size: 14px;
+}   
+.cta .cta-mid .cta-mid-class .cta-mid-text p{
+    font-size: 12px;
+}
+.cta .cta-bottom{
+    padding: 25px 0;
+    gap: 12pxn;
+}
+
+.cta .cta-bottom .cta-bottom-top h3{
+    font-size: 16px;
+}
+
+.cta .cta-bottom .cta-bottom-mid button{
+    padding: 10px 30px;
+    outline: 0;
+    border: 0;
+}  
+}

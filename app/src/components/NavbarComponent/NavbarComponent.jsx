@@ -48,6 +48,7 @@ const NavbarComponent = () => {
                 <ul>
                     <Link to={'/'}><li onClick={()=>(document.getElementById("sidemenu").style.display="none")}>HOME</li></Link>  
                     <Link to={'/beats'}><li onClick={()=>(document.getElementById("sidemenu").style.display="none")}>BEATS</li></Link> 
+                    <Link to={'/about'}><li onClick={()=>(document.getElementById("sidemenu").style.display="none")}>ABOUT</li></Link>
                     <Link to={token===""?'/login':'/order'}><li onClick={()=>(document.getElementById("sidemenu").style.display="none")}>ORDERS</li></Link>
                     <Link to={'/profile'}><li onClick={()=>(document.getElementById("sidemenu").style.display="none")}>PROFILE</li></Link>
                     <Link to={'/portal'}><li onClick={()=>(document.getElementById("sidemenu").style.display="none")}>DASHBOARD</li></Link>

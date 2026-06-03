@@ -205,6 +205,15 @@ import phoneI from './phone.png'
 import emailI from './email.png'
 import hoursI from './24-7.png'
 import locationI from './location.png'
+import podcast from './podcaster.png'
+import faqI from './ask.png'
+import metaI from './meta.png'
+import social_media from './social_media.png'
+import insta_dark from './instagram-dark.png'
+import whastapp_dark from './whatsapp-dark.png'
+import youtube_dark from './youtube.png'
+import twitter_dark from './twitter.png'
+import linkedIn from './linkedin.png'
 
 
 export const assets = {
@@ -391,7 +400,17 @@ export const assets = {
   phoneI,
   emailI,
   hoursI,
-  locationI
+  locationI,
+  podcast,
+  faqI,
+  metaI,
+  social_media,
+  insta_dark,
+  whastapp_dark,
+  youtube_dark,
+  twitter_dark,
+  linkedIn
+  
 }
 
 export const products = [
@@ -1638,7 +1657,7 @@ export const projects=[
     "url":"https://www.youtube.com/embed/RfPfGBQ2MBk?si=5lfwwTjfDhhMg9Lf"
   },
   {
-    "_id":"pr006",
+    "_id":"pr006A",
     "artist":"Metro Stunna",
     "title":"Real",
     "url":"https://www.youtube.com/embed/gynXuoEJ194?si=tcVuY49mL8LRT6Gp"
@@ -1667,6 +1686,23 @@ export const projects=[
     "title":"Madiwa",
     "url":"https://www.youtube.com/embed/qvto64gE4SI?si=ICgkswDYAktssD_q"
   },
-  
+  {
+    "_id":"pr011",
+    "artist":"1Kirrk",
+    "title":"No Hook",
+    "url":"https://www.youtube.com/embed/8yTLHYz1H5Q?si=v16cE_xkzjnPeobq"
+  },
+  {
+    "_id":"pr012",
+    "artist":"Mansa Mwas",
+    "title":"Zozaa",
+    "url":"https://www.youtube.com/embed/_DpzrmllC9g?si=CEfUMdszIImDifL5"
+  },
+  {
+    "_id":"pr013",
+    "artist":"Arshlock",
+    "title":"Zozaa",
+    "url":"https://www.youtube.com/embed/8qhSWMbtKWA?si=7rlSOMjvGegXODN_"
+  },
   
 ]

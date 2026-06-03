@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import "./BeatsComponent.css";
 import { Link, useNavigate } from "react-router-dom";
 import { ShopContext } from "../../Context/ShopContext";
@@ -9,10 +9,6 @@ import toast from "react-hot-toast";
 const BeatsComponent = () => {
   const { beats, currency, addToCart, token } = useContext(ShopContext);
   const navigate = useNavigate();
-  useEffect (() => {
-    console.log(beats);
-    
-  }, [])
   
   if (beats.length > 0) {
     return (
