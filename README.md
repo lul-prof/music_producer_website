@@ -1,5 +1,5 @@
 # <code style="color:7f2fbe">THE DON'S BEAT STORE 2026</code>
-This an Ecommerce website developed by @lul_prof for a veteran kenyan music producer known as "The Don".
+This an Ecommerce website developed by [Israel Mutua](https://www.linkedin.com/in/israel-mutua/) for a veteran kenyan music producer known as "The Don".
 The Main aim of the website is to sell beats and apparel in addition to providing insights that will be important for the business.
 <br/>
 
@@ -22,7 +22,7 @@ The Main aim of the website is to sell beats and apparel in addition to providin
     * JWT
 
 5. **UPLOADS** :
-    * MuLTER
+    * MULTER
     * CLOUDINARY
 
 ## FEATURES
