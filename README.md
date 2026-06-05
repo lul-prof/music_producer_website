@@ -2,13 +2,11 @@
 This an Ecommerce website developed by @lul_prof for a veteran kenyan music producer known as "The Don".
 The Main aim of the website is to sell beats and apparel in addition to providing insights that will be important for the business.
 <br/>
-<br/>
 
 ## TECH STACK
 >This a summarized list of the tech stack used to develop the website.
 1. **Backend** :
     * NodeJs
-<br>
 
 2. **Frontend** :
     * ReactJs
@@ -16,15 +14,12 @@ The Main aim of the website is to sell beats and apparel in addition to providin
     * Html
     * CSS
     * JavaScript 
-<br>
 
 3. **Database** :
     * MongoDb
-<br/>
 
 4. **Authentication** :
     * JWT
-<br/>
 
 5. **UPLOADS** :
     * MuLTER
@@ -39,8 +34,7 @@ The Main aim of the website is to sell beats and apparel in addition to providin
 4. **ORDER TRACKING** - Order made can be tracked using the reference id or order id
 5. **ADMIN PANEL** - The admin panel to enalbe the producer manage stock and get insights
 
-
-## INSTALLATION
+## FRONTEND SETUP & INSTALLATION
 >Clone the repo and install dependencies
 
 ```
@@ -60,3 +54,36 @@ The Main aim of the website is to sell beats and apparel in addition to providin
 
 ```
 
+## SERVER SETUP & INSTALLATION
+>Clone the repo and install dependencies
+
+```
+# Clone the repository
+    git clone https://github.com/lul-prof/music_producer_website
+
+# Navigate to your project root directory
+    cd server
+<br/>
+
+# Install Dependencies
+    npm install
+<br/>
+
+# Run the Project
+    npm run server
+
+```
+# SCREENSHOTS & PREVIEW OF SITE
+>THE DON 2026
+![HERO SECTION](app\src\assets\TheDon\Screenshot1.png)
+
+![Beats Component](app\src\assets\TheDon\Screenshot2.png)
+
+![Beat Store](app\src\assets\TheDon\Screenshot9.png)
+
+![Merchandise Store](app\src\assets\TheDon\Screenshot10.png)
+
+
+
+>[!WARNING]
+>This website has already been sold and full rights transferred to The Don. You can use the project for education and non-profit purposes
