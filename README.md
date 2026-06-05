@@ -43,11 +43,11 @@ The Main aim of the website is to sell beats and apparel in addition to providin
 
 # Navigate to your project root directory
     cd app
-<br/>
+
 
 # Install Dependencies
     npm install
-<br/>
+
 
 # Run the Project
     npm run dev
@@ -63,11 +63,11 @@ The Main aim of the website is to sell beats and apparel in addition to providin
 
 # Navigate to your project root directory
     cd server
-<br/>
+
 
 # Install Dependencies
     npm install
-<br/>
+
 
 # Run the Project
     npm run server
@@ -75,6 +75,7 @@ The Main aim of the website is to sell beats and apparel in addition to providin
 ```
 # SCREENSHOTS & PREVIEW OF SITE
 >THE DON 2026
+
 ![HERO SECTION](app\src\assets\TheDon\Screenshot1.png)
 
 ![Beats Component](app\src\assets\TheDon\Screenshot2.png)
