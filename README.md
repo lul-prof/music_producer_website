@@ -6,7 +6,7 @@ The Main aim of the website is to sell beats and apparel in addition to providin
 
 ## TECH STACK
 >This a summarized list of the tech stack used to develop the website.
-1. ** Backend ** :
+1. **Backend** :
     * NodeJs
 <br>
 
@@ -26,7 +26,7 @@ The Main aim of the website is to sell beats and apparel in addition to providin
     * JWT
 <br/>
 
-5. ** UPLOADS ** :
+5. **UPLOADS** :
     * MuLTER
     * CLOUDINARY
 
@@ -44,19 +44,18 @@ The Main aim of the website is to sell beats and apparel in addition to providin
 >Clone the repo and install dependencies
 
 ```
-### Clone the repository
+# Clone the repository
     git clone https://github.com/lul-prof/music_producer_website
-<br/>
 
-### Navigate to your project root directory
+# Navigate to your project root directory
     cd app
 <br/>
 
-### Install Dependencies
+# Install Dependencies
     npm install
 <br/>
 
-### Run the Project
+# Run the Project
     npm run dev
 
 ```
