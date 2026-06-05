@@ -1,4 +1,4 @@
-# THE DON'S BEAT STORE 2026
+# <code style="color:7f2fbe">THE DON'S BEAT STORE 2026</code>
 This an Ecommerce website developed by @lul_prof for a veteran kenyan music producer known as "The Don".
 The Main aim of the website is to sell beats and apparel in addition to providing insights that will be important for the business.
 <br/>
@@ -10,7 +10,7 @@ The Main aim of the website is to sell beats and apparel in addition to providin
     * NodeJs
 <br>
 
-2. ** Frontend ** :
+2. **Frontend** :
     * ReactJs
     * Vite 
     * Html
@@ -18,11 +18,11 @@ The Main aim of the website is to sell beats and apparel in addition to providin
     * JavaScript 
 <br>
 
-3. ** Database ** :
+3. **Database** :
     * MongoDb
 <br/>
 
-4. ** Authentication ** :
+4. **Authentication** :
     * JWT
 <br/>
 
@@ -32,10 +32,32 @@ The Main aim of the website is to sell beats and apparel in addition to providin
 
 ## FEATURES
 
-1. ** BEAT STORE ** - A well thought out beat store that allows preview of beats but no download unless payment is completed.
-2. ** SEARCH FEATURE ** - A fully optimized search feature that enables you to search for beats fast.
-3. ** CART FUNCTIONALITY ** - The user can add both the desired beats and apparel to the shopping cart.
-3. ** CHECKOUT SYSTEM ** - After adding products to the cart, the use can checkout and make payments via mpesa.
-4. ** ORDER TRACKING ** - Order made can be tracked using the reference id or order id
-5. ** ADMIN PANEL ** - The admin panel to enalbe the producer manage stock and get insights
+1. **BEAT STORE** - A well thought out beat store that allows preview of beats but no download unless payment is completed.
+2. **SEARCH FEATURE** - A fully optimized search feature that enables you to search for beats fast.
+3. **CART FUNCTIONALITY** - The user can add both the desired beats and apparel to the shopping cart.
+3. **CHECKOUT SYSTEM** - After adding products to the cart, the use can checkout and make payments via mpesa.
+4. **ORDER TRACKING** - Order made can be tracked using the reference id or order id
+5. **ADMIN PANEL** - The admin panel to enalbe the producer manage stock and get insights
+
+
+## INSTALLATION
+>Clone the repo and install dependencies
+
+```
+### Clone the repository
+    git clone https://github.com/lul-prof/music_producer_website
+<br/>
+
+### Navigate to your project root directory
+    cd app
+<br/>
+
+### Install Dependencies
+    npm install
+<br/>
+
+### Run the Project
+    npm run dev
+
+```
 
