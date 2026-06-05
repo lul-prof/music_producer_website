@@ -34,6 +34,18 @@
     align-items: center;
     gap: 24px;
     padding: 50px 0;
+    overflow-x: auto;
+}
+
+.cta .cta-mid::-webkit-scrollbar{
+    height: 3px;
+    width: 3px;
+    background: #E9E9E9;
+    
+}
+.cta .cta-mid::-webkit-scrollbar-thumb:horizontal{
+    background: #121212;
+    border-radius: 50px;
 }
 .cta .cta-mid .cta-mid-class{
     display: flex;
@@ -48,7 +60,6 @@
     transform: translateY(6px);
     transition: 0.3s ease;
 }
-
 .cta .cta-mid .cta-mid-class .cta-mid-class-in {
     background: rgba(123,47,190,0.6); 
     padding: 10px;
@@ -165,7 +176,6 @@
 .cta .cta-bottom .cta-bottom-top h3{
     font-size: 16px;
 }
-
 .cta .cta-bottom .cta-bottom-mid button{
     padding: 10px 30px;
     outline: 0;

@@ -256,6 +256,10 @@
 .footer-container .footer-year{
     justify-self: center;
     padding-bottom: 12px;
+    align-self: center;
+}
+.footer-container .footer-year h5{
+    font-size: 10px;
 }
 .footer-container hr{
     margin: 12px 0;
@@ -368,6 +372,9 @@
 .footer-container .footer-year{
     justify-self: center;
     padding-bottom: 12px;
+}
+.footer-container .footer-year h5{
+    font-size: 12px;
 }
 .footer-container hr{
     margin: 12px 0;

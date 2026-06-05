@@ -25,6 +25,7 @@ const ShopContextProvider = (props) => {
 
   const backend_url = import.meta.env.VITE_BACKEND_URL;
   const admin_url = import.meta.env.VITE_ADMIN_URL;
+  const frontend_url=import.meta.env. VITE_FRONTEND_URL;
 
   const [beats, setBeats] = useState([]);
 
@@ -372,7 +373,8 @@ const ShopContextProvider = (props) => {
     users,
     admin_url,
     myOrders,
-    setMyOrders
+    setMyOrders,
+    frontend_url
   };
 
   return (

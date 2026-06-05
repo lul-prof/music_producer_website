@@ -214,6 +214,11 @@ import whastapp_dark from './whatsapp-dark.png'
 import youtube_dark from './youtube.png'
 import twitter_dark from './twitter.png'
 import linkedIn from './linkedin.png'
+import metro from './metro.jpeg'
+import ess from './ess.jpeg'
+import txwn from './txwn.jpeg'
+import truck from './delivery-truck.png'
+import returnP from './returnPolicy.png'
 
 
 export const assets = {
@@ -409,7 +414,9 @@ export const assets = {
   whastapp_dark,
   youtube_dark,
   twitter_dark,
-  linkedIn
+  linkedIn,
+  truck,
+  returnP
   
 }
 
@@ -1704,5 +1711,50 @@ export const projects=[
     "title":"Zozaa",
     "url":"https://www.youtube.com/embed/8qhSWMbtKWA?si=7rlSOMjvGegXODN_"
   },
+  {
+    "_id":"pr014",
+    "artist":"Toxic Lyrikali",
+    "title":"Confirmation ft Ree",
+    "url":"https://www.youtube.com/embed/ip2W1veEPYQ?si=F9QXiY8Dcb2Tw_4D"
+  }
   
+]
+
+export const collaborations=[
+  {
+    "_id":"coo1",
+    "name":"Ess",
+    "pic":[ess],
+    "url":"https://www.instagram.com/ess_the_artist/"
+  },
+  {
+    "_id":"coo2",
+    "name":"Metro Stunna",
+    "pic":[metro],
+    "url":"https://www.instagram.com/metro_stunna_66/"
+  },
+  {
+    "_id":"coo3",
+    "name":"Top Boyz",
+    "pic":[topBoyzprod],
+    "url":"https://www.instagram.com/top_boyz_records/"
+  },
+  {
+    "_id":"coo4",
+    "name":"TXWN",
+    "pic":[txwn],
+    "url":"https://www.instagram.com/dontleavetxwn/"
+  },
+  {
+    "_id":"coo5",
+    "name":"UncoJingJong",
+    "pic":[uncoPic],
+    "url":"https://www.instagram.com/uncojingjong/"
+  },
+  {
+    "_id":"coo6",
+    "name":"Toxic Lyrikali",
+    "pic":[toxicPic],
+    "url":"https://www.instagram.com/_toxic_lyrikali/"
+  }
 ]

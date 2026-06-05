@@ -82,7 +82,7 @@ const HeroComponent = () => {
         <div className="mobile-content">
           <div className="mobile-content-top">
             <div className="mobile-content-top-text">
-              <h2>LOOKING FOR BEATS?</h2>
+              <h2>TIRED OF MEDIOCRE BEATS?</h2>
               <h3>STRESS NO MORE<span> THE DON </span>GOT YOU COVERED</h3>
             </div>
             <div className="mobile-content-top-btn">

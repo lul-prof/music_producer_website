@@ -11,8 +11,8 @@
 }
 .hero-container .hero-img img{
     min-width: 100%;
-    max-height: 85vh;
-    animation: opace 3s ease;
+    max-height: 90vh;
+    animation: opace 0.6s ease;
 }
 
 .hero-container .hero-content{
@@ -34,17 +34,19 @@
 }
 .hero-container .hero-content .hero-content-left  .hero-content-left-top{
     display: flex;
+    flex-direction: row;
 }
 .hero-container .hero-content .hero-content-left  .hero-content-left-top .hero-content-left-top-img img{
     width: 50px;
     height: 50px;
     border-radius: 100px;
     box-shadow: 0 8px 16px rgba(16,13,26,0.5);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid #100D1A;
 }
 .hero-container .hero-content .hero-content-left  .hero-content-left-top .hero-content-left-top-img img:hover{
     cursor: pointer;
+    transform: rotate(360deg);
+    transition: 0.6s ease;
 }
 .hero-container .hero-content .hero-content-left  .hero-content-left-top .hero-content-left-top-img .img-2{
     position: relative;
@@ -77,13 +79,13 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 24px;
+    gap: 12px;
 }
 .hero-container .hero-content .hero-content-right .hero-content-right-text{
     max-width: 800px;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 24px;
 }
 
 .hero-container .hero-content .hero-content-right .hero-content-right-text h1{
@@ -91,7 +93,7 @@
     font-size: clamp(32px, 40px, 64px);
 }
 .hero-container .hero-content .hero-content-right .hero-content-right-text h2{
-    font-size: clamp(16px, 24px, 48px);
+    font-size: clamp(16px, 20px, 48px);
 }
 .hero-container .hero-content .hero-content-right .hero-content-right-text span{
     color: #ffd900;
@@ -100,18 +102,16 @@
 }
 .hero-container .hero-content .hero-content-right .hero-content-right-btn{
     width: 100%;
-    margin-bottom: 24px;
 }
 .hero-container .hero-content .hero-content-right .hero-content-right-btn button{
     background-color: #ffd900;
-    color: #000;
+    color: #121212;
     font-weight: 600;
     letter-spacing: 5px;
-    border-top-left-radius:20px;
-    border-bottom-right-radius:20px;
+    border-radius: 50px;
     outline: 0;
     border: 0;
-    padding: 15px 30px;
+    padding: 10px 60px;
     font-size: clamp(16px, 24px, 32px);
     box-shadow: 0 8px 16px rgba(16,13,26,0.5);
     backdrop-filter: blur(8px);
@@ -167,16 +167,15 @@
 .hero-mobile .mobile-content .mobile-content-top  .mobile-content-top-btn{
     width: 100%;
     text-align: center;
-    margin-top: 10px;
+    padding-bottom: 10px;
 }
 .hero-mobile .mobile-content .mobile-content-top  .mobile-content-top-btn button{
    background-color: #ffd900;
    color: #000;
    letter-spacing: 4px;
    justify-self: center;
-   padding:15px 30px;
-   border-top-left-radius:20px;
-   border-bottom-right-radius: 20px;
+   padding:10px 30px;
+   border-radius: 50px;
    outline: 0;
    border: 0;
    font-weight: 600px;
@@ -196,13 +195,10 @@
  gap: 12px;
  
 }
-.hero-mobile .hero-mid .hero-mid-text{
-    margin-top: 12px;
-}   
+ 
 .hero-mobile .hero-mid .hero-mid-text h2{
     font-weight: 600;
     letter-spacing: 2px;
-    margin-bottom: 10px;
     font-size: clamp(14px, 16px, 24px);
 }
 .hero-mid .hero-mid-images{
@@ -211,16 +207,18 @@
     display: flex;
 }
 .hero-mid .hero-mid-images img{
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border-radius: 100px;
     box-shadow: 0 8px 16px rgba(16,13,26,0.5);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid #100D1A;
 }
 .hero-mid .hero-mid-images img:hover{
     cursor: pointer;
+    transform: rotate(360deg);
+    transition: 0.6s ease;
 }
+
 .hero-mid .hero-mid-images .hero-mid-img .img-2{
     position: relative;
     right: 10px;
@@ -236,12 +234,13 @@
 .hero-mobile .mobile-img{
     display: flex;
     width: 100%;
-    justify-content: center;
+    justify-content: center;   
 }
 .hero-mobile .mobile-img img{
     min-width: 100%;
     height: 85vh;
-    animation: opace 3s ease;
+    animation: opace 0.6s ease;
+    object-fit: cover;
 }
 
 .social-proof{
@@ -339,7 +338,7 @@
 }
 .hero-container .hero-img img{
     min-width: 100%;
-    max-height: 85vh;
+    max-height: 90vh;
     animation: opace 3s ease;
 }
 
@@ -368,8 +367,6 @@
     height: 50px;
     border-radius: 100px;
     box-shadow: 0 8px 16px rgba(16,13,26,0.5);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
 }
 
 .hero-container .hero-content .hero-content-left  .hero-content-left-bottom{
@@ -410,13 +407,7 @@
     margin-bottom: 24px;
 }
 .hero-container .hero-content .hero-content-right .hero-content-right-btn button{
-    background-color: #ffd900;
-    color: #000;
-    font-weight: 600;
-    letter-spacing: 5px;
-    border-top-left-radius:20px;
-    border-bottom-right-radius:20px;
-    border: 1px solid rgba(16,13,26,0.5);
+    color: #121212;
 }
 }
 
@@ -426,60 +417,46 @@
 }
 .hero-mobile{
     display:flex;  
-    
 }
 .hero-mobile .mobile-content{
-    left: 50%;
-    top: 30%;
-    transform: translate(-50%, -50%);
-    
-    
+    transform: translate(-50%, -50%);    
 }
 .hero-mobile .mobile-content .mobile-content-top{
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 12px;
 }
 .hero-mobile .mobile-content .mobile-content-top .mobile-content-top-text{
-    text-align: center;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
+    gap: 12px;
 }
 .hero-mobile .mobile-content .mobile-content-top .mobile-content-top-text h2{
     font-weight: 600;
     letter-spacing: 2px;
+    line-height: 1.2em;
     font-size: clamp(16px, 20px, 24px);
 }
 .hero-mobile .mobile-content .mobile-content-top .mobile-content-top-text h3{
     font-size: clamp(12px, 14px, 18px);
 }
 .hero-mobile .mobile-content .mobile-content-top .mobile-content-top-text h3 span{
-    color: #ffd900;
     font-weight: 800;
 }
 .hero-mobile .mobile-content .mobile-content-top  .mobile-content-top-btn{
     width: 100%;
     text-align: center;
-    margin-top: 5px;
 }
 .hero-mobile .mobile-content .mobile-content-top  .mobile-content-top-btn button{
    color: #121212;
-   padding:10px 15px;
-   border-top-left-radius:10px;
-   border-bottom-right-radius: 10px;
 }
 .hero-mobile .hero-mid{
  text-align: center;
  display: flex;
  flex-direction: column-reverse;
- gap: 6px;
+ gap: 12px;
  
 }
-.hero-mobile .hero-mid .hero-mid-text{
-    margin-top: 6px;
-}   
+  
 .hero-mobile .hero-mid .hero-mid-text h2{
     font-weight: 600;
     letter-spacing: 2px;
@@ -492,12 +469,7 @@
     display: flex;
 }
 .hero-mid .hero-mid-images img{
-    width: 50px;
-    height: 50px;
     border-radius: 100px;
-    box-shadow: 0 8px 16px rgba(16,13,26,0.5);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
 }
 
 .social-proof{

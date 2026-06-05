@@ -92,6 +92,15 @@ label{
   border-radius: 5px;
 }
 
+
+*::-webkit-scrollbar-track:horizontal { 
+  background-color: #E9E9E9; 
+}
+*::-webkit-scrollbar-thumb:horizontal{
+        background: #100D1A;
+        border-radius: 10px;
+}
+
 /*------------------------------*/
 @media (max-width:2560px) and (min-width:900px) {
 *::-webkit-scrollbar {

@@ -40,7 +40,7 @@ const NavbarComponent = () => {
         </div>
         </section>
         {/*---------SIDEMENU---------*/}
-        <div id='sidemenu' className="sidemenu">
+        <div id='sidemenu' className="sidemenu" onMouseLeave={()=>(document.getElementById("sidemenu").style.display="none")}>
             <div className="sidemenu-header">
                 <h1 onClick={()=>(document.getElementById("sidemenu").style.display="none")}>WELCOME</h1>
             </div>
