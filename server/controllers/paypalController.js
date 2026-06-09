@@ -57,7 +57,7 @@ const paypalPayment=async(req,res)=>{
                 "payment_method":"paypal"
             },
             "redirect_urls":{
-                "return_url":"http://localhost:3000/api/user/paypalSuccess",
+                "return_url":`${process.env.FRONTEND_URL}/order`,
                 "cancel_url":"http://localhost:3000/api/user/paypalCancel"
             },
             "transactions":[{
@@ -103,7 +103,7 @@ const handlePayment=async(req,res)=>{
     paypal.payment.execute(paymentId, executePayment, (error, payment) => {
       if (error) {
         console.error('Error executing PayPal payment:', error);
-        res.send('Failed');
+        res.redirect(`${process.env.FRONTEND_URL}/order`)
       } else {
         res.redirect(`${process.env.FRONTEND_URL}/order`) 
       }
