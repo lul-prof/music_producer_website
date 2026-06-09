@@ -1,48 +1,53 @@
-import React, { useContext } from "react";
-import { assets } from "../../assets/assets";
+import React, { useContext } from 'react'
+import { assets } from '../../assets/assets'
 import './NavbarComponent.css'
-import { Link } from "react-router-dom";
-import toast from "react-hot-toast";
-import { ManagementContext } from "../../Context/ManagementContext";
+import { ManagementContext } from '../../Context/ManagementContext'
+import { Link } from 'react-router-dom'
 
 const NavbarComponent = () => {
-  const {setToken,frontend_url}=useContext(ManagementContext);
+  const {frontend_url}=useContext(ManagementContext);
+  const logout=()=>{
+    localStorage.clear();
+    window.location.reload()
+  }
   return (
-    <div className="navbar-container">
-      <div className="nav">
-        <div className="nav-left">
-          <img onClick={()=>(document.getElementById('nav-side').style.display='block')} id="side-img" src={assets.sideIcon} alt="" />
-        </div>
-        <div className="nav-center">
-         <Link to={frontend_url} target="_blank" > <h1 onDoubleClick={()=>(window.location.reload(),toast.success('Refreshing webpage'))}>The Don</h1></Link>
-        </div>
-        <div className="nav-right">
-         <Link to={'/profile'}><p onClick={()=>(document.getElementById('nav-side').style.display='none')}><img id="avatar-img" src={assets.avatar} alt="" />admin</p></Link> 
-        </div>
+    <>
+    <div className="navbar">
+      {/*----------------------*/}
+      <div className="navbar-left">
+        <img onClick={()=>(document.getElementById("sidemenu").style.display="flex")} onMouseOver={()=>(document.getElementById("sidemenu").style.display="flex")} src={assets.sideIcon} alt="menu" />
       </div>
-      <div id="nav-side" className="nav-side">
-        <div className="side-header">
-          <p><img onClick={()=>(document.getElementById('nav-side').style.display='none')} id="header-img" src={assets.logo} alt="" /></p>
-        </div>
-        <div className="side-content">
-          <ul>
-          <Link to={'/'}><li onClick={()=>(document.getElementById('nav-side').style.display='none')}><img id="side-content-img" src={assets.home} alt="" /> Dashboard</li></Link>
-            <Link to={'/merchandise'}><li onClick={()=>(document.getElementById('nav-side').style.display='none')}><img id="side-content-img" src={assets.merch} alt="" />Merchandise</li></Link>
-            <Link to={'/beats'}><li onClick={()=>(document.getElementById('nav-side').style.display='none')}><img id="side-content-img" src={assets.beatIcon} alt="" />Beats</li></Link>
-            <Link to={'/blogs'}><li onClick={()=>(document.getElementById('nav-side').style.display='none')}><img id="side-content-img" src={assets.blog} alt="" />Blogs</li></Link>
-            <Link to={'/users'}><li onClick={()=>(document.getElementById('nav-side').style.display='none')}><img id="side-content-img" src={assets.userIcon} alt="" />Users</li></Link>
-            <Link to={'/orders'}><li onClick={()=>(document.getElementById('nav-side').style.display='none')}><img id="side-content-img" src={assets.orderIcon} alt="" />Orders</li></Link>
-            <Link to={'/revenue'}><li onClick={()=>(document.getElementById('nav-side').style.display='none')}><img id="side-content-img" src={assets.revenueIcon} alt="" />Revenue</li></Link>
-            <Link to={'/notifications'}><li onClick={()=>(document.getElementById('nav-side').style.display='none')}><img id="side-content-img" src={assets.notifs} alt="" />Notifications</li></Link>
-          </ul>
-          <p><img onClick={()=>(localStorage.removeItem("token"),setToken(""),toast.success('Logout Successful'))} id="side-logout-img" src={assets.logout} alt="" /></p>
-        </div>
-        <div className="side-footer">
-          <p><img onClick={()=>(document.getElementById('nav-side').style.display='none')} id="footer-img" src={assets.close} alt="" /></p>
-        </div>
+      {/*----------------------*/}
+      <div className="navbar-center">
+          <Link to={'/'}><h1>ADMIN PANEL</h1></Link>
+      </div>
+      {/*----------------------*/}
+      <div className="navbar-right">
+       <Link to={frontend_url} target='_blank'><img src={assets.theDon} alt="The Don" /></Link> 
       </div>
     </div>
-  );
-};
+    /*------------------SIDEMENU------------------------*/
+    <div onMouseLeave={()=>(document.getElementById("sidemenu").style.display="none")} id='sidemenu' className="sidemenu">
+      <div className="sidemenu-header">
+        <h2 onClick={()=>(document.getElementById("sidemenu").style.display="none")}>THE DON</h2>
+      </div>
+      <div className="sidemenu-mid">
+        <ul>
+          <Link to={'/'}><li>Home</li></Link>
+         <Link to={'/users'}><li>Users</li></Link> 
+          <Link to={'/blogs'}><li>Blogs</li></Link>
+          <Link to={'/beats'}><li>Beats</li></Link>
+          <Link to={'/merchandise'}><li>Merchandise</li></Link>
+          <Link to={'/subscribers'}><li>Subscribers</li></Link>
+          <Link to={'/'}><li>Revenue</li></Link>
+        </ul>
+      </div>
+      <div className="sidemenu-bottom">
+        <button onClick={()=>(logout())}>LOGOUT</button>
+      </div>
+    </div>
+    </>
+  )
+}
 
-export default NavbarComponent;
+export default NavbarComponent

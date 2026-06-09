@@ -1,206 +1,266 @@
-.beats-container{
-    display: flex;
-    justify-content: space-evenly;
+.beats{
+    width: 100%;
+    padding: 50px;
     margin-top: 60px;
-    padding: 10px;
-    gap: 1rem;
-    margin-bottom: 100px;
-    overflow: auto;
-}
-.beats-container .beats-left{
-    background: #FFFFFF;
-    width: 50%;
-    border: 1px solid #C0C0C0;
-    border-radius: 10px;
-    
-}
-.beats-container .beats-left .beats-left-content{
-    overflow-x: auto;
-}
-.beats-container .beats-left .beats-left-header{
-    background: #C0C0C0;
-    padding: 10px;
-    text-align: center;border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-}
-.beats-container .beats-left .merch-product{
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding: 10px;
-    margin: 2px;
+    flex-direction: column;
+    gap: 24px;
 }
-.beats-container .beats-left .beats-left-content #merch-img{
-    width: 100px;
-}
-
-.beats-container .beats-right{
-    width: 50%;
-}
-
-.beats-container .beats-right .beats-right-header{
-    text-align: center;
-    text-decoration: underline;
-    margin-bottom: 10px;
-}
-
-.beats-container .beats-right .beats-right-content{
-    overflow-x: auto;
-}
-.beats-container .beats-right .beats-right-content form .form-img{
-    border: 1px solid #000000;
-    width: 95%;
-    border-style: dashed;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-    border-radius: 10px;
-}
-.beats-container .beats-right .beats-right-content form .form-img:hover{
-    cursor: pointer;
-}
-.beats-container .beats-right .beats-right-content form .form-class{
-    margin: 10px;
-    width: 95%;
-}
-.beats-container .beats-right .beats-right-content form .form-check{
-    margin: 10px;
-    width: 95%;
-}
-.beats-container .beats-right .beats-right-content form .form-check input{
-    margin-left: 10px;
-}
-.beats-container .beats-right .beats-right-content form .form-class input{
-    width: 100%;
+.beats .beats-header{
+    align-self: center;
+    justify-self: center;
+    background: rgba(255,255,255,0.6);
+    border: 1px solid rgba(192,192,192,0.3);
+    box-shadow: 0 4px 8px rgba(192,192,192,0.8);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter: blur(8px);
     padding: 20px;
-    outline: 0;
-    padding: 1px solid #000000;
-}
-
-.beats-container .beats-right .beats-right-content form .form-btn{
-    width: 95%;
-    margin: 10px;
-}
-.beats-container .beats-right .beats-right-content form .form-btn button{
-    width: 100%;
-    background: #000000;
-    color: #FFFFFF;
-    padding: 10px;
-    outline: 0;
-    border: 0;
-}
-.beats-container .beats-right .beats-right-content form .form-btn button:hover{
-    cursor: pointer;
-}
-#merch-action{
-    width: 30px;
-}
-#merch-action:hover{
-    cursor: pointer;
-}
-#merch-actions{
-    display: flex;
-    justify-content: space-evenly;
-    gap: 20px;
-}
-
-#prod-img{
-    width: 100%;
-}
-#prod-img:hover{
-    cursor: pointer;
-}
-
-@media (max-width:768px) and (min-width:100px) {
-.beats-container{
-    flex-direction: column-reverse;
-    gap: 1rem;
-    margin-bottom: 10px;
-}
-.beats-container .beats-left{
-    background: #FFFFFF;
-    width: 100%;
-    border: 1px solid #C0C0C0;
+    width: fit-content;
     border-radius: 10px;
-    
 }
-.beats-container .beats-left .beats-left-content{
+.beats .beats-body{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+.beats .beats-body .beats-body-left{
+    display: grid;
+    grid-template-rows: 1fr;
+    gap: 24px;
+    width: 100%;
+    box-sizing: border-box;
+    background: rgba(255,255,255,0.6);
+    border: 1px solid rgba(192,192,192,1);
+    box-shadow: 0 8px 32px rgba(192,192,192,0.8);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 10px;
+    border-radius: 10px;
     overflow-x: auto;
+    max-height: 750px;
+    overflow-y: auto;
 }
-.beats-container .beats-left .beats-left-header{
-    background: #BF40BF;
-    color: #FFFFFF;
-}
-.beats-container .beats-left .merch-product{
-    gap: 10px;
+.beats .beats-body .beats-body-left .beat-class{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     align-items: center;
+    gap: 12px;
 }
-.beats-container .beats-left .beats-left-content #merch-img{
+.beats .beats-body .beats-body-left .beat-class .beat-class-details{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.beats .beats-body .beats-body-left .beat-class .beat-class-details .beat-image img{
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+}
+.beats .beats-body .beats-body-left .beat-class .beat-class-actions{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 6px;
+}
+.beats .beats-body .beats-body-left .beat-class .beat-class-actions img{
     width: 50px;
+    height: 50px;
 }
-
-.beats-container .beats-right{
+.beats .beats-body .beats-body-left .beat-class .beat-class-actions img:hover{
+    cursor: pointer;
+    transform: translateY(10px);
+    transition: 0.3s;
+}
+.beats .beats-body .beats-body-right{
     width: 100%;
-}
-.beats-container .beats-right .beats-right-header{
-    text-align: center;
-    color: #BF40BF;
-    text-shadow: 1px 3px 16px;
-    text-decoration: wavy;
-}
-
-.beats-container .beats-right .beats-right-content{
-    overflow-x: auto;
-}
-.beats-container .beats-right .beats-right-content form .form-img{
-    width: 100%;
-}
-
-.beats-container .beats-right .beats-right-content form .form-class{
-    margin: 10px 0;
-    width: 100%;
-}
-.beats-container .beats-right .beats-right-content form .form-check{
-    margin: 10px;
-    width: 100%;
-}
-.beats-container .beats-right .beats-right-content form .form-check input{
-    margin-left: 10px;
-    width: 40px;
-}
-.beats-container .beats-right .beats-right-content form .form-class input{
-    width: 100%;
-    padding: 20px;
-    outline: 0;
-    padding: 1px solid #000000;
-}
-
-.beats-container .beats-right .beats-right-content form .form-btn{
-    width: 100%;
-    margin: 10px;
-}
-.beats-container .beats-right .beats-right-content form .form-btn button{
-    width: 100%;
-    background: #BF40BF;
-    color: #FFFFFF;
+    box-sizing: border-box;
+    background: rgba(255,255,255,0.6);
+    border: 1px solid rgba(192,192,192,1);
+    box-shadow: 0 8px 32px rgba(192,192,192,0.8);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter: blur(8px);
     padding: 10px;
+    border-radius: 10px; 
+    padding: 25px 10px;
+    height: fit-content;
+}
+.beats .beats-body .beats-body-right form{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.beats .beats-body .beats-body-right form .form-img{
+    text-align: center;
+    justify-content: center;
+    gap: 12px;
+    border: 1px solid #100D1A;
+    padding: 10px;
+    border-radius: 5px;
+    border-style: dashed;
+    width: 100%;
+}
+.beats .beats-body .beats-body-right form .form-img img{
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+.beats .beats-body .beats-body-right form .form-img label{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.beats .beats-body .beats-body-right form .form-img img:hover{
+    cursor: pointer;
+}
+.beats .beats-body .beats-body-right form .form-class input{
+    outline: 0;
+    border: 1px solid #100D1A;
+    border-radius: 5px;
+    padding: 20px 30px;
+    width: 100%;
+    background: transparent;
+}
+.beats .beats-body .beats-body-right form .form-class-small{
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+}
+.beats .beats-body .beats-body-right form .form-class-small input{
+    outline: 0;
+    border: 1px solid #100D1A;
+    border-radius: 5px;
+    padding: 10px 30px;
+    width: 100%;
+}
+
+.beats .beats-body .beats-body-right form .form-class-audio{
+    display: flex;
+    justify-content: space-evenly;
+    border: 1px solid #100D1A;
+    padding: 10px;
+    border-radius: 5px;
+    border-style: dashed;
+}
+.beats .beats-body .beats-body-right form .form-class-audio p:hover{
+    cursor: pointer;
+}
+.beats .beats-body .beats-body-right form .form-class-audio-select audio{
+    width: 100%;
+}
+.beats .beats-body .beats-body-right form .form-class-audio input{
+    background: transparent;
+}
+.beats .beats-body .beats-body-right form .form-class-check{
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    align-items: center;
+    border: 1px solid #100D1A;
+    padding: 10px;
+    border-radius: 5px;
+    border-style: dashed
+}
+.beats .beats-body .beats-body-right form .form-class-check input[type="checkbox"]{
+    border: 2px solid #100D1A;
+    cursor: pointer;
+}
+.beats .beats-body .beats-body-right form .form-class button{
+    width: 100%;
+    padding: 10px 30px;
+    background: #100D1A;
+    color: #E9E9E9;
+    border-radius: 50px;
     outline: 0;
     border: 0;
 }
-
-#merch-action{
-    width: 20px;
+.beats .beats-body .beats-body-right form .form-class button:hover{
+    cursor: pointer;
+    transform: translateY(5px);
+    transition: 0.3s ease;
 }
 
-#merch-actions{
+/*---------------------------------------*/
+@media (max-width:1000px) and (min-width:50px) {
+.beats{
+    padding: 10px;
+    margin-top: 50px;
+}
+.beats .beats-header{
+    align-self: center;
+}
+.beats .beats-header h2{
+    font-size: clamp(18px,20px,24px);
+    text-align: center;
+}
+.beats .beats-body{
+    display:flex;
+    flex-direction: column-reverse;
+}
+.beats .beats-body .beats-body-left{
+    display: grid;
+    grid-template-rows: 1fr;
+}
+.beats .beats-body .beats-body-left .beat-class{
+    display: grid;
+}
+.beats .beats-body .beats-body-left .beat-class .beat-class-details{
     display: flex;
-    justify-content: space-evenly;
-    gap: 20px;
 }
-
-#prod-img{
+.beats .beats-body .beats-body-left .beat-class .beat-class-details .beat-image img{
+    border-radius: 10px;
+}
+.beats .beats-body .beats-body-left .beat-class .beat-class-actions{
+    display: flex;
+}
+.beats .beats-body .beats-body-left .beat-class .beat-class-actions img{
+    width: 40px;
+    height: 40px;
+    object-fit: fill;
+}
+.beats .beats-body .beats-body-right{
     width: 100%;
 }
+.beats .beats-body .beats-body-right form{
+    gap: 12px;
+}
+.beats .beats-body .beats-body-right form .form-img{
+    text-align: center;
+}
+.beats .beats-body .beats-body-right form .form-img img{
+    object-fit: cover;
+}
+.beats .beats-body .beats-body-right form .form-img label{
+    display: flex;
+}
 
+.beats .beats-body .beats-body-right form .form-class input{
+    padding: 20px 5px;
+}
+.beats .beats-body .beats-body-right form .form-class-small{
+    gap: 6px;
+}
+.beats .beats-body .beats-body-right form .form-class-small input{
+    padding: 10px 3px;
+}
+
+.beats .beats-body .beats-body-right form .form-class-audio{
+    display: flex;
+}
+.beats .beats-body .beats-body-right form .form-class-audio input{
+    background: transparent;
+}
+.beats .beats-body .beats-body-right form .form-class-check{
+    display: flex;
+}
+
+.beats .beats-body .beats-body-right form .form-class button{
+    width: 100%;
+}    
+}
+
+@media (max-width:1000px) and (min-width:501px) {
+.beats{
+    padding: 25px;
+}
 }

@@ -6,21 +6,25 @@ import axios from 'axios'
 import {ManagementContext} from '../../Context/ManagementContext'
 
 const BeatsPage = () => {
-  const [thumbnail, setThumbnail] = useState(null);
+  const [thumbnail, setThumbnail] = useState();
   const [title,setTitle]=useState("");
   const [description,setDescription]=useState("");
   const [price,setPrice]=useState();
   const [tags,setTags]=useState("");
-  const [producer,setProducer]=useState("");
+  const [bpm,setBpm]=useState("");
+  const [key,setKey]=useState("");
+  const [genre,setGenre]=useState("");
   const [audio, setAudio] = useState(null);
+
+  const [loading,setLoading]=useState(false);
 
   const [isChecked, setIsChecked] = useState(false);
 
   const audio_tag = useRef(null);
 
-  const {backend_url}=useContext(ManagementContext)
+  const {backend_url,beats,currency}=useContext(ManagementContext)
 
-  const [beats,setBeats]=useState([]);
+  
 
   const handleChange = (e) => {
     setIsChecked(e.target.checked);
@@ -40,24 +44,30 @@ const BeatsPage = () => {
   const handleSubmit=async(e)=>{
     e.preventDefault();
     try {
+      setLoading(true)
+      const tagMetaData=JSON.stringify({key,bpm,genre,tags});
       const formData=new FormData();
       thumbnail && formData.append("thumbnail",thumbnail);
       formData.append("title",title);
       formData.append("description",description);
       formData.append("price",price);
-      formData.append("tags",tags);
-      formData.append("producer",producer);
+      formData.append("tags",tagMetaData);
       audio && formData.append("audio",audio);
       formData.append("isFeatured",isChecked);
 
       const response=await axios.post(`${backend_url}/api/admin/addBeat`,formData,);
+      console.log(response);
+      
       if(response.data.success){
         toast.success(response.data.message);
+        setLoading(false)
       }else{
         toast.error(response.data.message)
       }
     } catch (error) {
       toast.error(error)
+    }finally{
+      setLoading(false)
     }
   }
 
@@ -74,21 +84,20 @@ const deleteBeat=async(id)=>{
   }
 }
 
-useEffect(()=>{
-  const fetchBeats=async()=>{
-    try {
-      const response=await axios.get(`${backend_url}/api/user/beats`);
-      if(response.data.success){
-        setBeats(response.data.beats);
-      }else{
-        toast.error(response.data.message)
-      }
-    } catch (error) {
-      toast.error(error)
+const featureBeat=async(id)=>{
+  try {
+    const response=await axios.post(`${backend_url}/api/admin/featureBeat/${id}`);
+    if(response.data.success){
+      toast.success(response.data.message)
+    }else{
+      toast.error(response.data.message)
     }
+  } catch (error) {
+    console.log(error);
+    toast.error(error.message)
   }
-  fetchBeats()
-},[beats,backend_url]);
+}
+
 
 useEffect(() => {  
   return () => {
@@ -99,50 +108,58 @@ useEffect(() => {
 }, [audio])
 return (
   <>
-    <div className="beats-container">
-      {/*-------------------------------*/}
-      <div className="beats-left">
-        <div className="beats-left-header">
-          <p>beats</p>
-        </div>
-        <div className="beats-left-content">
+    <div className="beats">
+      {/*------------------------*/}
+      <div className="beats-header">
+        <h2>BEATS MANAGEMENT</h2>
+      </div>
+      {/*------------------------*/}
+      <div className="beats-body">
+        <div className="beats-body-left">
           {
-            beats.map((product, i) => (
-              <div key={product._id} className="merch-product">
-                <div className="merch-id">
-                  <p>{i + 1}</p>
+            beats.map((beat)=>(
+              <div className="beat-class">
+                <div className="beat-class-details">
+                  <div className="beat-image">
+                    <img src={beat?.thumbnail} alt="thumbnail" />
+                  </div>
+                  <div className="beat-title">
+                    <p>{beat?.title}</p>
+                  </div>
+                  <div className="beat-price">
+                    <p>{currency} {beat?.price}</p>
+                  </div>
                 </div>
-                <div className="merch-img">
-                  <img id='merch-img' src={product.thumbnail} alt="" />
+                <div className="beat-class-date">
+                  <p>
+                    {new Date(beat?.createdAt).toLocaleDateString("en-US", {
+                          year: "numeric",
+                          month: "short",
+                          day: "numeric",
+                        })}
+                  </p>
                 </div>
-                <div className="merch-title">
-                  <p>Title: {product.title}</p>
+                <div className="beat-class-status">
+                  <p>{beat?.isFeatured?"Featured":"Not Featured"}</p>
                 </div>
-                <div className="merch-quantity">
-                  <p>{product.isFeatured ? "Featured" :"Not Featured"}</p>
-                </div>
-                <div className="merch-price">
-                  <p>price {product.price}</p>
-                </div>
-                <div id='merch-actions' className="merch-actions">
-                  <img id='merch-action' onClick={()=>deleteBeat(product._id)} src={assets.deleteI} alt="" />
-                  {/*<img id='merch-action' src={assets.edit} alt="" />*/}
+                <div className="beat-class-actions">
+                  <div className="beat-class-actions-left">
+                    <img onClick={()=>(featureBeat(beat?._id))} src={beat.isFeatured? assets.approve:assets.approved} alt="feature" />
+                  </div>
+                  <div className="beat-class-actions-right">
+                    <img onClick={()=>(deleteBeat(beat?._id))} src={assets.deleteI} alt="delete" />
+                  </div>
                 </div>
               </div>
             ))
           }
         </div>
-      </div>
-      {/*-------------------------------*/}
-      <div className="beats-right">
-        <div className="beats-right-header">
-          <h1>Add beats</h1>
-        </div>
-        <div className="beats-right-content">
-          <form onSubmit={handleSubmit} method='post'>
-            <div className="form-img">
+        <div className="beats-body-right">
+          <form method='post' onSubmit={handleSubmit}>
+             <div className="form-img">
               <label htmlFor="image">
-                <img id='prod-img' src={thumbnail && thumbnail ? URL.createObjectURL(thumbnail) : assets.fileI} alt="" />
+                <p>{thumbnail && thumbnail ? thumbnail.name: "Click to select Thumbnail"}</p>
+                <img src={thumbnail && thumbnail ? URL.createObjectURL(thumbnail) : assets.fileI} alt="add beat" />
                 <input
                   type="file"
                   onChange={(e) => setThumbnail(e.target.files[0])}
@@ -151,8 +168,6 @@ return (
                   hidden
                 />
               </label>
-              <p>Thumbnail {thumbnail && thumbnail ? thumbnail.name : ""}</p>
-
             </div>
             <div className="form-class">
               <input type="text" value={title} onChange={(e)=>setTitle(e.target.value)} placeholder='Title' />
@@ -163,16 +178,33 @@ return (
             <div className="form-class">
               <input type="text" value={price} onChange={(e)=>setPrice(e.target.value)} placeholder='Price' />
             </div>
-            <div className="form-class">
-              <input type="text" value={tags} onChange={(e)=>setTags(e.target.value)} placeholder='Tags (e.g. Dancehall type beat, sad type beat, J.cole)' />
+            <div id='form-class-small' className="form-class-small">
+              <input type="text" placeholder='bpm' value={bpm} onChange={(e)=>setBpm(e.target.value)} />
+              <input type="text" placeholder='Key' value={key} onChange={(e)=>setKey(e.target.value)} />
+              <input type="text" placeholder='genre' value={genre} onChange={(e)=>setGenre(e.target.value)} />
+              <input type="text" placeholder='Tags' value={tags} onChange={(e)=>setTags(e.target.value)} />
             </div>
-            <div className="form-class">
-              <input type="text" value={producer} onChange={(e)=>setProducer(e.target.value)} placeholder='Producer (use default the_don)' />
-            </div>
-            <div className="form-class">
-              <label htmlFor="audio">Audio
-                <input onChange={handleAudioChange} type="file" name="" id="" />
+            <div className="form-class-audio">
+              <label htmlFor="beat">
+              <p>AUDIO FILE</p>
+              <input 
+              type="file"  
+              onChange={handleAudioChange}
+              id='beat'
+              name='beat'
+              hidden
+              />
               </label>
+            </div>
+            
+            <div className="form-class-check">
+              <p>Select to feature beat</p>
+              <input type="checkbox" checked={isChecked} onChange={handleChange} />
+            </div>
+            <div className="form-class">
+              <button type='submit'>{loading?"UPLOADING":"UPLOAD"}</button>
+            </div>
+            <div className="form-class-audio-select">
               {
                 audio && audio
                   ?
@@ -191,13 +223,6 @@ return (
                   <></>
               }
             </div>
-            <div className="form-check">
-              <label htmlFor="isChecked">Feature beat on HomePage</label>
-              <input checked={isChecked} onChange={handleChange} type="checkbox" name="" id="" />
-            </div>
-            <div className="form-btn">
-              <button type='submit'>Add</button>
-            </div>
           </form>
         </div>
       </div>
@@ -206,4 +231,4 @@ return (
 )
 }
 
-export default BeatsPage
+export default BeatsPage;

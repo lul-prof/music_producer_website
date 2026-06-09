@@ -1,229 +1,303 @@
-.merchandise-container{
+.merchandise{
+    width: 100%;
+    padding: 50px;
+    margin-top: 50px;
     display: flex;
-    justify-content: space-evenly;
-    margin-top: 60px;
-    padding: 10px;
-    gap: 1rem;
-    margin-bottom: 100px;
+    flex-direction: column;
+    gap: 24px;
+}
+.merchandise .merchandise-header{
+    align-self: center;
+    justify-self: center;
+    background: rgba(255,255,255,0.6);
+    border: 1px solid rgba(192,192,192,0.3);
+    box-shadow: 0 4px 8px rgba(192,192,192,0.8);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 20px;
+    width: fit-content;
+    border-radius: 10px;
+}
+.merchandise .merchandise-body{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+.merchandise .merchandise-body .merchandise-left{
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 24px;
+    width: 100%;
+    box-sizing: border-box;
+    background: rgba(255,255,255,0.6);
+    border: 1px solid rgba(192,192,192,1);
+    box-shadow: 0 8px 32px rgba(192,192,192,0.8);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter: blur(8px);
+    padding:25px 10px;
+    border-radius: 10px;
+    max-height: 750px;
     overflow: auto;
 }
-.merchandise-container .merchandise-left{
-    background: #FFFFFF;
-    width: 50%;
-    border: 1px solid #C0C0C0;
-    border-radius: 10px;
-    
+.merchandise .merchandise-body .merchandise-left hr{
+    border-color: #100D1A;
+    opacity: 0.3;
+    border-width: 2px;
 }
-.merchandise-container .merchandise-left .merchandise-left-content{
-    overflow-x: auto;
-    height: 60vh;
-    overflow-y: auto;
-}
-.merchandise-container .merchandise-left .merchandise-left-header{
-    background: #C0C0C0;
-    padding: 10px;
-    text-align: center;border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-}
-.merchandise-container .merchandise-left .merch-product{
+.merchandise .merchandise-body .merchandise-left .merch{
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
-    padding: 10px;
-    margin: 2px;
-}
-.merchandise-container .merchandise-left .merchandise-left-content #merch-img{
-    width: 100px;
+    gap: 24px;
 }
 
-.merchandise-container .merchandise-right{
-    width: 50%;
-}
-
-.merchandise-container .merchandise-right .merchandise-right-header{
-    text-align: left;
-    text-decoration: underline;
-    margin-bottom: 10px;
-}
-
-.merchandise-container .merchandise-right .merchandise-right-content{
-    overflow-x: auto;
-}
-.merchandise-container .merchandise-right .merchandise-right-content form .form-img{
-    width: 80%;
+.merchandise .merchandise-body .merchandise-left .merch .merch-details{
     display: flex;
-    margin: 10px;
-    overflow-x: scroll;
-    border: 1px solid #000000;
-    padding: 10px;
+    flex-direction: column;
+    gap: 6px;
+    box-sizing: border-box;
+    width: 20%;
+}
+.merchandise .merchandise-body .merchandise-left .merch .merch-details .merch-image img{
+    width: 100%;
+    border-radius: 10px;
+}
+.merchandise .merchandise-body .merchandise-left .merch .merch-details .merch-image img:hover{
+    cursor: pointer;
+    transform: translateY(5px);
+    transition: 0.3s ease;
+}
+.merchandise .merchandise-body .merchandise-left .merch .merch-date{
+    box-sizing: border-box;
+    width: 20%;
+}
+.merchandise .merchandise-body .merchandise-left .merch .merch-quantity{
+    box-sizing: border-box;
+    width: 20%;
+}
+.merchandise .merchandise-body .merchandise-left .merch .merch-status{
+    box-sizing: border-box;
+    width: 20%;
+}
+.merchandise .merchandise-body .merchandise-left .merch .merch-actions{
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+    justify-content: space-around;
+    box-sizing: border-box;
+    width: 20%;
+}
+.merchandise .merchandise-body .merchandise-left .merch .merch-actions img{
+    width: 50px;
+    height: 50px;
+}
+.merchandise .merchandise-body .merchandise-left .merch .merch-actions img:hover{
+    cursor: pointer;
+    transform: translateY(5px);
+    transition: 0.3s ease;
+}
+
+.merchandise .merchandise-body .merchandise-right{
+    width: 100%;
+    box-sizing: border-box;
+    background: rgba(255,255,255,0.6);
+    border: 1px solid rgba(192,192,192,1);
+    box-shadow: 0 8px 32px rgba(192,192,192,0.8);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter: blur(8px);
+    padding:25px 10px;
+    border-radius: 10px;
+    height: fit-content;
+}
+
+.merchandise .merchandise-body .merchandise-right form{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.merchandise .merchandise-body .merchandise-right form .form-class-img{
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    justify-content: space-around;
+    border: 1px solid #100D1A;
+    padding:20px;
+    border-radius: 10px;
+}
+.merchandise .merchandise-body .merchandise-right form .form-class-img .form-class-img-left{
+    border: 2px solid #100D1A;
+    padding: 50px;
     border-style: dashed;
+    border-radius: 5px;
+}
+.merchandise .merchandise-body .merchandise-right form .form-class-img .form-class-img-left label{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+}
+.merchandise .merchandise-body .merchandise-right form .form-class-img .form-class-img-left label img{
+    width: 200px;
+    height: 200px;
+}
+.merchandise .merchandise-body .merchandise-right form .form-class-img .form-class-img-left label img:hover{
+    cursor: pointer;
+    padding: 10px;
     border-radius: 10px;
 }
 
-
-.merchandise-container .merchandise-right .merchandise-right-content form .form-class{
-    margin: 10px;
-    width: 80%;
-}
-
-.merchandise-container .merchandise-right .merchandise-right-content form .form-check{
-    display: flex;
-    margin: 10px;
-}
-.merchandise-container .merchandise-right .merchandise-right-content form .form-check input{
-    width:50px;
-
-}
-.merchandise-container .merchandise-right .merchandise-right-content form .form-check input:hover{
-    cursor: pointer;
-}
-.merchandise-container .merchandise-right .merchandise-right-content form .form-class input{
-    width: 100%;
-    padding: 20px;
-    outline: 0;
-    padding: 1px solid #000000;
-}
-
-.merchandise-container .merchandise-right .merchandise-right-content form .form-btn{
-    width: 80%;
-    margin: 10px;
-}
-.merchandise-container .merchandise-right .merchandise-right-content form .form-btn button{
-    width: 100%;
-    background: #000000;
-    color: #FFFFFF;
-    padding: 10px;
-    outline: 0;
-    border: 0;
-}
-.merchandise-container .merchandise-right .merchandise-right-content form .form-btn button:hover{
-    cursor: pointer;
-}
-#merch-action{
-    width: 30px;
-}
-#merch-action:hover{
-    cursor: pointer;
-}
-#merch-actions{
-    display: flex;
-    justify-content: space-evenly;
-    gap: 20px;
-}
-
-#prod-img{
-    width: 100%;
-    margin: 10px;
-}
-#prod-img:hover{
-    cursor: pointer;
-}
-
-@media (max-width:768px) and (min-width:100px) {
-  .merchandise-container{
-    width: 100%;
-    flex-direction: column-reverse;
-    margin-bottom: 10px;
-    overflow: auto;
-}
-.merchandise-container .merchandise-left{
-    width: 100%;    
-}
-.merchandise-container .merchandise-left .merchandise-left-content{
-    height: 100vh;
-}
-.merchandise-container .merchandise-left .merchandise-left-header{
-    background: #BF40BF;
-    color: #FFFFFF;
-}
-.merchandise-container .merchandise-left .merch-product{
-    gap: 10px;
-}
-.merchandise-container .merchandise-left .merchandise-left-content #merch-img{
-    width: 50px;
+.merchandise .merchandise-body .merchandise-right form .form-class-img .form-class-img-right{
+    border: 2px solid #100D1A;
+    padding: 40px;
+    border-style: dashed;
     border-radius: 5px;
 }
 
-.merchandise-container .merchandise-right{
-    width: 100%;
-}
-
-.merchandise-container .merchandise-right .merchandise-right-header{
-    text-align: center;
-    color: #BF40BF;
-    text-decoration: wavy;
-    text-shadow: 1px 2px 16px ;
-    margin-bottom: 10px;
-}
-
-.merchandise-container .merchandise-right .merchandise-right-content{
-    overflow-x: auto;
-}
-.merchandise-container .merchandise-right .merchandise-right-content form .form-img{
-    width: 100%;
+.merchandise .merchandise-body .merchandise-right form .form-class-img .form-class-img-right label{
     display: flex;
-    margin: 10px 0;
-    overflow-x: scroll;
-    border: 1px solid #000000;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+}
+.merchandise .merchandise-body .merchandise-right form .form-class-img .form-class-img-right label img{
+    width: 200px;
+    height: 200px;
+}
+.merchandise .merchandise-body .merchandise-right form .form-class-img .form-class-img-right label img:hover{
+    cursor: pointer;
     padding: 10px;
-    border-style: dashed;
     border-radius: 10px;
 }
 
-.merchandise-container .merchandise-right .merchandise-right-content form .form-class{
-    margin: 10px 0;
-    width: 100%;
-}
-
-.merchandise-container .merchandise-right .merchandise-right-content form .form-check{
-    display: flex;
-    margin: 10px;
-}
-.merchandise-container .merchandise-right .merchandise-right-content form .form-check input{
-    width:20px;
-    border: 2px solid #000000;
-
-}
-.merchandise-container .merchandise-right .merchandise-right-content form .form-class input{
+.merchandise .merchandise-body .merchandise-right form .form-class input{
     width: 100%;
     padding: 20px;
+    border: 1px solid #100D1A;
+    border-radius:5px ;
     outline: 0;
-    padding: 1px solid #000000;
+}
+.merchandise .merchandise-body .merchandise-right form .form-class-check{
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+}
+.merchandise .merchandise-body .merchandise-right form .form-class-check input{
+    cursor: pointer;
 }
 
-.merchandise-container .merchandise-right .merchandise-right-content form .form-btn{
+.merchandise .merchandise-body .merchandise-right form .form-class-btn button{
     width: 100%;
-    margin: 10px;
-}
-.merchandise-container .merchandise-right .merchandise-right-content form .form-btn button{
-    width: 100%;
-    background: #BF40BF;
-    color: #FFFFFF;
-    padding: 10px;
+    border-radius: 50px;
     outline: 0;
     border: 0;
+    background: #100D1A;
 }
-.merchandise-container .merchandise-right .merchandise-right-content form .form-btn button:hover{
+.merchandise .merchandise-body .merchandise-right form .form-class-btn button:hover{
     cursor: pointer;
-}
-#merch-action{
-    width: 30px;
-}
-#merch-action:hover{
-    cursor: pointer;
-}
-#merch-actions{
-    display: flex;
-    justify-content: space-evenly;
-    gap: 20px;
+    transform: translateY(5px);
+    transition: 0.3s ease;
 }
 
-#prod-img{
-    width: 100%;
-    margin: 10px;
+/*---------------------------------------*/
+@media (max-width:1000px) and (min-width:50px) {
+.merchandise{
+    padding: 10px;
+    margin-top: 40px;
 }
-#prod-img:hover{
-    cursor: pointer;
-}  
+.merchandise .merchandise-header{
+    align-self: center;
+}
+.merchandise .merchandise-header h2{
+    font-size: clamp(18px,20px,24px);
+    text-align: center;
+}
+.merchandise .merchandise-body{
+    display: flex;
+    flex-direction: column-reverse;
+}
+.merchandise .merchandise-body .merchandise-left{
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 24px;
+}
+
+.merchandise .merchandise-body .merchandise-left .merch{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.merchandise .merchandise-body .merchandise-left .merch .merch-details{
+    display: flex;
+
+}
+.merchandise .merchandise-body .merchandise-left .merch .merch-details .merch-image img{
+    width: 100%;
+}
+.merchandise .merchandise-body .merchandise-left .merch .merch-actions{
+    display: flex;
+}
+.merchandise .merchandise-body .merchandise-left .merch .merch-actions img{
+    width: 40px;
+    height: 40px;
+}
+.merchandise .merchandise-body .merchandise-right{
+    padding:25px 10px;
+}
+
+.merchandise .merchandise-body .merchandise-right form{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.merchandise .merchandise-body .merchandise-right form .form-class-img{
+    display: flex;
+    flex-direction: column;
+}
+.merchandise .merchandise-body .merchandise-right form .form-class-img .form-class-img-left{
+    padding: 20px;
+}
+.merchandise .merchandise-body .merchandise-right form .form-class-img .form-class-img-left label{
+    display: flex;
+}
+.merchandise .merchandise-body .merchandise-right form .form-class-img .form-class-img-left label img{
+    width: 150px;
+    height: 150px;
+}
+.merchandise .merchandise-body .merchandise-right form .form-class-img .form-class-img-right{
+    padding: 20px;
+}
+.merchandise .merchandise-body .merchandise-right form .form-class-img .form-class-img-right label{
+    display: flex;
+}
+.merchandise .merchandise-body .merchandise-right form .form-class-img .form-class-img-right label img{
+    width: 150px;
+    height: 150px;
+}
+.merchandise .merchandise-body .merchandise-right form .form-class input{
+    width: 100%;
+}
+.merchandise .merchandise-body .merchandise-right form .form-class-check{
+    display: flex;
+    flex-direction: row;
+    border: 2px solid #100D1A;
+    border-style: dashed;
+    padding: 20px;
+    border-radius: 5px;
+    gap: 12px;
+}
+
+.merchandise .merchandise-body .merchandise-right form .form-class-btn button{
+    width: 100%;
+}
+  
+}
+
+@media (max-width:1000px) and (min-width:501px) {
+.merchandise{
+    padding: 25px;
+}
 }

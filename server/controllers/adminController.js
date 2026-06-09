@@ -9,6 +9,7 @@ import adminRouter from '../routes/adminRoute.js';
 import jwt from 'jsonwebtoken';
 import notificationModel from '../models/notificationsModel.js';
 import paymentModel from '../models/paymentModel.js';
+import subscriberModel from '../models/subscriberModel.js';
 
 
 
@@ -82,8 +83,10 @@ const addMerchandise=async(req,res)=>{
 const addBeat=async(req,res)=>{
     try {
 
-        const {title,description,price,tags,producer,isFeatured}=req.body;
-
+        const {title,description,price,tags,isFeatured}=req.body;
+        
+        console.log(title,description,price,tags,isFeatured);
+        
         if(!req.files){
             res.json({
                 success:false,
@@ -92,6 +95,8 @@ const addBeat=async(req,res)=>{
         }
 
         const thumbnail=req.files.thumbnail && req.files.thumbnail[0];
+        console.log(thumbnail);
+        
         const audio=req.files.audio && req.files.audio[0];
 
         const result = await cloudinary.uploader.upload(thumbnail.path, {
@@ -114,7 +119,6 @@ const addBeat=async(req,res)=>{
             description,
             price,
             tags,
-            producer,
             isFeatured,
             audio:audioUrl
         });
@@ -349,6 +353,30 @@ const deleteUser=async(req,res)=>{
     }
 }
 
+const deleteSubscriber=async(req,res)=>{
+    try {
+        const {subId}=req.params;
+        const user=await subscriberModel.findByIdAndDelete(subId);
+        if(!user){
+            res.json({
+                success:false,
+                message:"Could not delete user"
+            });
+        }
+        res.json({
+            success:true,
+            message:"User deleted Successfully.",
+            user
+        })
+        
+    } catch (error) {
+        res.json({
+            success:false,
+            message:error.message
+        })
+    }
+}
+
 const validateUser=async(req,res)=>{
     try {
         const {userId}=req.params;
@@ -512,6 +540,106 @@ const getBeats=async(req,res)=>{
             message:"Beats fetched successfully",
             beats
         })
+    } catch (error) {
+        res.json({
+            success:false,
+            message:error.message
+        })
+    }
+}
+
+const featureBeat=async(req,res)=>{
+    try {
+        const {beatId}=req.params;
+        const beat=await beatModel.findById(beatId);
+        if(!beat){
+            return res.json({
+                success:false,
+                message:"Could not find beat"
+            });
+        }
+        if(beat.isFeatured){
+            await beatModel.findByIdAndUpdate(beatId,{isFeatured:false});
+            return res.json({
+                success:true,
+                message:"beat has been unfeatured",
+                beat
+            })
+        }
+        await beatModel.findByIdAndUpdate(beatId,{isFeatured:true});
+        res.json({
+            success:true,
+            message:"beat has been featured",
+            beat
+        });
+        
+    } catch (error) {
+        res.json({
+            success:false,
+            message:error.message
+        })
+    }
+}
+
+
+const featureBlog=async(req,res)=>{
+    try {
+        const {blogId}=req.params;
+        const blog=await blogModel.findById(blogId);
+        if(!blog){
+            return res.json({
+                success:false,
+                message:"Could not find blog"
+            });
+        }
+        if(blog.isFeatured){
+            await blogModel.findByIdAndUpdate(blogId,{isFeatured:false});
+            return res.json({
+                success:true,
+                message:"blog has been unfeatured",
+                blog
+            })
+        }
+        await blogModel.findByIdAndUpdate(blogId,{isFeatured:true});
+        res.json({
+            success:true,
+            message:"beat has been featured",
+            blog
+        });
+        
+    } catch (error) {
+        res.json({
+            success:false,
+            message:error.message
+        })
+    }
+}
+
+const featureMerch=async(req,res)=>{
+    try {
+        const {merchId}=req.params;
+        const merch=await merchandiseModel.findById(merchId);
+        if(!merch){
+            return res.json({
+                success:false,
+                message:"Could not find merch"
+            });
+        }
+        if(merch.isFeatured){
+            await merchandiseModel.findByIdAndUpdate(merchId,{isFeatured:false});
+            return res.json({
+                success:true,
+                message:"Merch has been unfeatured",
+                merch
+            })
+        }
+        await merchandiseModel.findByIdAndUpdate(merchId,{isFeatured:true});
+        res.json({
+            success:true,
+            message:"Merch has been featured",
+            merch
+        });
+        
     } catch (error) {
         res.json({
             success:false,
@@ -726,6 +854,27 @@ const fetchInvoices=async(req,res)=>{
 }
 
 
+const fetchSubcribers=async(req,res)=>{
+    try {
+      const subscribers=await subscriberModel.find({});
+      if(!subscribers) {
+        return res.json({
+            success:false,
+            message:"No Subscribers Yet"
+        })
+      }
+      return res.json({
+        success:true,
+        message:"Subscribers Fetched Successfully",
+        subscribers
+      })
+    } catch (error) {
+        console.log(error);
+        
+    }
+}
 
 
-export {addMerchandise,addBeat,addBlog,adminLogin,deleteMerchandise,updateMerchandise,deleteBeat,deleteBlog,deleteUser,validateUser,fetchOrders,updateOrderStatus,getProduct,getBeats,getBlogs,getMerchandise,featureUser,postNotification,fetchNotifications,addInvoice,editInvoice,deleteInvoice,fetchInvoices}
+
+
+export {addMerchandise,addBeat,addBlog,adminLogin,deleteMerchandise,updateMerchandise,deleteBeat,deleteBlog,deleteUser,validateUser,fetchOrders,updateOrderStatus,getProduct,getBeats,getBlogs,getMerchandise,featureUser,postNotification,fetchNotifications,addInvoice,editInvoice,deleteInvoice,fetchInvoices,featureBeat,featureBlog,featureMerch,fetchSubcribers,deleteSubscriber}

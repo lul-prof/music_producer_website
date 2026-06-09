@@ -28,6 +28,7 @@ import fileI from './music-file.png'
 import featured from './premium-account.png'
 import feature from './premium-account1.png'
 import notifs from './notifs.png'
+import theDon from './theDon.jpeg'
 
 export const assets={
     sideIcon,
@@ -57,7 +58,8 @@ export const assets={
     fileI,
     feature,
     featured,
-    notifs
+    notifs,
+    theDon
 }
 
 export const products=[

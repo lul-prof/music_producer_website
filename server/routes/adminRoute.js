@@ -1,5 +1,5 @@
 import express from 'express'
-import { addBeat, addBlog, addInvoice, addMerchandise, adminLogin, deleteBeat, deleteBlog, deleteInvoice, deleteMerchandise, deleteUser, editInvoice, featureUser, fetchInvoices, fetchNotifications, fetchOrders, getBeats, getBlogs, getMerchandise, getProduct, postNotification, updateMerchandise, updateOrderStatus, validateUser } from '../controllers/adminController.js';
+import { addBeat, addBlog, addInvoice, addMerchandise, adminLogin, deleteBeat, deleteBlog, deleteInvoice, deleteMerchandise, deleteSubscriber, deleteUser, editInvoice, featureBeat, featureBlog, featureMerch, featureUser, fetchInvoices, fetchNotifications, fetchOrders, fetchSubcribers, getBeats, getBlogs, getMerchandise, getProduct, postNotification, updateMerchandise, updateOrderStatus, validateUser } from '../controllers/adminController.js';
 import upload from '../middleware/multer.js';
 import adminAuth from '../middleware/adminAuth.js';
 import { deleteOrder } from '../controllers/userController.js';
@@ -30,5 +30,11 @@ adminRouter.post('/addInvoice',addInvoice);
 adminRouter.post('/editInvoice/:id',editInvoice);
 adminRouter.post('/deleteInvoice/:id',deleteInvoice);
 adminRouter.get('/invoices',fetchInvoices);
+
+adminRouter.post('/featureBeat/:beatId',featureBeat);
+adminRouter.post('/featureBlog/:blogId',featureBlog);
+adminRouter.post('/featureMerch/:merchId',featureMerch);
+adminRouter.get('/subscribers',fetchSubcribers);
+adminRouter.post('/deleteSubscriber/:subId',deleteSubscriber)
 
 export default adminRouter;

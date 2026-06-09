@@ -1,0 +1,143 @@
+.subscribers{
+    width: 100%;
+    padding: 50px;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    overflow: hidden;
+}
+.subscribers .subscribers-top{
+    align-self: center;
+    justify-self: center;
+    background: rgba(255,255,255,0.6);
+    border: 1px solid rgba(192,192,192,0.3);
+    box-shadow: 0 4px 8px rgba(192,192,192,0.8);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 20px;
+    width: fit-content;
+    border-radius: 10px;
+}
+
+.subscribers .subscribers-class{
+    display: grid;
+    grid-template-rows: 1fr;
+    gap: 24px;
+    width: 100%;
+    box-sizing: border-box;
+    background: rgba(255,255,255,0.6);
+    border: 1px solid rgba(192,192,192,1);
+    box-shadow: 0 8px 32px rgba(192,192,192,0.8);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter: blur(8px);
+    padding:25px 10px;
+    border-radius: 10px;
+    overflow-x: auto;
+    overflow-y: auto;
+    max-height: 1000px;
+}
+.subscribers .subscribers-class .subscriber-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 12px;
+    border-bottom: 2px solid rgba(16,13,26,0.4);
+    padding: 10px 0;
+}
+.subscribers .subscribers-class .subscriber-header .subscriber-header-id{
+    box-sizing: border-box;
+    width: 10%;
+}
+.subscribers .subscribers-class .subscriber-header .subscriber-header-email{
+    box-sizing: border-box;
+    width: 20%;
+}
+.subscribers .subscribers-class .subscriber-header .subscriber-header-date{
+    box-sizing: border-box;
+    width: 20%;
+}
+.subscribers .subscribers-class .subscriber-header .subscriber-header-actions{
+    box-sizing: border-box;
+    width: 20%;
+}
+
+.subscribers .subscribers-class .subscriber-class{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 12px;
+}
+.subscribers .subscribers-class .subscriber-class .subscriber-id{
+    box-sizing: border-box;
+    width: 10%;
+}
+
+.subscribers .subscribers-class .subscriber-class .subscriber-email{
+    box-sizing: border-box;
+    width: 20%;
+}
+
+.subscribers .subscribers-class .subscriber-class .subscriber-date{
+    box-sizing: border-box;
+    width: 20%;
+}
+
+.subscribers .subscribers-class .subscriber-class .subscriber-actions{
+    box-sizing: border-box;
+    width: 20%;
+}
+
+.subscribers .subscribers-class .subscriber-class .subscriber-actions img{
+    width: 50px;
+}
+
+.subscribers .subscribers-class .zero{
+    text-align: center;
+}
+
+/*---------------------------------------*/
+@media (max-width:1000px) and (min-width:50px) {
+.subscribers{
+    padding: 10px;
+}
+.subscribers .subscribers-top{
+    align-self: center;
+}
+.subscribers .subscribers-top h2{
+    text-align: center;
+    font-size: clamp(18px,20px,24px);
+}
+
+.subscribers .subscribers-class{
+    width: 100%;
+}
+.subscribers .subscribers-class .subscriber-header{
+    display: flex;
+}
+.subscribers .subscribers-class .subscriber-header h3{
+    font-size: clamp(16px,18px,20px);
+}
+
+.subscribers .subscribers-class .subscriber-class{
+    display: flex;
+}
+.subscribers .subscribers-class .subscriber-class .subscriber-actions img{
+    width: 40px;
+    height: 40px;
+}
+.subscribers .subscribers-class .subscriber-class .subscriber-email{
+    text-overflow: ellipsis;
+    overflow-x: auto;
+}
+
+.subscribers .subscribers-class .zero{
+    text-align: center;
+}    
+}
+
+@media (max-width:1000px) and (min-width:401px) {
+.subscribers{
+    padding: 25px;
+}
+}

@@ -1,52 +1,44 @@
-import React, { useContext } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import NavbarComponent from "./components/NavbarComponent/NavbarComponent";
-import LoginPage from "./pages/LoginPage/LoginPage";
-import FooterComponent from "./components/FooterComponent/FooterComponent";
+import React, { useContext } from 'react'
+import NavbarComponent from './components/NavbarComponent/NavbarComponent'
+import DashboardPage from './pages/DashboardPage/DashboardPage'
+import { BrowserRouter, Route, RouterProvider, Routes } from 'react-router-dom'
 import {Toaster} from 'react-hot-toast'
-import DashboardPage from "./pages/DashboardPage/DashboardPage";
-import ProfilePage from "./pages/ProfilePage/ProfilePage";
-import MerchandisePage from "./pages/MerchandisePage/MerchandisePage";
-import BeatsPage from "./pages/BeatsPage/BeatsPage";
-import UsersPage from "./pages/UsersPage/UsersPage";
-import OrdersPage from "./pages/OrdersPage/OrdersPage";
-import RevenuePage from "./pages/RevenuePage/RevenuePage";
-import {ManagementContext} from './Context/ManagementContext.jsx'
-import BlogsPage from "./pages/BlogsPage/BlogsPage.jsx";
-import UserPage from "./pages/UserPage/UserPage.jsx";
-import NotificationsPage from "./pages/NotificationsPage/NotificationsPage.jsx";
+import UsersPage from './pages/UsersPage/UsersPage'
+import BeatsPage from './pages/BeatsPage/BeatsPage'
+import BlogsPage from './pages/BlogsPage/BlogsPage'
+import MerchandisePage from './pages/MerchandisePage/MerchandisePage'
+import SubscribersPage from './pages/SubscribersPage/SubscribersPage'
+import LoginPage from './pages/LoginPage/LoginPage'
+import { ManagementContext } from './Context/ManagementContext'
 
 const App = () => {
-  const {token}=useContext(ManagementContext)
-  return(
-  <>
-  {
-    token&& token!=="" && token
-    ?
+  const {token}=useContext(ManagementContext);
+  return (
+    <>
     <BrowserRouter>
-    <NavbarComponent />
+    {
+      token===""  
+      ?
+      <LoginPage/>
+      :
+      <>
+    <NavbarComponent/>
     <Toaster/>
     <Routes>
-      <Route path="/" element={<DashboardPage/>}></Route>
-      <Route path="/profile" element={<ProfilePage/>}></Route>
-      <Route path="/merchandise" element={<MerchandisePage/>}></Route>
-      <Route path="/beats" element={<BeatsPage/>}></Route>
-      <Route path="/blogs" element={<BlogsPage/>}></Route>
-      <Route path="/users" element={<UsersPage/>}></Route>
-      <Route path="/orders" element={<OrdersPage/>}></Route>
-      <Route path="/revenue" element={<RevenuePage/>}></Route>
-      <Route path="/user/:id" element={<UserPage/>}></Route>
-      <Route path="/notifications" element={<NotificationsPage/>}></Route>
+      <Route path='/' element={token!==""?< DashboardPage/>:<LoginPage/>}></Route>
+      <Route path='/users' element={token!==""?<UsersPage/>:<LoginPage/>}></Route>
+      <Route path='/beats' element={token!==""?<BeatsPage/>:<LoginPage/>}></Route>
+      <Route path='/blogs' element={token!==""?<BlogsPage/>:<LoginPage/>}></Route>
+      <Route path='/merchandise' element={token!==""?<MerchandisePage/>:<LoginPage/>}></Route>
+      <Route path='/subscribers' element={token!==""?<SubscribersPage/>:<LoginPage/>}></Route>
+      <Route path='/login' element={<LoginPage/>}></Route>
     </Routes>
-   
-  </BrowserRouter>
-    :
-    <>
-    <LoginPage/>
     </>
-  }
-  </>
-  );
-};
+    }
+    </BrowserRouter>
+    </>
 
-export default App;
+  )
+}
+
+export default App

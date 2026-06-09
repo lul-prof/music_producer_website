@@ -1,89 +1,73 @@
 .login-container{
-    margin-top: 20px;
     width: 100%;
+    padding: 50px;
     display: flex;
     flex-direction: column;
+    gap: 24px;
+    justify-content: center;
     align-items: center;
-    
 }
 .login-container .login-header{
-    justify-self: center;
-    position: fixed;
-    top:46%;
+    align-self: center;
 }
 .login-container .login-body{
-    justify-self: center;
+    align-self: center;
     width: 50%;
-    padding: 0px 20px;
-    position: fixed;
-    top:50%;
-    
 }
-
-.login-container .login-body form .form-class input{
-    width: 100%;
-    margin: 10px 0;
-    padding: 10px;
-    outline: 0;
-    border: 1px solid #000000;
-    border-radius: 5px;
-}
-
-.login-container .login-body form .form-btn button{
-    width: 100%;
-    padding: 8px;
-    outline: 0;
-    border: 0;
-    color: #FFFFFF;
-    background-color: #000000;
-}
-
-.login-container .login-body form .form-btn button:hover{
-    cursor: pointer;
-}
-
-
-@media (max-width:768px) and (min-width:100px) {
-.login-container{
-    width: 100%;
+.login-container .login-body form{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    gap: 24px;
+    justify-content: center;
     
 }
-.login-container .login-header{
-    justify-self: center;
-    position: fixed;
-    top:5%;
-}
-.login-container .login-body{
-    justify-self: center;
-    width: 100%;
-    padding: 0px 20px;
-    position: fixed;
-    top:10%;
-    
-}
-
 .login-container .login-body form .form-class input{
+    padding: 20px;
     width: 100%;
-    margin: 10px 0;
-    padding: 10px;
     outline: 0;
-    border: 1px solid #000000;
+    border: 1px solid #100D1A;
     border-radius: 5px;
+    background: transparent;
 }
-
 .login-container .login-body form .form-btn button{
     width: 100%;
-    padding: 8px;
+    padding: 20px;
     outline: 0;
     border: 0;
-    color: #FFFFFF;
-    background-color: #000000;
+    border-radius: 50px;
+    background: #100D1A;
+    color: #E9E9E9;
 }
-
 .login-container .login-body form .form-btn button:hover{
     cursor: pointer;
+    transform: translateY(5px);
+    transition: 0.3s ease;
+}
+
+
+/*---------------------------------------*/
+@media (max-width:1000px) and (min-width:50px) {
+.login-container{
+    padding: 10px;
+    margin-top: 100px;
+}
+.login-container .login-header{
+    align-self: center;
+}
+.login-container .login-header h2{
+    font-size: clamp(18px,20px,24px);
+}
+.login-container .login-body{
+    width: 100%;
+}
+.login-container .login-body form{
+    display: flex;
+}
+.login-container .login-body form .form-class input{
+    padding: 20px;
+}
+.login-container .login-body form .form-btn button{
+    width: 100%;
+    padding: 10px;
 }
 }
