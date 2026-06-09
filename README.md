@@ -77,6 +77,7 @@ The Main aim of the website is to sell beats and apparel in addition to providin
 >THE DON 2026
 
 ![HERO SECTION](app\src\assets\TheDon\Screenshot1.png)
+<img width="1920" height="1080" alt="Screenshot (361)" src="https://github.com/user-attachments/assets/8f2e4473-952a-4594-af7a-170c32591eef" />
 
 ![Beats Component](app\src\assets\TheDon\Screenshot2.png)
 
